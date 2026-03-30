@@ -1,0 +1,64 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#0E0E0E"/>
+  <g opacity="0.55">
+    <path d="M0 54H1200" stroke="#1A2424"/>
+    <path d="M0 108H1200" stroke="#1A2424"/>
+    <path d="M0 162H1200" stroke="#1A2424"/>
+    <path d="M0 216H1200" stroke="#1A2424"/>
+    <path d="M0 270H1200" stroke="#1A2424"/>
+    <path d="M0 324H1200" stroke="#1A2424"/>
+    <path d="M0 378H1200" stroke="#1A2424"/>
+    <path d="M0 432H1200" stroke="#1A2424"/>
+    <path d="M0 486H1200" stroke="#1A2424"/>
+    <path d="M0 540H1200" stroke="#1A2424"/>
+    <path d="M54 0V630" stroke="#1A2424"/>
+    <path d="M108 0V630" stroke="#1A2424"/>
+    <path d="M162 0V630" stroke="#1A2424"/>
+    <path d="M216 0V630" stroke="#1A2424"/>
+    <path d="M270 0V630" stroke="#1A2424"/>
+    <path d="M324 0V630" stroke="#1A2424"/>
+    <path d="M378 0V630" stroke="#1A2424"/>
+    <path d="M432 0V630" stroke="#1A2424"/>
+    <path d="M486 0V630" stroke="#1A2424"/>
+    <path d="M540 0V630" stroke="#1A2424"/>
+    <path d="M594 0V630" stroke="#1A2424"/>
+    <path d="M648 0V630" stroke="#1A2424"/>
+    <path d="M702 0V630" stroke="#1A2424"/>
+    <path d="M756 0V630" stroke="#1A2424"/>
+    <path d="M810 0V630" stroke="#1A2424"/>
+    <path d="M864 0V630" stroke="#1A2424"/>
+    <path d="M918 0V630" stroke="#1A2424"/>
+    <path d="M972 0V630" stroke="#1A2424"/>
+    <path d="M1026 0V630" stroke="#1A2424"/>
+    <path d="M1080 0V630" stroke="#1A2424"/>
+    <path d="M1134 0V630" stroke="#1A2424"/>
+  </g>
+  <rect x="42" y="42" width="1116" height="546" stroke="#3A494A" stroke-width="2"/>
+  <rect x="74" y="84" width="594" height="364" fill="#131313" stroke="#3A494A" stroke-width="2"/>
+  <rect x="732" y="84" width="384" height="430" fill="#131313" stroke="#3A494A" stroke-width="2"/>
+  <rect x="128" y="472" width="930" height="54" fill="#131313" stroke="#3A494A"/>
+  <path d="M668 266H732" stroke="#00F5FF" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="668" cy="266" r="12" fill="#00F5FF"/>
+  <circle cx="732" cy="266" r="12" fill="#571BC1"/>
+  <circle cx="845" cy="145" r="130" fill="url(#paint0_radial)"/>
+  <text x="104" y="124" fill="#00F5FF" font-family="Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="4">EDGAR MANCILLA SANCHEZ</text>
+  <text x="104" y="159" fill="#B9CACA" font-family="Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="1">BIOTECH PHD | VENTURE BUILDER, BUSINESS STRATEGY &amp; AGTECH</text>
+  <text x="104" y="238" fill="#E5E2E1" font-family="Arial, sans-serif" font-size="52" font-weight="700">Designing operational systems</text>
+  <text x="104" y="299" fill="#E5E2E1" font-family="Arial, sans-serif" font-size="52" font-weight="700">for complex and regulated</text>
+  <text x="104" y="360" fill="#E5E2E1" font-family="Arial, sans-serif" font-size="52" font-weight="700">environments.</text>
+  <text x="104" y="415" fill="#B9CACA" font-family="Arial, sans-serif" font-size="22">Strategy, compliance, traceability, quality systems, automation, and AgTech.</text>
+  <text x="154" y="506" fill="#B9CACA" font-family="Arial, sans-serif" font-size="18">Strategy &amp; operations  |  Compliance &amp; market readiness  |  Traceability  |  Quality systems  |  Automation  |  AgTech</text>
+  <rect x="768" y="118" width="312" height="362" fill="#0E0E0E" stroke="#00F5FF" stroke-width="2"/>
+  <path d="M768 118H789" stroke="#00F5FF" stroke-width="3"/>
+  <path d="M768 118V139" stroke="#00F5FF" stroke-width="3"/>
+  <path d="M1059 480H1080" stroke="#00F5FF" stroke-width="3"/>
+  <path d="M1080 459V480" stroke="#00F5FF" stroke-width="3"/>
+  <text x="824" y="304" fill="#E5E2E1" font-family="Arial, sans-serif" font-size="34" font-weight="700">edgarmancilla.com</text>
+  <text x="824" y="340" fill="#00F5FF" font-family="Arial, sans-serif" font-size="18" letter-spacing="3">SYSTEMS // COMPLIANCE // AGTECH</text>
+  <defs>
+    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(845 145) rotate(90) scale(130)">
+      <stop stop-color="#00F5FF" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#00F5FF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

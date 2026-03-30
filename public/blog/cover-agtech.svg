@@ -1,0 +1,33 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#0B0E0D"/>
+  <rect x="82" y="82" width="1436" height="736" stroke="#304043" stroke-width="2"/>
+  <path d="M180 650H1420" stroke="#1C292A"/>
+  <path d="M180 560H1420" stroke="#1C292A"/>
+  <path d="M180 470H1420" stroke="#1C292A"/>
+  <path d="M180 380H1420" stroke="#1C292A"/>
+  <rect x="250" y="260" width="170" height="380" rx="14" fill="#101417" stroke="#3A494A"/>
+  <rect x="470" y="220" width="170" height="420" rx="14" fill="#101417" stroke="#3A494A"/>
+  <rect x="690" y="300" width="170" height="340" rx="14" fill="#101417" stroke="#3A494A"/>
+  <rect x="910" y="240" width="170" height="400" rx="14" fill="#101417" stroke="#00F5FF" stroke-width="2"/>
+  <rect x="1130" y="280" width="170" height="360" rx="14" fill="#101417" stroke="#3A494A"/>
+  <path d="M335 620V320" stroke="#233033" stroke-width="2" stroke-dasharray="10 12"/>
+  <path d="M555 620V280" stroke="#233033" stroke-width="2" stroke-dasharray="10 12"/>
+  <path d="M775 620V360" stroke="#233033" stroke-width="2" stroke-dasharray="10 12"/>
+  <path d="M995 620V300" stroke="#00F5FF" stroke-width="3" stroke-dasharray="10 10"/>
+  <path d="M1215 620V340" stroke="#233033" stroke-width="2" stroke-dasharray="10 12"/>
+  <path d="M335 560C420 520 470 470 555 430C640 390 690 430 775 390C860 350 910 300 995 280C1080 260 1135 310 1215 350" stroke="#00F5FF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="335" cy="560" r="16" fill="#00F5FF"/>
+  <circle cx="555" cy="430" r="16" fill="#00F5FF"/>
+  <circle cx="775" cy="390" r="16" fill="#00F5FF"/>
+  <circle cx="995" cy="280" r="16" fill="#571BC1"/>
+  <circle cx="1215" cy="350" r="16" fill="#00F5FF"/>
+  <text x="220" y="145" fill="#00F5FF" font-family="Arial, sans-serif" font-size="24" letter-spacing="5">TRACEABILITY // LOGGING // CULTIVATION</text>
+  <text x="220" y="790" fill="#B9CACA" font-family="Arial, sans-serif" font-size="30">Tracking inputs, cycles, and deviations across a living system</text>
+  <circle cx="1310" cy="210" r="130" fill="url(#paint0_radial)"/>
+  <defs>
+    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1310 210) rotate(90) scale(130)">
+      <stop stop-color="#00F5FF" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#00F5FF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

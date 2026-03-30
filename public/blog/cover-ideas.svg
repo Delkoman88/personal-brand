@@ -1,0 +1,34 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#0B0C10"/>
+  <rect x="80" y="80" width="1440" height="740" stroke="#314043" stroke-width="2"/>
+  <circle cx="1180" cy="250" r="170" fill="url(#paint0_radial)"/>
+  <path d="M210 670C320 520 430 430 560 380C660 342 770 328 880 350C970 368 1050 405 1140 405C1230 405 1305 365 1380 300" stroke="#00F5FF" stroke-width="6" stroke-linecap="round"/>
+  <path d="M250 270L470 210L610 310L760 190L930 280L1080 180L1280 250" stroke="#571BC1" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 14"/>
+  <circle cx="470" cy="210" r="18" fill="#00F5FF"/>
+  <circle cx="760" cy="190" r="18" fill="#00F5FF"/>
+  <circle cx="1080" cy="180" r="18" fill="#00F5FF"/>
+  <rect x="210" y="470" width="180" height="130" rx="12" fill="#101417" stroke="#3A494A"/>
+  <rect x="470" y="395" width="180" height="130" rx="12" fill="#101417" stroke="#3A494A"/>
+  <rect x="730" y="470" width="180" height="130" rx="12" fill="#101417" stroke="#3A494A"/>
+  <rect x="990" y="395" width="180" height="130" rx="12" fill="#101417" stroke="#3A494A"/>
+  <rect x="1250" y="470" width="140" height="130" rx="12" fill="#101417" stroke="#00F5FF" stroke-width="2"/>
+  <path d="M300 470V405" stroke="#00F5FF" stroke-width="4"/>
+  <path d="M560 395V330" stroke="#00F5FF" stroke-width="4"/>
+  <path d="M820 470V405" stroke="#00F5FF" stroke-width="4"/>
+  <path d="M1080 395V330" stroke="#00F5FF" stroke-width="4"/>
+  <path d="M1320 470V405" stroke="#00F5FF" stroke-width="4"/>
+  <rect x="240" y="515" width="120" height="14" fill="#233033"/>
+  <rect x="500" y="440" width="120" height="14" fill="#233033"/>
+  <rect x="760" y="515" width="120" height="14" fill="#233033"/>
+  <rect x="1020" y="440" width="120" height="14" fill="#233033"/>
+  <rect x="1280" y="515" width="80" height="14" fill="#00F5FF" fill-opacity="0.2"/>
+  <text x="210" y="140" fill="#00F5FF" font-family="Arial, sans-serif" font-size="24" letter-spacing="5">CURIOSITY MAP // REFERENCES // TASTE</text>
+  <text x="210" y="790" fill="#B9CACA" font-family="Arial, sans-serif" font-size="30">Ideas connect when personal interests become part of the work</text>
+  <defs>
+    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1180 250) rotate(90) scale(170)">
+      <stop stop-color="#571BC1" stop-opacity="0.52"/>
+      <stop offset="0.48" stop-color="#00F5FF" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#00F5FF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

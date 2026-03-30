@@ -1,0 +1,38 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#0C0D10"/>
+  <rect x="72" y="72" width="1456" height="756" stroke="#2E3F42" stroke-width="2"/>
+  <path d="M120 170H1480" stroke="#1A2628"/>
+  <path d="M120 450H1480" stroke="#1A2628"/>
+  <path d="M120 730H1480" stroke="#1A2628"/>
+  <path d="M240 120V780" stroke="#1A2628"/>
+  <path d="M800 120V780" stroke="#1A2628"/>
+  <path d="M1360 120V780" stroke="#1A2628"/>
+  <rect x="190" y="205" width="260" height="420" rx="8" fill="#101417" stroke="#3A494A"/>
+  <rect x="520" y="245" width="260" height="340" rx="8" fill="#101417" stroke="#3A494A"/>
+  <rect x="850" y="175" width="260" height="470" rx="8" fill="#101417" stroke="#00F5FF" stroke-width="2"/>
+  <rect x="1180" y="290" width="220" height="250" rx="8" fill="#101417" stroke="#3A494A"/>
+  <path d="M320 415C410 415 560 415 650 415" stroke="#00F5FF" stroke-width="5" stroke-linecap="round"/>
+  <path d="M650 415C710 415 825 415 930 415" stroke="#00F5FF" stroke-width="5" stroke-linecap="round"/>
+  <path d="M980 415C1070 415 1170 415 1240 415" stroke="#00F5FF" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="320" cy="415" r="16" fill="#00F5FF"/>
+  <circle cx="650" cy="415" r="16" fill="#00F5FF"/>
+  <circle cx="980" cy="415" r="16" fill="#00F5FF"/>
+  <circle cx="1240" cy="415" r="16" fill="#571BC1"/>
+  <rect x="235" y="260" width="170" height="22" fill="#223032"/>
+  <rect x="235" y="300" width="125" height="14" fill="#223032"/>
+  <rect x="565" y="295" width="170" height="22" fill="#223032"/>
+  <rect x="565" y="335" width="145" height="14" fill="#223032"/>
+  <rect x="895" y="235" width="170" height="22" fill="#00F5FF" fill-opacity="0.18"/>
+  <rect x="895" y="275" width="125" height="14" fill="#223032"/>
+  <rect x="1215" y="340" width="135" height="18" fill="#223032"/>
+  <rect x="1215" y="374" width="100" height="14" fill="#223032"/>
+  <text x="190" y="130" fill="#00F5FF" font-family="Arial, sans-serif" font-size="24" letter-spacing="5">SYSTEM FLOW // OWNERSHIP // EXECUTION</text>
+  <text x="190" y="795" fill="#B9CACA" font-family="Arial, sans-serif" font-size="30">From fragmented handoffs to visible operating rhythm</text>
+  <circle cx="1280" cy="190" r="120" fill="url(#paint0_radial)"/>
+  <defs>
+    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1280 190) rotate(90) scale(120)">
+      <stop stop-color="#00F5FF" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#00F5FF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>
