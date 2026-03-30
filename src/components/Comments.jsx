@@ -17,10 +17,10 @@ export default function Comments() {
       <h2 style={{ marginBottom: '2rem' }}>Comentarios</h2>
       <Giscus
         id="comments"
-        repo="USUARIO/REPOSITORIO" // Reemplaza esto con tu usuario y repo. Ej: "edgarmancilla/my-blog"
-        repoId="R_kgD..."          // Reemplaza esto con el ID que te da la app de Giscus
-        category="Announcements"   // Generalmente se usa "Announcements" o "General"
-        categoryId="DIC_kwD..."    // Reemplaza esto con el Category ID que te da la app
+        repo="Delkoman88/personal-brand"
+        repoId="R_kgDOR0SROg"
+        category="Announcements"
+        categoryId="DIC_kwDOR0SROs4C5k-U"
         mapping="pathname"         // Vincula los comentarios usando la ruta de la página (/blog/mi-articulo)
         strict="0"                 // Usa coincidencias no estrictas de búsqueda
         reactionsEnabled="1"       // Activa las reacciones (👍, 👎, 🚀)
