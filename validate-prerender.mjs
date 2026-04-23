@@ -106,11 +106,11 @@ function validateSharedSeo(html, routePath, failures) {
 function validateHomePage(failures) {
   const html = readFile(path.join(DIST, 'index.html'));
   validateSharedSeo(html, '/', failures);
-  expectIncludes(html, 'Biotech PhD. Designing', '/: missing hero headline in initial HTML', failures);
-  expectIncludes(html, 'Operating at the intersection of science, operations, compliance, traceability', '/: missing hero intro copy in initial HTML', failures);
-  expectIncludes(html, '03 // Selected Experience', '/: missing selected experience section in initial HTML', failures);
+  expectIncludes(html, 'Biotech PhD. Building', '/: missing hero headline in initial HTML', failures);
+  expectIncludes(html, 'Operating at the intersection of science, product, and execution', '/: missing hero intro copy in initial HTML', failures);
+  expectIncludes(html, '04 // Selected Experience', '/: missing selected experience section in initial HTML', failures);
   expectIncludes(html, 'TRYP Mexico', '/: missing selected experience content in initial HTML', failures);
-  expectIncludes(html, '05 // Credibility & Substance', '/: missing credibility section in initial HTML', failures);
+  expectIncludes(html, '06 // Credibility & Substance', '/: missing credibility section in initial HTML', failures);
 }
 
 function validateBlogIndex(posts, failures) {

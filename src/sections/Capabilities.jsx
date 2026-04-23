@@ -8,7 +8,17 @@ const capabilities = [
   { id: '05', title: 'Lab / Technical Operations', desc: 'Hands-on management of complex technical facilities, assuring scientific rigor meets operational output.' },
   { id: '06', title: 'Automation & Workflow Design', desc: 'Implementing technical solutions and AI-driven tools to eliminate operational bottlenecks.' },
   { id: '07', title: 'AgTech & Controlled Environment', desc: 'Building modular production systems and hydroponic workflows for decentralized, localized agriculture.' },
-  { id: '08', title: 'Cross-Functional Implementation', desc: 'Aligning business, technical, and regulatory teams toward unified, coherent execution strategies.' }
+  { id: '08', title: 'Cross-Functional Implementation', desc: 'Aligning business, technical, and regulatory teams toward unified, coherent execution strategies.' },
+  { id: '09', title: 'AI-Native Product Development', desc: 'Using AI as an execution engine — not autocomplete. Context engineering, model orchestration, and structured debugging to ship complete products fast without cutting corners.' },
+];
+
+const aiTools = [
+  { icon: '🤖', name: 'Claude / Cowork', role: 'Orchestration · Long-context reasoning' },
+  { icon: '⌨️', name: 'Claude Code', role: 'Agentic coding · CLI' },
+  { icon: '🎯', name: 'Cursor', role: 'AI-powered IDE' },
+  { icon: '🔍', name: 'Gemini CLI', role: 'Research · Analysis' },
+  { icon: '💬', name: 'ChatGPT', role: 'Ideation · Drafting' },
+  { icon: '🎨', name: 'v0 by Vercel', role: 'UI prototyping' },
 ];
 
 export default function Capabilities() {
@@ -43,6 +53,44 @@ export default function Capabilities() {
                 <p style={{ color: 'var(--on-surface-variant)', fontSize: '0.95rem', margin: 0 }}>
                   {cap.desc}
                 </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* AI Toolchain block */}
+        <div style={{
+          marginTop: '3.5rem',
+          paddingTop: '3rem',
+          borderTop: '1px solid var(--outline-variant)',
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
+            <span className="label-text" style={{ color: 'var(--primary-container)', whiteSpace: 'nowrap' }}>AI Toolchain</span>
+            <div style={{ flex: 1, height: '1px', backgroundColor: 'var(--outline-variant)' }}></div>
+          </div>
+
+          <p style={{
+            fontSize: '0.95rem',
+            color: 'var(--on-surface-variant)',
+            lineHeight: 1.8,
+            borderLeft: '2px solid rgba(0, 245, 255, 0.3)',
+            paddingLeft: '1rem',
+            fontStyle: 'italic',
+            marginBottom: '1.5rem',
+            maxWidth: '640px',
+          }}>
+            "I use AI as an execution system, not autocomplete. My workflow includes persistent briefing files per model
+            and context systems that guide implementation, debugging, and architectural decisions."
+          </p>
+
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
+            {aiTools.map(tool => (
+              <div key={tool.name} className="ai-tool-chip">
+                <span style={{ fontSize: '1rem' }}>{tool.icon}</span>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.1rem' }}>
+                  <span style={{ fontSize: '0.85rem', color: 'var(--on-surface)', fontWeight: 500 }}>{tool.name}</span>
+                  <span style={{ fontSize: '0.68rem', color: 'var(--on-surface-variant)', fontFamily: 'var(--font-label)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>{tool.role}</span>
+                </div>
               </div>
             ))}
           </div>

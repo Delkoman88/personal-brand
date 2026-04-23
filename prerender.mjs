@@ -223,19 +223,35 @@ function buildHomePage(posts) {
           <div class="hero-copy" style="flex: 1 1 500px;">
             <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
               <div style="width: 40px; height: 2px; background-color: var(--primary-container);"></div>
-              <span class="label-text" style="color: var(--on-surface-variant);">Systems Operator & Architect</span>
+              <span class="label-text" style="color: var(--on-surface-variant);">Vibe Coder · AI-Native Builder · Ops Architect</span>
             </div>
-            <h1 style="margin-bottom: 1.5rem;">Biotech PhD. Designing <span class="text-accent-cyan" style="display: inline-block;">operational systems</span> for complex and regulated environments.</h1>
-            <p style="font-size: 1.125rem; color: var(--on-surface-variant); margin-bottom: 3rem; max-width: 600px;">Operating at the intersection of science, operations, compliance, traceability, process design, and execution. I translate technical and regulatory requirements into adoptable, market-ready architectures.</p>
+            <h1 style="margin-bottom: 1.5rem;">Biotech PhD. Building <span class="text-accent-cyan" style="display: inline-block;">AI-native products</span> for complex environments.</h1>
+            <p style="font-size: 1.125rem; color: var(--on-surface-variant); margin-bottom: 2rem; max-width: 600px;">Operating at the intersection of science, product, and execution. I use AI as an execution engine to turn ambiguous problems into real, shipped software — fast.</p>
+            
+            <div style="display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--outline-variant);">
+              <div style="display: flex; flex-direction: column; gap: 0.2rem;">
+                <span style="font-family: var(--font-display); font-size: 1.75rem; font-weight: 700; color: var(--primary-container); line-height: 1;">3</span>
+                <span class="label-text" style="font-size: 0.68rem; color: var(--on-surface-variant);">Products in production</span>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 0.2rem;">
+                <span style="font-family: var(--font-display); font-size: 1.75rem; font-weight: 700; color: var(--primary-container); line-height: 1;">10+</span>
+                <span class="label-text" style="font-size: 0.68rem; color: var(--on-surface-variant);">AI models in workflow</span>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 0.2rem;">
+                <span style="font-family: var(--font-display); font-size: 1.75rem; font-weight: 700; color: var(--primary-container); line-height: 1;">12+</span>
+                <span class="label-text" style="font-size: 0.68rem; color: var(--on-surface-variant);">Years building ventures</span>
+              </div>
+            </div>
+
             <div class="hero-signal-grid">
-              <span class="hero-signal-pill">Ops systems</span>
-              <span class="hero-signal-pill">Compliance</span>
+              <span class="hero-signal-pill">Vibe Coder</span>
+              <span class="hero-signal-pill">AI Builder</span>
               <span class="hero-signal-pill">AgTech</span>
-              <span class="hero-signal-pill">Field notes</span>
+              <span class="hero-signal-pill">Compliance</span>
             </div>
             <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
               <a href="https://linktr.ee/delkoman" target="_blank" rel="noopener noreferrer" class="btn-primary">Connect on Linktree</a>
-              <a href="#about" class="btn-secondary">View Profile</a>
+              <a href="#projects" class="btn-secondary">View Projects</a>
             </div>
           </div>
           <div class="hero-visual" style="flex: 1 1 300px; display: flex; justify-content: center;">
@@ -270,14 +286,102 @@ function buildHomePage(posts) {
             <span class="label-text" style="color: var(--primary-container);">02 // Core Capabilities</span>
             <div style="flex: 1; height: 1px; background-color: var(--outline-variant);"></div>
           </div>
-          <p style="max-width: 800px; margin: 0; color: var(--on-surface-variant); font-size: 1.05rem;">Strategy and operations, compliance and market readiness, traceability, documentation, quality systems, automation, AgTech, and cross-functional implementation.</p>
+          <p style="max-width: 800px; margin: 0; color: var(--on-surface-variant); font-size: 1.05rem;">Strategy and operations, compliance and market readiness, traceability, documentation, quality systems, automation, AgTech, cross-functional implementation, and AI-Native Product Development.</p>
+          
+          <div style="margin-top: 3.5rem; padding-top: 3rem; border-top: 1px solid var(--outline-variant);">
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+              <span class="label-text" style="color: var(--primary-container); white-space: nowrap;">AI Toolchain</span>
+              <div style="flex: 1; height: 1px; background-color: var(--outline-variant);"></div>
+            </div>
+            <p style="font-size: 0.95rem; color: var(--on-surface-variant); line-height: 1.8; border-left: 2px solid rgba(0, 245, 255, 0.3); padding-left: 1rem; font-style: italic; margin-bottom: 1.5rem; max-width: 640px;">
+              "I use AI as an execution system, not autocomplete. My workflow includes persistent briefing files per model and context systems that guide implementation, debugging, and architectural decisions."
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+              <div class="ai-tool-chip"><span style="font-size: 1rem;">🤖</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.85rem; color: var(--on-surface); font-weight: 500;">Claude / Cowork</span><span style="font-size: 0.68rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Orchestration · Long-context reasoning</span></div></div>
+              <div class="ai-tool-chip"><span style="font-size: 1rem;">⌨️</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.85rem; color: var(--on-surface); font-weight: 500;">Claude Code</span><span style="font-size: 0.68rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Agentic coding · CLI</span></div></div>
+              <div class="ai-tool-chip"><span style="font-size: 1rem;">🎯</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.85rem; color: var(--on-surface); font-weight: 500;">Cursor</span><span style="font-size: 0.68rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">AI-powered IDE</span></div></div>
+              <div class="ai-tool-chip"><span style="font-size: 1rem;">🔍</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.85rem; color: var(--on-surface); font-weight: 500;">Gemini CLI</span><span style="font-size: 0.68rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Research · Analysis</span></div></div>
+              <div class="ai-tool-chip"><span style="font-size: 1rem;">💬</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.85rem; color: var(--on-surface); font-weight: 500;">ChatGPT</span><span style="font-size: 0.68rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Ideation · Drafting</span></div></div>
+              <div class="ai-tool-chip"><span style="font-size: 1rem;">🎨</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.85rem; color: var(--on-surface); font-weight: 500;">v0 by Vercel</span><span style="font-size: 0.68rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">UI prototyping</span></div></div>
+            </div>
+          </div>
         </div>
       </section>
 
+      
+      <section id="projects" class="section-spacing bg-low">
+        <div class="container">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 4rem;">
+            <span class="label-text" style="color: var(--primary-container);">03 // Shipped Projects</span>
+            <div style="flex: 1; height: 1px; background-color: var(--outline-variant);"></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+            
+            <div style="position: relative; background-color: var(--surface-high); border: 1px solid var(--outline-variant); padding: 2rem; overflow: hidden;">
+              <div style="position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--primary-container), var(--secondary-container));"></div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                <div>
+                  <h3 style="margin: 0 0 0.3rem 0; font-size: 1.25rem;">Beauty Studio Copilot</h3>
+                  <span class="label-text" style="font-size: 0.68rem; color: var(--on-surface-variant);">Solo Builder · Product Engineer · LATAM · 2026 — Present</span>
+                </div>
+                <a href="https://beauty-studio-copilot--beauty-studio-copilot.us-east4.hosted.app" target="_blank" rel="noopener noreferrer" class="project-live-badge"><span class="project-live-dot"></span>Live — View project →</a>
+              </div>
+              <p style="color: var(--on-surface-variant); font-size: 0.95rem; line-height: 1.75; margin-bottom: 1.25rem;">SaaS platform for beauty studios — built solo from zero to production and validated by a real user today. Replaces fragmented WhatsApp + Google Sheets workflows with a structured operating system for beauty businesses.</p>
+              
+              <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
+                <div class="project-highlight-chip"><span style="color: var(--primary-container); font-weight: 700; font-size: 1rem; font-family: var(--font-display);">20+</span><span>features in prod</span></div>
+                <div class="project-highlight-chip"><span style="color: var(--primary-container); font-weight: 700; font-size: 1rem; font-family: var(--font-display);">45+</span><span>unit tests</span></div>
+                <div class="project-highlight-chip"><span style="color: var(--primary-container); font-weight: 700; font-size: 1rem; font-family: var(--font-display);">1</span><span>solo builder</span></div>
+              </div>
+              
+              <ul style="list-style: none; padding: 0; margin-bottom: 1.25rem;">
+                <li style="font-size: 0.875rem; color: var(--on-surface-variant); line-height: 1.7; padding: 0.2rem 0 0.2rem 1.1rem; position: relative;"><span style="position: absolute; left: 0; color: var(--primary-container); font-weight: 700;">›</span>Full management system: multi-tenant auth, client CRM, Google Calendar sync, assisted messaging (WhatsApp), loyalty system, checkout & finances, multi-staff with roles, KPI dashboards, automated reminders, and mobile-first UX.</li>
+                <li style="font-size: 0.875rem; color: var(--on-surface-variant); line-height: 1.7; padding: 0.2rem 0 0.2rem 1.1rem; position: relative;"><span style="position: absolute; left: 0; color: var(--primary-container); font-weight: 700;">›</span>Full product ownership: definition, UX decisions, implementation, backlog management, debugging, and continuous iteration.</li>
+                <li style="font-size: 0.875rem; color: var(--on-surface-variant); line-height: 1.7; padding: 0.2rem 0 0.2rem 1.1rem; position: relative;"><span style="position: absolute; left: 0; color: var(--primary-container); font-weight: 700;">›</span>Production monitoring with Sentry, 45+ unit tests, strict TypeScript and ESLint — no shortcuts.</li>
+              </ul>
+              
+              <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                <span class="project-stack-badge">Next.js App Router</span>
+                <span class="project-stack-badge">TypeScript</span>
+                <span class="project-stack-badge">Firebase Auth</span>
+                <span class="project-stack-badge">Firestore</span>
+                <span class="project-stack-badge">Cloud Functions</span>
+                <span class="project-stack-badge">Google Calendar API</span>
+                <span class="project-stack-badge">OAuth2</span>
+                <span class="project-stack-badge">Twilio</span>
+                <span class="project-stack-badge">SendGrid</span>
+                <span class="project-stack-badge">Sentry</span>
+              </div>
+            </div>
+
+            <div style="position: relative; background-color: var(--surface-high); border: 1px solid var(--outline-variant); padding: 2rem; overflow: hidden;">
+              <div style="position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #f59e0b, #f97316);"></div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                <div>
+                  <h3 style="margin: 0 0 0.3rem 0; font-size: 1.25rem;">Viajero Sediento</h3>
+                  <span class="label-text" style="font-size: 0.68rem; color: var(--on-surface-variant);">Product Builder · Real client · 2026</span>
+                </div>
+                <a href="https://sitioviajerosediento--sitioviajerosediento.us-central1.hosted.app" target="_blank" rel="noopener noreferrer" class="project-live-badge"><span class="project-live-dot"></span>Live — View project →</a>
+              </div>
+              <p style="color: var(--on-surface-variant); font-size: 0.95rem; line-height: 1.75; margin-bottom: 1rem;">Mobile-first digital catalog and admin platform for a real tap room — Nordic aesthetic, individual beer sheets, full CRUD with image upload and state management. Staff uses the admin panel daily in operations.</p>
+              
+              <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                <span class="project-stack-badge">Next.js</span>
+                <span class="project-stack-badge">TypeScript</span>
+                <span class="project-stack-badge">Firebase Auth</span>
+                <span class="project-stack-badge">Firestore</span>
+                <span class="project-stack-badge">Firebase Storage</span>
+                <span class="project-stack-badge">App Hosting</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
       <section id="experience" class="section-spacing bg-surface">
         <div class="container" style="display: grid; gap: 2rem;">
           <div style="display: flex; align-items: center; gap: 1rem;">
-            <span class="label-text" style="color: var(--primary-container);">03 // Selected Experience</span>
+            <span class="label-text" style="color: var(--primary-container);">04 // Selected Experience</span>
             <div style="flex: 1; height: 1px; background-color: var(--outline-variant);"></div>
           </div>
           <div style="display: grid; gap: 1.25rem; max-width: 980px;">
@@ -300,7 +404,7 @@ function buildHomePage(posts) {
       <section id="timeline" class="section-spacing bg-low">
         <div class="container" style="display: grid; gap: 2rem;">
           <div style="display: flex; align-items: center; gap: 1rem;">
-            <span class="label-text" style="color: var(--primary-container);">04 // Historical Timeline</span>
+            <span class="label-text" style="color: var(--primary-container);">05 // Historical Timeline</span>
             <div style="flex: 1; height: 1px; background-color: var(--outline-variant);"></div>
           </div>
           <p style="max-width: 820px; margin: 0; color: var(--on-surface-variant);">Recent timeline highlights include TraceLab Consulting, Tryp Mexico, Urbn Leaves, Baja Biotech, academic research, and INC Research / Syneos Health.</p>
@@ -310,7 +414,7 @@ function buildHomePage(posts) {
       <section id="credibility" class="section-spacing bg-surface grid-blueprint">
         <div class="container" style="display: grid; gap: 2rem;">
           <div style="display: flex; align-items: center; gap: 1rem;">
-            <span class="label-text" style="color: var(--primary-container);">05 // Credibility & Substance</span>
+            <span class="label-text" style="color: var(--primary-container);">06 // Credibility & Substance</span>
             <div style="flex: 1; height: 1px; background-color: var(--outline-variant);"></div>
           </div>
           <p style="max-width: 860px; margin: 0; color: var(--on-surface-variant);">Core themes across the work include operations and process standardization, reporting workflows, quality systems, traceability, AgTech, startup execution, client-facing strategy, and automation with Python and AI tools.</p>

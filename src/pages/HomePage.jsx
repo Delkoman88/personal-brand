@@ -6,6 +6,7 @@ import Contact from '../sections/Contact';
 import Credibility from '../sections/Credibility';
 import Hero from '../sections/Hero';
 import Experience from '../sections/Experience';
+import Projects from '../sections/Projects';
 import Timeline from '../sections/Timeline';
 import Seo from '../components/Seo';
 import { blogPosts } from '../content/blogPosts';
@@ -44,17 +45,18 @@ export default function HomePage() {
   return (
     <>
       <Seo
-        title="Edgar Mancilla Sanchez | Biotech PhD | Systems, Compliance & AgTech"
+        title="Edgar Mancilla Sanchez | Vibe Coder · AI-Native Builder · Biotech PhD"
         description={SITE_DESCRIPTION}
         path="/"
         image="/og-image.png"
         twitterSite="@urbanbeautygarden"
-        keywords={['Edgar Mancilla Sanchez', 'biotech phd', 'systems', 'compliance', 'AgTech', 'strategy and operations', 'traceability', 'quality systems', 'automation']}
+        keywords={['Edgar Mancilla Sanchez', 'vibe coder', 'AI-native builder', 'biotech phd', 'systems', 'compliance', 'AgTech', 'strategy and operations', 'traceability', 'quality systems', 'automation', 'vibe coding']}
         structuredData={structuredData}
       />
       <Hero />
       <About />
       <Capabilities />
+      <Projects />
       <Experience />
       <Timeline />
       <Credibility />

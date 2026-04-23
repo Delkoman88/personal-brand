@@ -36,32 +36,59 @@ export default function Hero() {
         <div className="hero-copy" style={{ flex: '1 1 500px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem' }}>
             <div style={{ width: '40px', height: '2px', backgroundColor: 'var(--primary-container)' }}></div>
-            <span className="label-text" style={{ color: 'var(--on-surface-variant)' }}>Systems Operator & Architect</span>
+            <span className="label-text" style={{ color: 'var(--on-surface-variant)' }}>Vibe Coder · AI-Native Builder · Ops Architect</span>
           </div>
 
           <h1 style={{ marginBottom: '1.5rem' }}>
-            Biotech PhD. Designing <span className="text-accent-cyan" style={{ display: 'inline-block' }}>operational systems</span> for complex and regulated environments.
+            Biotech PhD. Building <span className="text-accent-cyan" style={{ display: 'inline-block' }}>AI-native products</span> for complex environments.
           </h1>
 
-          <p style={{ 
-            fontSize: '1.125rem', 
-            color: 'var(--on-surface-variant)', 
-            marginBottom: '3rem',
+          <p style={{
+            fontSize: '1.125rem',
+            color: 'var(--on-surface-variant)',
+            marginBottom: '2rem',
             maxWidth: '600px'
           }}>
-            Operating at the intersection of science, operations, compliance, traceability, process design, and execution. I translate technical and regulatory requirements into adoptable, market-ready architectures.
+            Operating at the intersection of science, product, and execution. I use AI as an execution engine to turn ambiguous problems into real, shipped software — fast.
           </p>
 
+          {/* Stat bar */}
+          <div style={{
+            display: 'flex',
+            gap: '2rem',
+            flexWrap: 'wrap',
+            marginBottom: '2rem',
+            paddingBottom: '2rem',
+            borderBottom: '1px solid var(--outline-variant)'
+          }}>
+            {[
+              { num: '3', label: 'Products in production' },
+              { num: '10+', label: 'AI models in workflow' },
+              { num: '12+', label: 'Years building ventures' },
+            ].map(s => (
+              <div key={s.label} style={{ display: 'flex', flexDirection: 'column', gap: '0.2rem' }}>
+                <span style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '1.75rem',
+                  fontWeight: 700,
+                  color: 'var(--primary-container)',
+                  lineHeight: 1
+                }}>{s.num}</span>
+                <span className="label-text" style={{ fontSize: '0.68rem', color: 'var(--on-surface-variant)' }}>{s.label}</span>
+              </div>
+            ))}
+          </div>
+
           <div className="hero-signal-grid">
-            <span className="hero-signal-pill">Ops systems</span>
-            <span className="hero-signal-pill">Compliance</span>
+            <span className="hero-signal-pill">Vibe Coder</span>
+            <span className="hero-signal-pill">AI Builder</span>
             <span className="hero-signal-pill">AgTech</span>
-            <span className="hero-signal-pill">Field notes</span>
+            <span className="hero-signal-pill">Compliance</span>
           </div>
 
           <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
             <a href="https://linktr.ee/delkoman" target="_blank" rel="noopener noreferrer" className="btn-primary">Connect on Linktree</a>
-            <a href="#about" className="btn-secondary">View Profile</a>
+            <a href="#projects" className="btn-secondary">View Projects</a>
           </div>
         </div>
 
