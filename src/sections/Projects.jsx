@@ -73,6 +73,7 @@ export default function Projects() {
                   gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
                   gap: '3rem',
                   alignItems: 'start',
+                  alignContent: 'start',
                   paddingLeft: '2rem',
                   borderLeft: '2px solid var(--outline-variant)'
                 }}

@@ -360,7 +360,7 @@ function buildHomePage(posts) {
             </div>
             <div class="projects-list">
               
-              <div class="project-item" style="position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; align-items: start; padding-left: 2rem; border-left: 2px solid var(--outline-variant);">
+              <div class="project-item" style="position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; align-items: start; align-content: start; padding-left: 2rem; border-left: 2px solid var(--outline-variant);">
                 <div style="position: absolute; top: 0; left: -6px; width: 10px; height: 10px; background-color: var(--primary-container);"></div>
                 
                 <div class="project-copy" style="display: flex; flex-direction: column; gap: 1.5rem;">
@@ -407,7 +407,7 @@ function buildHomePage(posts) {
                 </div>
               </div>
 
-              <div class="project-item" style="position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; align-items: start; padding-left: 2rem; border-left: 2px solid var(--outline-variant);">
+              <div class="project-item" style="position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; align-items: start; align-content: start; padding-left: 2rem; border-left: 2px solid var(--outline-variant);">
                 <div style="position: absolute; top: 0; left: -6px; width: 10px; height: 10px; background-color: #f59e0b;"></div>
                 
                 <div class="project-copy" style="display: flex; flex-direction: column; gap: 1.5rem;">
