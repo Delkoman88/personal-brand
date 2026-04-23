@@ -7,6 +7,34 @@ import Comments from '../components/Comments';
 import { blogPosts, getPostBySlug } from '../content/blogPosts';
 import { SITE_NAME, SITE_URL } from '../config/site';
 
+// Terms that should never be auto-translated by browsers.
+// Add new terms here as needed — they will be protected across all posts.
+const NO_TRANSLATE_PATTERN = /\b(vibe\s+cod(?:ing|e|er|ers)?)\b/gi;
+
+function wrapNoTranslate(children) {
+  const pattern = new RegExp(NO_TRANSLATE_PATTERN.source, NO_TRANSLATE_PATTERN.flags);
+  return React.Children.map(children, (child) => {
+    if (typeof child !== 'string') return child;
+    const parts = child.split(pattern);
+    if (parts.length === 1) return child;
+    const matches = child.match(pattern) || [];
+    return parts.reduce((acc, part, i) => {
+      acc.push(part);
+      if (matches[i]) acc.push(<span key={i} translate="no">{matches[i]}</span>);
+      return acc;
+    }, []);
+  });
+}
+
+const markdownComponents = {
+  p:          ({ children }) => <p>{wrapNoTranslate(children)}</p>,
+  h1:         ({ children }) => <h1>{wrapNoTranslate(children)}</h1>,
+  h2:         ({ children }) => <h2>{wrapNoTranslate(children)}</h2>,
+  h3:         ({ children }) => <h3>{wrapNoTranslate(children)}</h3>,
+  li:         ({ children }) => <li>{wrapNoTranslate(children)}</li>,
+  blockquote: ({ children }) => <blockquote>{wrapNoTranslate(children)}</blockquote>,
+};
+
 export default function BlogPostPage() {
   const { slug } = useParams();
   const post = getPostBySlug(slug);
@@ -76,7 +104,7 @@ export default function BlogPostPage() {
             </div>
 
             <div className="blog-article-body">
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content}</ReactMarkdown>
+              <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>{post.content}</ReactMarkdown>
             </div>
 
             <section className="blog-insights-grid" aria-label="Key ideas from article">
