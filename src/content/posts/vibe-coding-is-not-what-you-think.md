@@ -34,7 +34,7 @@ That primitive version of vibe coding cut months of development down to weeks. I
 
 ## Why this matters
 
-Vibe coding has become one of those terms that gets distorted the moment it gets popular. On one side you have people claiming it democratizes software development for everyone, no knowledge required. On the other you have developers insisting it produces garbage code that nobody should trust in production. Both camps are arguing about a version of vibe coding that does not really exist.
+Vibe coding has become one of those terms that gets distorted the moment it gets popular. On one side you have people claiming it democratizes software development for everyone, no knowledge required. On the other you have developers insisting it produces garbage code that nobody should trust in production. Both sides are arguing about a version of vibe coding that does not really exist.
 
 The real version — the one that actually produces working systems — requires more from you than either side admits. And the thing it requires is not what you would expect.
 
