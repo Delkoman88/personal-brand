@@ -17,12 +17,14 @@ function wrapNoTranslate(children) {
     if (typeof child !== 'string') return child;
     const parts = child.split(pattern);
     if (parts.length === 1) return child;
-    const matches = child.match(pattern) || [];
-    return parts.reduce((acc, part, i) => {
-      acc.push(part);
-      if (matches[i]) acc.push(<span key={i} translate="no">{matches[i]}</span>);
-      return acc;
-    }, []);
+    
+    return parts.map((part, i) => {
+      // The capturing group in the split regex places the matches at odd indices
+      if (i % 2 === 1) {
+        return <span key={i} translate="no">{part}</span>;
+      }
+      return part;
+    });
   });
 }
 
