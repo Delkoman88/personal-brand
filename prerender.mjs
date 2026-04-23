@@ -1,6 +1,12 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import {
+  buildCvStructuredData,
+  cvPageConfig,
+  getCvAlternateLinks,
+} from './src/content/cvPageConfig.js';
+import { buildCvBodyHtml } from './src/utils/cvHtml.js';
 import { readPosts } from './src/utils/markdown.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -112,8 +118,9 @@ function stripDefaultHead(html) {
     .replace(/<script\s[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/gi, '');
 }
 
-function injectPage({ outputPath, head, body }) {
+function injectPage({ outputPath, head, body, lang = 'en' }) {
   let html = stripDefaultHead(BASE_HTML);
+  html = html.replace(/<html([^>]*)lang="[^"]*"([^>]*)>/i, `<html$1lang="${escapeHtml(lang)}"$2>`);
   html = html.replace('</head>', `${head}\n  </head>`);
   html = html.replace('<div id="root"></div>', `<div id="root">${body}</div>`);
 
@@ -122,7 +129,17 @@ function injectPage({ outputPath, head, body }) {
   fs.writeFileSync(fullOutputPath, html, 'utf8');
 }
 
-function buildHead({ title, description, pathName, keywords = [], type = 'website', image = '/og-image.png', twitterSite, structuredData }) {
+function buildHead({
+  title,
+  description,
+  pathName,
+  keywords = [],
+  type = 'website',
+  image = '/og-image.png',
+  twitterSite,
+  structuredData,
+  alternates = [],
+}) {
   const canonicalUrl = `${SITE_URL}${pathName}`;
   const imageUrl = `${SITE_URL}${image}`;
   const fullTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
@@ -130,13 +147,19 @@ function buildHead({ title, description, pathName, keywords = [], type = 'websit
   const twitterSiteTag = twitterSite
     ? `\n    <meta name="twitter:site" content="${escapeHtml(twitterSite)}" />`
     : '';
+  const alternateTags = alternates
+    .map(
+      (alternate) =>
+        `\n    <link rel="alternate" hreflang="${escapeHtml(alternate.hrefLang)}" href="${escapeHtml(alternate.href)}" />`,
+    )
+    .join('');
 
   return `
     <title>${escapeHtml(fullTitle)}</title>
     <meta name="description" content="${escapeHtml(description)}" />
     <meta name="keywords" content="${escapeHtml(keywords.join(', '))}" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="${escapeHtml(canonicalUrl)}" />
+    <link rel="canonical" href="${escapeHtml(canonicalUrl)}" />${alternateTags}
 
     <meta property="og:type" content="${escapeHtml(type)}" />
     <meta property="og:url" content="${escapeHtml(canonicalUrl)}" />
@@ -250,8 +273,8 @@ function buildHomePage(posts) {
               <span class="hero-signal-pill">Compliance</span>
             </div>
             <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
-              <a href="https://linktr.ee/delkoman" target="_blank" rel="noopener noreferrer" class="btn-primary">Connect on Linktree</a>
-              <a href="#projects" class="btn-secondary">View Projects</a>
+              <a href="/cv/es" class="btn-primary">Ver CV en español</a>
+              <a href="/cv/en" class="btn-secondary">Read CV in English</a>
             </div>
           </div>
           <div class="hero-visual" style="flex: 1 1 300px; display: flex; justify-content: center;">
@@ -666,8 +689,38 @@ function buildBlogPostPages(posts) {
   });
 }
 
+function buildCvPages() {
+  Object.values(cvPageConfig).forEach((page) => {
+    const sourcePath = path.join(__dirname, page.sourceFile);
+    const bodyHtml = buildCvBodyHtml(fs.readFileSync(sourcePath, 'utf8'));
+    const head = buildHead({
+      title: page.seoTitle,
+      description: page.seoDescription,
+      pathName: page.path,
+      keywords: page.keywords,
+      image: '/og-image.png',
+      twitterSite: '@urbanbeautygarden',
+      alternates: getCvAlternateLinks(),
+      structuredData: buildCvStructuredData(page.locale)
+    });
+    const body = `
+      <main class="cv-page cv-page--${escapeHtml(page.locale)}">
+        <div class="cv-page__content">${bodyHtml}</div>
+      </main>`;
+
+    injectPage({
+      outputPath: `${page.path.replace(/^\//, '')}/index.html`,
+      head,
+      body,
+      lang: page.lang
+    });
+    console.log(`✓ prerendered ${page.path}`);
+  });
+}
+
 const posts = readPosts(POSTS_DIR);
 buildHomePage(posts);
+buildCvPages();
 buildBlogIndexPage(posts);
 buildBlogPostPages(posts);
 

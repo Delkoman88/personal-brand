@@ -15,6 +15,11 @@ const sections = [
 export default function SectionDock() {
   const location = useLocation();
   const isHome = location.pathname === '/';
+  const isCvPage = location.pathname.startsWith('/cv/');
+
+  if (isCvPage) {
+    return null;
+  }
 
   return (
     <div className="section-dock" aria-label="Quick section navigation">

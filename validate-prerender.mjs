@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { cvPageConfig, getCvAlternateLinks } from './src/content/cvPageConfig.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST = path.join(__dirname, 'dist');
@@ -103,11 +104,24 @@ function validateSharedSeo(html, routePath, failures) {
   expectRegex(html, /<meta\s+property="og:description"\s+content="[^"]+"\s*\/>/, `${routePath}: missing og:description`, failures);
 }
 
+function validateAlternates(html, routePath, alternates, failures) {
+  alternates.forEach((alternate) => {
+    expectIncludes(
+      html,
+      `<link rel="alternate" hreflang="${alternate.hrefLang}" href="${alternate.href}" />`,
+      `${routePath}: missing alternate ${alternate.hrefLang}`,
+      failures
+    );
+  });
+}
+
 function validateHomePage(failures) {
   const html = readFile(path.join(DIST, 'index.html'));
   validateSharedSeo(html, '/', failures);
   expectIncludes(html, 'Biotech PhD. Building', '/: missing hero headline in initial HTML', failures);
   expectIncludes(html, 'Operating at the intersection of science, product, and execution', '/: missing hero intro copy in initial HTML', failures);
+  expectIncludes(html, 'Ver CV en español', '/: missing Spanish CV CTA in initial HTML', failures);
+  expectIncludes(html, 'Read CV in English', '/: missing English CV CTA in initial HTML', failures);
   expectIncludes(html, '04 // Selected Experience', '/: missing selected experience section in initial HTML', failures);
   expectIncludes(html, 'TRYP Mexico', '/: missing selected experience content in initial HTML', failures);
   expectIncludes(html, '06 // Credibility & Substance', '/: missing credibility section in initial HTML', failures);
@@ -151,6 +165,19 @@ function validatePostPages(posts, failures) {
   });
 }
 
+function validateCvPages(failures) {
+  Object.values(cvPageConfig).forEach((page) => {
+    const html = readFile(path.join(DIST, page.path.replace(/^\//, ''), 'index.html'));
+    validateSharedSeo(html, page.path, failures);
+    validateAlternates(html, page.path, getCvAlternateLinks(), failures);
+    expectRegex(html, new RegExp(`<html[^>]*lang="${page.lang}"[^>]*>`), `${page.path}: html lang mismatch`, failures);
+    expectIncludes(html, 'Edgar <span>Mancilla</span>', `${page.path}: missing visible H1/header in initial HTML`, failures);
+    page.headingChecks.forEach((heading) => {
+      expectIncludes(html, heading, `${page.path}: missing ${heading} in initial HTML`, failures);
+    });
+  });
+}
+
 const posts = listPosts();
 const failures = [];
 
@@ -159,6 +186,7 @@ if (!posts.length) {
 }
 
 validateHomePage(failures);
+validateCvPages(failures);
 validateBlogIndex(posts, failures);
 validatePostPages(posts, failures);
 
@@ -168,4 +196,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`✓ prerender validation passed for /, /blog, and ${posts.length} blog post routes`);
+console.log(`✓ prerender validation passed for /, /cv/es, /cv/en, /blog, and ${posts.length} blog post routes`);

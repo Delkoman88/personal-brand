@@ -1,5 +1,21 @@
 # Feature Changelog
 
+## 2026-04-23 - Bilingual CV Routes, SEO Integration & Sitemap Coverage
+
+### Added
+- **Bilingual CV Routes**: Added `/cv/es` and `/cv/en` as first-class site routes powered by the new `CvPage` runtime page and prerendered static HTML output.
+- **CV SEO Layer**: Added per-language canonical URLs, `hreflang` alternates (`en`, `es-MX`, and `x-default`), route-level `lang` handling, and `WebPage` + `Person` structured data for both CV pages.
+- **CV Styling System**: Added `src/styles/cv-page.css` with namespaced CV styles so the imported CV layouts preserve their look without leaking styles into the rest of the site.
+
+### Changed
+- **Hero CTA Strategy**: Replaced the main hero CTA pair with internal CV buttons: `Ver CV en español` and `Read CV in English`.
+- **Prerender Scope**: Extended `prerender.mjs` and `validate-prerender.mjs` to cover the bilingual CV routes in addition to home, blog index, and blog posts.
+- **Sitemap Coverage**: Extended `generate-feeds.mjs` so `dist/sitemap.xml` now includes `/cv/es` and `/cv/en`.
+
+### Fixed
+- **SEO Consistency**: Kept the RSS feed blog-only while preserving RSS autodiscovery on prerendered pages, preventing the CV from being treated like a time-based blog item.
+- **Route UX**: Hid the `SectionDock` on `/cv/*` routes so the CV layouts remain clean once the SPA hydrates.
+
 ## 2026-04-22 - Mobile UX Optimization & UI Polish
 
 ### Added

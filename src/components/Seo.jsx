@@ -27,7 +27,18 @@ function upsertLink(selector, attributes) {
   });
 }
 
-export default function Seo({ title, description, path = '/', keywords = [], type = 'website', image, twitterSite, structuredData }) {
+export default function Seo({
+  title,
+  description,
+  path = '/',
+  keywords = [],
+  type = 'website',
+  image,
+  twitterSite,
+  structuredData,
+  htmlLang = 'en',
+  alternates = [],
+}) {
   useEffect(() => {
     const normalizedPath = path.startsWith('/') ? path : `/${path}`;
     const canonicalUrl = `${SITE_URL}${normalizedPath}`;
@@ -35,6 +46,7 @@ export default function Seo({ title, description, path = '/', keywords = [], typ
     const imageUrl = image ? `${SITE_URL}${image}` : null;
 
     document.title = fullTitle;
+    document.documentElement.lang = htmlLang;
 
     upsertMeta('meta[name="description"]', { name: 'description', content: description });
     upsertMeta('meta[name="keywords"]', { name: 'keywords', content: keywords.join(', ') });
@@ -60,6 +72,21 @@ export default function Seo({ title, description, path = '/', keywords = [], typ
     }
 
     upsertLink('link[rel="canonical"]', { rel: 'canonical', href: canonicalUrl });
+    document.head
+      .querySelectorAll('link[data-seo-alternate="true"]')
+      .forEach((element) => element.remove());
+
+    alternates.forEach((alternate) => {
+      upsertLink(
+        `link[rel="alternate"][hreflang="${alternate.hrefLang}"][data-seo-alternate="true"]`,
+        {
+          rel: 'alternate',
+          hreflang: alternate.hrefLang,
+          href: alternate.href,
+          'data-seo-alternate': 'true',
+        },
+      );
+    });
 
     const scripts = [];
     const schemas = Array.isArray(structuredData) ? structuredData : structuredData ? [structuredData] : [];
@@ -76,7 +103,7 @@ export default function Seo({ title, description, path = '/', keywords = [], typ
     return () => {
       scripts.forEach((script) => script.remove());
     };
-  }, [description, image, keywords, path, structuredData, title, twitterSite, type]);
+  }, [alternates, description, htmlLang, image, keywords, path, structuredData, title, twitterSite, type]);
 
   return null;
 }

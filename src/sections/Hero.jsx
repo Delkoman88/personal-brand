@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Hero() {
   return (
@@ -87,8 +88,8 @@ export default function Hero() {
           </div>
 
           <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
-            <a href="https://linktr.ee/delkoman" target="_blank" rel="noopener noreferrer" className="btn-primary">Connect on Linktree</a>
-            <a href="#projects" className="btn-secondary">View Projects</a>
+            <Link to="/cv/es" className="btn-primary">Ver CV en español</Link>
+            <Link to="/cv/en" className="btn-secondary">Read CV in English</Link>
           </div>
         </div>
 

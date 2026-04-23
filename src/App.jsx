@@ -6,6 +6,7 @@ import ScrollToTop from './components/ScrollToTop';
 import BlogIndexPage from './pages/BlogIndexPage';
 import HomePage from './pages/HomePage';
 import BlogPostPage from './pages/BlogPostPage';
+import CvPage from './pages/CvPage';
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
       <SectionDock />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/cv/en" element={<CvPage locale="en" />} />
+        <Route path="/cv/es" element={<CvPage locale="es" />} />
         <Route path="/blog" element={<BlogIndexPage />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
       </Routes>

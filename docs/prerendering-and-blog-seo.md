@@ -1,6 +1,6 @@
-# Prerendering and Blog SEO
+# Prerendering and Route SEO
 
-This site uses Vite + React for the app shell and a build-time prerender step to make the homepage, blog index, and every blog post crawlable in the initial HTML response.
+This site uses Vite + React for the app shell and a build-time prerender step to make the homepage, bilingual CV routes, blog index, and every blog post crawlable in the initial HTML response.
 
 ## How prerendering works
 
@@ -15,6 +15,8 @@ This site uses Vite + React for the app shell and a build-time prerender step to
 - parses frontmatter and markdown body content
 - prerenders these routes into `dist`:
   - `/`
+  - `/cv/es`
+  - `/cv/en`
   - `/blog`
   - `/blog/<slug>` for every post discovered in `src/content/posts`
 - injects route-specific SEO tags:
@@ -23,10 +25,12 @@ This site uses Vite + React for the app shell and a build-time prerender step to
   - canonical
   - Open Graph tags
   - JSON-LD structured data
+  - `hreflang` alternates for bilingual CV pages
 
 ## How each route is handled
 
 - `/`: prerendered with meaningful visible copy for the hero, profile, capabilities, selected experience, timeline summary, credibility summary, blog preview, and contact section
+- `/cv/es` and `/cv/en`: prerendered from the root HTML CV source files as full static CV pages with language-specific metadata, canonical URLs, and `hreflang` alternates
 - `/blog`: prerendered with a visible index title, intro text, and a linked list of all blog posts with titles, excerpts, and dates
 - `/blog/<slug>`: prerendered as a full article page with article title, lead, body, subheadings, metadata, and internal related links
 
@@ -109,6 +113,7 @@ npm run validate:prerender
 The validator checks that:
 
 - `/` contains meaningful visible homepage text in initial HTML
+- `/cv/es` and `/cv/en` contain visible CV headings and language alternates in initial HTML
 - `/blog` contains visible post titles and internal links in initial HTML
 - every `/blog/<slug>` page contains readable article content in initial HTML
 - every prerendered route includes title, meta description, canonical, and Open Graph tags
@@ -118,6 +123,14 @@ The validator checks that:
 - Firebase Hosting serves files from `dist`
 - prerendered route files are written directly into `dist` before deploy
 - the catch-all rewrite still supports the SPA, but existing prerendered files are available as static HTML responses for crawlers and browsers
+
+## CV route notes
+
+- `edgar-vibe-coder-portfolio.html` and `edgar-vibe-coder-portfolio-es.html` live at the repo root as the source artifacts for the CV pages
+- runtime routes live at `/cv/en` and `/cv/es`
+- the prerender step reads those source HTML files, extracts the body content, and wraps it in the site shell with route-specific SEO metadata
+- `generate-feeds.mjs` adds both CV routes to `dist/sitemap.xml`
+- `feed.xml` remains blog-only; it is not used to publish evergreen CV pages
 
 ## Stability guarantee for future posts
 

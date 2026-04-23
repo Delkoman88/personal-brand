@@ -12,6 +12,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { cvPageConfig } from './src/content/cvPageConfig.js';
 import { readPosts } from './src/utils/markdown.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -45,7 +46,13 @@ function generateSitemap(posts) {
 
   const staticPages = [
     { loc: '/', changefreq: 'weekly', priority: '1.0', lastmod: today },
-    { loc: '/blog', changefreq: 'weekly', priority: '0.9', lastmod: today }
+    { loc: '/blog', changefreq: 'weekly', priority: '0.9', lastmod: today },
+    ...Object.values(cvPageConfig).map((page) => ({
+      loc: page.path,
+      changefreq: 'monthly',
+      priority: '0.8',
+      lastmod: today
+    }))
   ];
 
   const postEntries = posts.map((post) => ({
@@ -122,7 +129,7 @@ const posts = readPosts(POSTS_DIR);
 
 const sitemap = generateSitemap(posts);
 fs.writeFileSync(path.join(DIST, 'sitemap.xml'), sitemap, 'utf8');
-console.log(`✓ generated sitemap.xml (${posts.length} posts + 2 static pages)`);
+console.log(`✓ generated sitemap.xml (${posts.length} posts + ${Object.keys(cvPageConfig).length + 2} static pages)`);
 
 const feed = generateRssFeed(posts);
 fs.writeFileSync(path.join(DIST, 'feed.xml'), feed, 'utf8');

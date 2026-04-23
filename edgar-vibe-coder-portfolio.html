@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edgar Mancilla — Vibe Coder / AI Engineer</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #09090e;
+      --bg2:     #111119;
+      --bg3:     #18181f;
+      --bg4:     #1e1e28;
+      --border:  #272733;
+      --accent:  #7c6aff;
+      --accent2: #a78bfa;
+      --green:   #34d399;
+      --pink:    #f472b6;
+      --yellow:  #fbbf24;
+      --orange:  #f97316;
+      --blue:    #60a5fa;
+      --text:    #eeeef6;
+      --text2:   #8888a8;
+      --text3:   #484868;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 48px 32px 64px;
+    }
+
+    a { color: var(--accent2); text-decoration: none; transition: color .2s; }
+    a:hover { color: #c4b5fd; }
+
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .85em;
+      background: rgba(124,106,255,.1);
+      border: 1px solid rgba(124,106,255,.15);
+      padding: 1px 5px;
+      border-radius: 3px;
+      color: var(--accent2);
+    }
+
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.35} }
+
+    /* ─────────────────────────────────────
+       HEADER
+    ───────────────────────────────────── */
+    .header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: start;
+      margin-bottom: 28px;
+    }
+    .badge-available {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(52,211,153,.1); border: 1px solid rgba(52,211,153,.25);
+      color: var(--green); font-size: 10px; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 20px; margin-bottom: 10px;
+    }
+    .badge-available .dot {
+      width: 6px; height: 6px; background: var(--green);
+      border-radius: 50%; animation: pulse 2s infinite;
+    }
+    h1 { font-size: 32px; font-weight: 800; letter-spacing: -.025em; line-height: 1.1; margin-bottom: 5px; }
+    h1 span { color: var(--accent2); }
+    .subtitle { font-size: 13px; color: var(--text2); margin-bottom: 3px; }
+    .location  { font-size: 12px; color: var(--text3); }
+
+    .contact-block { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; padding-top: 8px; }
+    .contact-block a, .contact-block span {
+      color: var(--text2); font-size: 12px;
+      display: flex; align-items: center; gap: 5px;
+    }
+    .contact-block a:hover { color: var(--accent2); }
+
+    /* ─────────────────────────────────────
+       STAT BAR
+    ───────────────────────────────────── */
+    .stat-bar {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 8px; margin-bottom: 32px;
+    }
+    .stat-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 10px; padding: 14px 16px;
+      display: flex; flex-direction: column; gap: 2px;
+    }
+    .stat-num  { font-size: 22px; font-weight: 800; color: var(--accent2); line-height: 1; }
+    .stat-label{ font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: .06em; margin-top: 3px; }
+
+    /* ─────────────────────────────────────
+       SECTION HEADER
+    ───────────────────────────────────── */
+    .sec {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 18px; margin-top: 36px;
+    }
+    .sec:first-of-type { margin-top: 0; }
+    .sec-icon {
+      width: 28px; height: 28px; border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; flex-shrink: 0;
+    }
+    .sec-icon.purple { background: rgba(124,106,255,.15); }
+    .sec-icon.green  { background: rgba(52,211,153,.12); }
+    .sec-icon.pink   { background: rgba(244,114,182,.12); }
+    .sec-icon.blue   { background: rgba(96,165,250,.12); }
+    .sec-icon.yellow { background: rgba(251,191,36,.12); }
+    .sec-icon.orange { background: rgba(249,115,22,.12); }
+    .sec h2 { font-size: 13px; font-weight: 700; color: var(--text); }
+    .sec-line { flex: 1; height: 1px; background: var(--border); }
+
+    /* ─────────────────────────────────────
+       SUMMARY
+    ───────────────────────────────────── */
+    .summary-box {
+      background: linear-gradient(135deg, rgba(124,106,255,.06), rgba(52,211,153,.03));
+      border: 1px solid rgba(124,106,255,.15);
+      border-radius: 12px; padding: 20px 22px;
+      font-size: 13.5px; color: var(--text2); line-height: 1.8;
+    }
+    .summary-box strong { color: var(--text); }
+
+    /* ─────────────────────────────────────
+       STRENGTHS
+    ───────────────────────────────────── */
+    .strengths-section { display: flex; flex-direction: column; gap: 14px; }
+    .strength-group-label {
+      font-size: 10px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .08em; color: var(--text3); margin-bottom: 6px;
+    }
+    .tags-wrap { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      font-size: 12px; padding: 5px 11px;
+      border-radius: 20px; border: 1px solid; font-weight: 500;
+    }
+    .tag.purple { background: rgba(124,106,255,.08); border-color: rgba(124,106,255,.2); color: var(--accent2); }
+    .tag.green  { background: rgba(52,211,153,.07);  border-color: rgba(52,211,153,.2);  color: var(--green); }
+    .tag.blue   { background: rgba(96,165,250,.07);  border-color: rgba(96,165,250,.2);  color: var(--blue); }
+    .tag.mono {
+      font-family: 'JetBrains Mono', monospace; font-size: 10.5px;
+      background: rgba(124,106,255,.06); border-color: rgba(124,106,255,.15);
+      color: var(--accent2);
+    }
+
+    /* ─────────────────────────────────────
+       PROJECTS
+    ───────────────────────────────────── */
+    .projects-list { display: flex; flex-direction: column; gap: 14px; }
+    .proj {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 14px; padding: 22px 24px;
+      position: relative; overflow: hidden;
+    }
+    .proj::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    }
+    .proj.bsc::before  { background: linear-gradient(90deg, var(--accent), var(--green)); }
+    .proj.beer::before { background: linear-gradient(90deg, var(--yellow), var(--orange)); }
+    .proj.site::before { background: linear-gradient(90deg, var(--accent), var(--pink)); }
+
+    .proj-top {
+      display: flex; justify-content: space-between;
+      align-items: flex-start; gap: 12px; margin-bottom: 10px;
+    }
+    .proj-name { font-size: 15px; font-weight: 700; color: var(--text); }
+    .proj-meta { font-size: 11px; color: var(--text3); margin-top: 2px; }
+    .pill {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 10px; font-weight: 700; padding: 3px 9px;
+      border-radius: 20px; flex-shrink: 0; border: 1px solid;
+    }
+    .pill.live   { background: rgba(52,211,153,.1);  border-color: rgba(52,211,153,.25); color: var(--green); }
+    .pill.purple { background: rgba(124,106,255,.1); border-color: rgba(124,106,255,.25); color: var(--accent2); }
+    .pill .dot { width: 4px; height: 4px; border-radius: 50%; background: currentColor; animation: pulse 2s infinite; }
+
+    .proj-desc { font-size: 13px; color: var(--text2); line-height: 1.7; margin-bottom: 12px; }
+
+    /* Highlight callout inside project */
+    .proj-highlights {
+      display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px;
+    }
+    .highlight-chip {
+      display: flex; align-items: center; gap: 6px;
+      background: var(--bg4); border: 1px solid var(--border);
+      border-radius: 8px; padding: 6px 12px;
+      font-size: 11px; color: var(--text2);
+    }
+    .highlight-chip strong { color: var(--accent2); font-size: 13px; font-weight: 800; }
+
+    .proj-bullets { list-style: none; padding: 0; margin-bottom: 14px; }
+    .proj-bullets li {
+      font-size: 12.5px; color: var(--text2); line-height: 1.65;
+      padding: 3px 0 3px 16px; position: relative;
+    }
+    .proj-bullets li::before { content: '›'; position: absolute; left: 0; color: var(--accent2); font-weight: 700; }
+
+    .stack-row { display: flex; flex-wrap: wrap; gap: 5px; }
+    .stack-badge {
+      font-family: 'JetBrains Mono', monospace; font-size: 10px;
+      background: rgba(124,106,255,.07); border: 1px solid rgba(124,106,255,.15);
+      color: var(--accent2); padding: 2px 7px; border-radius: 4px;
+    }
+
+    /* ─────────────────────────────────────
+       EXPERIENCE
+    ───────────────────────────────────── */
+    .exp-list { display: flex; flex-direction: column; }
+    .exp-item {
+      display: grid; grid-template-columns: 2px 1fr;
+      column-gap: 20px; padding-bottom: 28px;
+    }
+    .exp-item:last-child { padding-bottom: 0; }
+    .exp-line {
+      background: var(--border); border-radius: 2px;
+      position: relative; margin-top: 6px;
+    }
+    .exp-line::before {
+      content: ''; position: absolute; top: 0; left: -5px;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--bg); border: 2px solid var(--accent2);
+    }
+
+    .exp-role    { font-size: 14px; font-weight: 700; color: var(--text); line-height: 1.3; }
+    .exp-company { font-size: 13px; font-weight: 600; color: var(--accent2); margin-top: 1px; }
+    .exp-period  { font-size: 11px; color: var(--text3); margin: 4px 0 10px; }
+
+    /* inline highlight number in exp */
+    .exp-stat {
+      display: inline-flex; align-items: baseline; gap: 4px;
+      background: rgba(124,106,255,.08); border: 1px solid rgba(124,106,255,.15);
+      border-radius: 5px; padding: 1px 7px; margin: 0 2px;
+      font-size: 11px; font-weight: 700; color: var(--accent2);
+    }
+
+    .exp-desc { font-size: 13px; color: var(--text2); line-height: 1.7; margin-bottom: 10px; }
+    .exp-bullets { list-style: none; padding: 0; }
+    .exp-bullets li {
+      font-size: 12.5px; color: var(--text2); line-height: 1.65;
+      padding: 3px 0 3px 16px; position: relative;
+    }
+    .exp-bullets li::before { content: '›'; position: absolute; left: 0; color: var(--accent2); font-weight: 700; }
+
+    /* ─────────────────────────────────────
+       TOOLCHAIN
+    ───────────────────────────────────── */
+    .toolchain-intro {
+      font-size: 13px; color: var(--text2); line-height: 1.75;
+      border-left: 2px solid rgba(124,106,255,.3);
+      padding-left: 14px; margin-bottom: 18px; font-style: italic;
+    }
+    .tool-group { margin-bottom: 14px; }
+    .tool-group-label {
+      font-size: 10px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .08em; color: var(--text3); margin-bottom: 7px;
+    }
+    .tools-row { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tool-chip {
+      display: flex; align-items: center; gap: 6px;
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 8px; padding: 5px 12px;
+      font-size: 12px; color: var(--text);
+    }
+    .tool-chip .t-icon { font-size: 14px; }
+    .tool-chip .role { font-size: 10px; color: var(--text3); }
+
+    /* ─────────────────────────────────────
+       TECHNICAL APPROACH
+    ───────────────────────────────────── */
+    .approach-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 8px; }
+    .approach-item {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 10px; padding: 14px 16px;
+      font-size: 12.5px; color: var(--text2); line-height: 1.6;
+      display: flex; gap: 10px;
+    }
+    .approach-item .a-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+
+    /* ─────────────────────────────────────
+       DIFFERENTIATOR
+    ───────────────────────────────────── */
+    .diff-block {
+      background: linear-gradient(135deg, rgba(124,106,255,.07), rgba(52,211,153,.04));
+      border: 1px solid rgba(124,106,255,.2); border-radius: 12px;
+      padding: 20px 24px;
+    }
+    .diff-block p { font-size: 13.5px; color: var(--text2); line-height: 1.8; }
+    .diff-block strong { color: var(--text); }
+
+    /* ─────────────────────────────────────
+       BOTTOM GRID (Education + Languages)
+    ───────────────────────────────────── */
+    .bottom-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 28px; align-items: start; }
+
+    .edu-list { display: flex; flex-direction: column; gap: 6px; }
+    .edu-item {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 8px; padding: 10px 14px;
+      display: flex; align-items: flex-start; gap: 10px;
+    }
+    .edu-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+    .edu-degree { font-size: 12px; font-weight: 600; color: var(--text); line-height: 1.35; }
+    .edu-school { font-size: 11px; color: var(--text3); margin-top: 1px; }
+
+    .lang-list { display: flex; flex-direction: column; gap: 6px; }
+    .lang-item {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 8px; padding: 12px 14px;
+    }
+    .lang-name  { font-size: 13px; font-weight: 600; color: var(--text); }
+    .lang-level { font-size: 11px; color: var(--text3); margin-top: 2px; }
+
+    /* ─────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────── */
+    .footer-bar {
+      display: flex; justify-content: space-between; align-items: center;
+      border-top: 1px solid var(--border); padding-top: 20px;
+      margin-top: 40px; flex-wrap: wrap; gap: 10px;
+    }
+    .footer-bar p { font-size: 11px; color: var(--text3); }
+    .footer-link {
+      font-family: 'JetBrains Mono', monospace; font-size: 10px;
+      color: var(--accent2); background: rgba(124,106,255,.08);
+      border: 1px solid rgba(124,106,255,.2);
+      padding: 4px 10px; border-radius: 5px;
+    }
+
+    /* ─────────────────────────────────────
+       PRINT
+    ───────────────────────────────────── */
+    @media print {
+      body { background: #fff; color: #111; padding: 18px 22px; max-width: 100%; }
+      :root {
+        --bg:#fff; --bg2:#f7f7f9; --bg3:#f0f0f3; --bg4:#eaeaee;
+        --border:#ddd; --text:#111; --text2:#444; --text3:#888; --accent2:#5b45d4; --green:#059669;
+      }
+      .badge-available, .dot { display: none !important; }
+      .footer-bar { display: none; }
+      a { color: #5b45d4; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════
+       HEADER
+  ══════════════════════════════════ -->
+  <header class="header">
+    <div>
+      <div class="badge-available"><span class="dot"></span>Available for new roles</div>
+      <h1>Edgar <span>Mancilla</span></h1>
+      <p class="subtitle">Vibe Coder · AI-Native Builder · Product Engineer</p>
+      <p class="location">📍 Mexico City, Mexico</p>
+    </div>
+    <div class="contact-block">
+      <a href="mailto:delkoman@gmail.com">✉ delkoman@gmail.com</a>
+      <span>📞 +52 55 3107 9026</span>
+      <a href="https://edgarmancilla.com" target="_blank">🌐 edgarmancilla.com</a>
+      <a href="https://www.linkedin.com/in/edgar-mancilla-sanchez/" target="_blank">💼 linkedin/edgar-mancilla-sanchez</a>
+    </div>
+  </header>
+
+  <!-- META BADGE -->
+  <div style="
+    display:flex; align-items:center; gap:8px;
+    border-top: 1px solid var(--border);
+    padding: 8px 4px; margin-bottom: 24px;
+  ">
+    <span style="font-size:12px; color:var(--text3);">⚡</span>
+    <p style="font-size:11px; color:var(--text3);">
+      This CV was vibe coded in HTML and exported to PDF.
+    </p>
+    <span style="
+      font-family:'JetBrains Mono',monospace; font-size:10px;
+      color:var(--text3); border:1px solid var(--border);
+      padding:2px 7px; border-radius:4px; white-space:nowrap; margin-left:auto;
+    ">HTML → PDF</span>
+  </div>
+
+  <!-- STAT BAR -->
+  <div class="stat-bar">
+    <div class="stat-card">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Products in production</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">1</div>
+      <div class="stat-label">Solo builder</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">10+</div>
+      <div class="stat-label">AI models in workflow</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">12+</div>
+      <div class="stat-label">Years building ventures</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       SUMMARY
+  ══════════════════════════════════ -->
+  <div class="sec"><div class="sec-icon purple">💡</div><h2>Professional Summary</h2><div class="sec-line"></div></div>
+  <div class="summary-box">
+    AI-native builder with experience shipping <strong>complete digital products, internal tools, and AI-assisted systems</strong> for real businesses. I work at the intersection of product, workflows, operations, and execution — using AI as an execution engine to turn ambiguous business problems into usable software quickly. My background combines full product ownership, operational systems thinking, startup execution, and hands-on experience building tools that <strong>improve clarity, speed, and team productivity</strong>.
+  </div>
+
+  <!-- ══════════════════════════════════
+       CORE STRENGTHS
+  ══════════════════════════════════ -->
+  <div class="sec"><div class="sec-icon green">⚡</div><h2>Core Strengths</h2><div class="sec-line"></div></div>
+  <div class="strengths-section">
+    <div>
+      <div class="strength-group-label">Product & Strategy</div>
+      <div class="tags-wrap">
+        <span class="tag purple">AI-assisted product development</span>
+        <span class="tag purple">Full product ownership</span>
+        <span class="tag purple">Feature prioritization</span>
+        <span class="tag purple">Rapid prototyping & MVP</span>
+      </div>
+    </div>
+    <div>
+      <div class="strength-group-label">Engineering & AI</div>
+      <div class="tags-wrap">
+        <span class="tag green">AI orchestration & context engineering</span>
+        <span class="tag green">Structured debugging & production discipline</span>
+        <span class="tag green">Internal tools & workflow automation</span>
+      </div>
+    </div>
+    <div>
+      <div class="strength-group-label">Operations & Cross-functional</div>
+      <div class="tags-wrap">
+        <span class="tag blue">Operational systems & admin tools</span>
+        <span class="tag blue">Cross-functional problem solving</span>
+      </div>
+    </div>
+    <div>
+      <div class="strength-group-label">Tech Stack</div>
+      <div class="tags-wrap">
+        <span class="tag mono">Next.js</span><span class="tag mono">TypeScript</span>
+        <span class="tag mono">Firebase / Firestore</span><span class="tag mono">Cloud Functions</span>
+        <span class="tag mono">OAuth2</span><span class="tag mono">Google Calendar API</span>
+        <span class="tag mono">Twilio</span><span class="tag mono">SendGrid</span>
+        <span class="tag mono">Sentry</span><span class="tag mono">Tailwind CSS</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       SELECTED PROJECTS
+  ══════════════════════════════════ -->
+  <div class="sec"><div class="sec-icon pink">🚀</div><h2>Selected Projects</h2><div class="sec-line"></div></div>
+  <div class="projects-list">
+
+    <!-- BSC -->
+    <div class="proj bsc">
+      <div class="proj-top">
+        <div>
+          <div class="proj-name">Beauty Studio Copilot</div>
+          <div class="proj-meta">Solo Builder / Product Engineer · LATAM · 2026 – Present</div>
+        </div>
+        <a class="pill live" href="https://beauty-studio-copilot--beauty-studio-copilot.us-east4.hosted.app" target="_blank"><span class="dot"></span>Live · Click to view project →</a>
+      </div>
+      <p class="proj-desc">Production SaaS web platform for beauty studios — built solo from zero to production and validated by a real user today. Replaces fragmented WhatsApp + Google Sheets workflows with a structured operating system for beauty businesses.</p>
+      <div class="proj-highlights">
+        <div class="highlight-chip"><strong>20+</strong> features shipped</div>
+        <div class="highlight-chip"><strong>45+</strong> unit tests</div>
+        <div class="highlight-chip"><strong>1</strong> solo builder</div>
+        <div class="highlight-chip"><strong>v0.5</strong> in production</div>
+      </div>
+      <ul class="proj-bullets">
+        <li>Built a complete management system: multi-tenant auth, client CRM, scheduling with Google Calendar sync, assisted messaging (WhatsApp), loyalty system, checkout & finance flows, multi-staff roles, per-role KPIs, automated reminders, and mobile-first UX.</li>
+        <li>Full ownership across product definition, UX decisions, implementation, backlog management, debugging, and iteration.</li>
+        <li>Production monitoring with Sentry, 45+ unit tests, strict TypeScript & ESLint — no escape hatches.</li>
+      </ul>
+      <div class="stack-row">
+        <span class="stack-badge">Next.js App Router</span><span class="stack-badge">TypeScript</span><span class="stack-badge">Firebase Auth</span><span class="stack-badge">Firestore</span><span class="stack-badge">Cloud Functions</span><span class="stack-badge">App Hosting</span><span class="stack-badge">Google Calendar API</span><span class="stack-badge">OAuth2 + Webhooks</span><span class="stack-badge">SendGrid</span><span class="stack-badge">Twilio</span><span class="stack-badge">Sentry</span>
+      </div>
+    </div>
+
+    <!-- VIAJERO -->
+    <div class="proj beer">
+      <div class="proj-top">
+        <div>
+          <div class="proj-name">Viajero Sediento</div>
+          <div class="proj-meta">Product Builder · Real client · 2026</div>
+        </div>
+        <a class="pill live" href="https://sitioviajerosediento--sitioviajerosediento.us-central1.hosted.app" target="_blank"><span class="dot"></span>Live · Click to view project →</a>
+      </div>
+      <p class="proj-desc">Mobile-first digital beer catalog and admin platform for a real tap room client — Nordic aesthetic, individual product pages, full CRUD admin with image uploads and status management. Staff use the admin panel daily in operations.</p>
+      <div class="stack-row">
+        <span class="stack-badge">Next.js</span><span class="stack-badge">TypeScript</span><span class="stack-badge">Firebase Auth</span><span class="stack-badge">Firestore</span><span class="stack-badge">Firebase Storage</span><span class="stack-badge">App Hosting</span>
+      </div>
+    </div>
+
+    <!-- PERSONAL SITE -->
+    <div class="proj site">
+      <div class="proj-top">
+        <div>
+          <div class="proj-name">edgarmancilla.com</div>
+          <div class="proj-meta">Personal Site / AI-Assisted Build · 2026</div>
+        </div>
+        <a class="pill purple" href="https://edgarmancilla.com" target="_blank">Click to view project → edgarmancilla.com</a>
+      </div>
+      <p class="proj-desc">Personal website built end-to-end with AI as the execution engine — project showcase, positioning blog on AI-native development and vibe coding methodology, and internal prospecting automations connected to Claude, Gmail, and Notion.</p>
+      <div class="stack-row">
+        <span class="stack-badge">Next.js</span><span class="stack-badge">Firebase App Hosting</span><span class="stack-badge">Blog</span><span class="stack-badge">Claude API</span><span class="stack-badge">Automation</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══════════════════════════════════
+       PROFESSIONAL EXPERIENCE
+  ══════════════════════════════════ -->
+  <div class="sec"><div class="sec-icon blue">💼</div><h2>Professional Experience</h2><div class="sec-line"></div></div>
+  <div class="exp-list">
+
+    <div class="exp-item">
+      <div class="exp-line"></div>
+      <div>
+        <div class="exp-role">Business & Product Strategy Consultant</div>
+        <div style="font-size:12px;color:var(--text3);font-weight:500;margin-top:1px;">AI-Assisted MVP Development & Operational Systems</div>
+        <div class="exp-company">TraceLab Venture Builders</div>
+        <div class="exp-period">Mexico City · Nov 2025 – Present</div>
+        <p class="exp-desc">Help founders, brands, and operationally complex businesses turn friction and growth needs into clear digital systems — web-first MVPs, admin platforms, interactive catalogs, lightweight CRMs, operational copilots.</p>
+        <ul class="exp-bullets">
+          <li>Define what should be built, in what order, and with what level of complexity to match real business needs.</li>
+          <li>Use AI-assisted workflows to accelerate discovery, prototyping, and build cycles without losing business judgment, usability, or operational focus.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-line"></div>
+      <div>
+        <div class="exp-role">Strategy & Operations Manager / Head of Compliance & Lab Projects</div>
+        <div class="exp-company">Tryp</div>
+        <div class="exp-period">Mexico · Apr 2022 – Nov 2025</div>
+        <ul class="exp-bullets">
+          <li>Played a key role in launching and structuring the company's B2B model, supporting growth from <span class="exp-stat">20 → 200+</span> registered sellers and contributing to an approximate <span class="exp-stat">1,900% ↑ GMV</span>.</li>
+          <li>Built systems for compliance, quality control, fraud prevention, operational follow-up, and process standardization in a fast-scaling marketplace environment.</li>
+          <li>Developed internal automation using vibe coded Python scripts and tracking tools to reduce manual work and improve operational visibility.</li>
+          <li>Worked cross-functionally across <span class="exp-stat">1,000+ products</span> and <span class="exp-stat">180+ vendors</span> to align operational requirements, reporting standards, and quality controls.</li>
+          <li>Served as lead writer for the company blog and designed the SEO strategy to strengthen visibility, positioning, and marketplace growth.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-line"></div>
+      <div>
+        <div class="exp-role">Co-Founder & Chief Innovation Officer</div>
+        <div class="exp-company">Urbn Leaves</div>
+        <div class="exp-period">Mexico City / Tijuana / Ensenada · 2017 – 2022</div>
+        <ul class="exp-bullets">
+          <li>Co-founded an urban AgTech venture focused on commercial vertical hydroponic cultivation powered by solar energy.</li>
+          <li>Built and operated a growing model supplying specialty herbs, microgreens, and produce to <span class="exp-stat">150+ restaurants</span> plus direct-to-consumer.</li>
+          <li>Led business model design, strategic partnerships, investor communication, and project structuring.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-line"></div>
+      <div>
+        <div class="exp-role">Co-Founder / Biotech Consultant</div>
+        <div class="exp-company">Baja Biotech</div>
+        <div class="exp-period">Mexico / La Jolla, California · 2014 – 2017</div>
+        <ul class="exp-bullets">
+          <li>Designed and commercialized tailored R&D solutions for biotech and molecular biology labs across Mexico and the US.</li>
+          <li>Led technical sales, client training, and lab setup projects — translating scientific needs into practical solutions.</li>
+          <li>Supported cross-border technology transfer between La Jolla research institutions and Mexico.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-line"></div>
+      <div>
+        <div class="exp-role">Clinical Data Associate</div>
+        <div class="exp-company">INC Research (now Syneos Health)</div>
+        <div class="exp-period">Mexico City · 2011 – 2013</div>
+        <ul class="exp-bullets">
+          <li>Managed and analyzed clinical trial data for international pharmaceutical studies (Parkinson's, epilepsy, rheumatoid arthritis).</li>
+          <li>Structured and standardized datasets in compliance with ICH-GCP and FDA data integrity standards.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══════════════════════════════════
+       AI TOOLCHAIN
+  ══════════════════════════════════ -->
+  <div class="sec"><div class="sec-icon yellow">🤖</div><h2>AI Toolchain</h2><div class="sec-line"></div></div>
+  <p class="toolchain-intro">"I use AI as an execution system, not as autocomplete. My workflow includes model-specific briefing files and persistent context systems to guide implementation, debugging, and architectural decisions."</p>
+
+  <div class="tool-group">
+    <div class="tool-group-label">Anthropic / Claude</div>
+    <div class="tools-row">
+      <div class="tool-chip"><span class="t-icon">🟣</span> Claude Sonnet <span class="role">· architecture, complex code, QA</span></div>
+      <div class="tool-chip"><span class="t-icon">🟣</span> Claude Code <span class="role">· agentic CLI coding</span></div>
+      <div class="tool-chip"><span class="t-icon">🟣</span> Claude Cowork <span class="role">· agent orchestration</span></div>
+    </div>
+  </div>
+  <div class="tool-group">
+    <div class="tool-group-label">OpenAI</div>
+    <div class="tools-row">
+      <div class="tool-chip"><span class="t-icon">🟢</span> ChatGPT <span class="role">· ideation, drafts, second opinion</span></div>
+      <div class="tool-chip"><span class="t-icon">🟢</span> Codex <span class="role">· code generation</span></div>
+    </div>
+  </div>
+  <div class="tool-group">
+    <div class="tool-group-label">Google & Local</div>
+    <div class="tools-row">
+      <div class="tool-chip"><span class="t-icon">🔵</span> Gemini <span class="role">· cross-review, long context</span></div>
+      <div class="tool-chip"><span class="t-icon">🟠</span> Google Antigravity <span class="role">· cloud execution</span></div>
+      <div class="tool-chip"><span class="t-icon">🔵</span> Google NotebookLM <span class="role">· research synthesis, knowledge base</span></div>
+      <div class="tool-chip"><span class="t-icon">🎨</span> Stitch <span class="role">· UI design & prototyping</span></div>
+      <div class="tool-chip"><span class="t-icon">⚙️</span> Qwen Code 2.5 7B <span class="role">· local inference, offline tasks</span></div>
+    </div>
+  </div>
+  <div class="tool-group">
+    <div class="tool-group-label">Context & Knowledge</div>
+    <div class="tools-row">
+      <div class="tool-chip"><span class="t-icon">🪨</span> Obsidian <span class="role">· context management & knowledge base</span></div>
+      <div class="tool-chip"><span class="t-icon">📋</span> Notion <span class="role">· product HQ & documentation</span></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       TECHNICAL APPROACH
+  ══════════════════════════════════ -->
+  <div class="sec"><div class="sec-icon orange">⚙️</div><h2>Technical Approach</h2><div class="sec-line"></div></div>
+  <div class="approach-grid">
+    <div class="approach-item"><span class="a-icon">🧠</span><span>AI orchestration across multiple models with model-specific briefing files (<code>CLAUDE.md</code>, <code>AGENTS.md</code>, <code>GEMINI.md</code>)</span></div>
+    <div class="approach-item"><span class="a-icon">📐</span><span>Context engineering using structured, persistent documentation to guide coherent AI output across sessions</span></div>
+    <div class="approach-item"><span class="a-icon">🏗️</span><span>Product architecture for multi-tenant systems, OAuth2 flows, webhook deduplication, caching, and composite indexes</span></div>
+    <div class="approach-item"><span class="a-icon">🔍</span><span>Structured debugging of real production issues and disciplined deploy workflows with strict TypeScript and full build validation</span></div>
+  </div>
+
+  <!-- DIFFERENTIATOR -->
+  <div style="margin-top:16px">
+    <div class="diff-block">
+      <p><strong>What makes me different as a vibe coder:</strong> I don't just "ask AI for code" — I <strong>design the context system</strong> that makes AI produce coherent, maintainable, and correct code. I understand enough engineering to validate, debug, and make architectural decisions. And I understand enough product to avoid building what nobody needs. The result: complete digital products, live in production, with real users — built by one person.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       EDUCATION + LANGUAGES
+  ══════════════════════════════════ -->
+  <div class="sec" style="margin-top:36px"><div class="sec-icon blue">🎓</div><h2>Education & Languages</h2><div class="sec-line"></div></div>
+  <div class="bottom-grid">
+    <div class="edu-list">
+      <div class="edu-item">
+        <span class="edu-icon">🔬</span>
+        <div>
+          <div class="edu-degree">PhD in Science — Biotechnology & Bioengineering</div>
+          <div class="edu-school">Universidad Autónoma de Baja California</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <span class="edu-icon">🧬</span>
+        <div>
+          <div class="edu-degree">MSc in Molecular Ecology & Biotechnology</div>
+          <div class="edu-school">Universidad Autónoma de Baja California</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <span class="edu-icon">🌿</span>
+        <div>
+          <div class="edu-degree">BSc in Biology</div>
+          <div class="edu-school">Universidad Nacional Autónoma de México</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <span class="edu-icon">🚀</span>
+        <div>
+          <div class="edu-degree">Life Science Entrepreneurship Certificate</div>
+          <div class="edu-school">San Diego State University</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <span class="edu-icon">💡</span>
+        <div>
+          <div class="edu-degree">Entrepreneurship for the 21st Century</div>
+          <div class="edu-school">Tecnológico de Monterrey</div>
+        </div>
+      </div>
+    </div>
+    <div class="lang-list">
+      <div class="lang-item">
+        <div class="lang-name">🇲🇽 Spanish</div>
+        <div class="lang-level">Native</div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">🇺🇸 English</div>
+        <div class="lang-level">Professional working proficiency<br>Cambridge FCE (B2)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       CONTINUOUS LEARNING
+  ══════════════════════════════════ -->
+  <div style="margin-top:28px; padding:20px 22px; background:var(--bg2); border:1px solid var(--border); border-radius:12px;">
+    <div style="display:flex; align-items:center; gap:8px; margin-bottom:14px;">
+      <span style="font-size:15px;">📚</span>
+      <span style="font-size:12px; font-weight:700; color:var(--text2); text-transform:uppercase; letter-spacing:.08em;">Continuous Learning</span>
+      <span style="font-size:11px; color:var(--text3); margin-left:4px;">· Platzi</span>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:12px;">
+
+      <div>
+        <div style="font-size:10px; color:var(--accent2); text-transform:uppercase; letter-spacing:.07em; margin-bottom:7px; font-weight:600;">🐍 Programming & Data Science</div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          <span style="font-size:11px; background:var(--bg3); border:1px solid var(--border); border-radius:6px; padding:3px 9px; color:var(--text2);">Structured Programming</span>
+          <span style="font-size:11px; background:var(--bg3); border:1px solid var(--border); border-radius:6px; padding:3px 9px; color:var(--text2);">OOP & Algorithms with Python</span>
+          <span style="font-size:11px; background:var(--bg3); border:1px solid var(--border); border-radius:6px; padding:3px 9px; color:var(--text2);">Statistical Computing with Python</span>
+          <span style="font-size:11px; background:var(--bg3); border:1px solid var(--border); border-radius:6px; padding:3px 9px; color:var(--text2);">Probabilistic Thinking</span>
+          <span style="font-size:11px; background:var(--bg3); border:1px solid var(--border); border-radius:6px; padding:3px 9px; color:var(--text2);">Business Analytics for Data Science</span>
+          <span style="font-size:11px; background:var(--bg3); border:1px solid var(--border); border-radius:6px; padding:3px 9px; color:var(--text2);">Computational Thinking with Python</span>
+          <span style="font-size:11px; background:var(--bg3); border:1px solid var(--border); border-radius:6px; padding:3px 9px; color:var(--text2);">Terminal & CLI</span>
+          <span style="font-size:11px; background:var(--bg3); border:1px solid var(--border); border-radius:6px; padding:3px 9px; color:var(--text2);">Logical Thinking</span>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-size:10px; color:var(--green); text-transform:uppercase; letter-spacing:.07em; margin-bottom:7px; font-weight:600;">⚙️ Developer Tools</div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          <span style="font-size:11px; background:var(--bg3); border:1px solid var(--border); border-radius:6px; padding:3px 9px; color:var(--text2);">Git & GitHub (Professional)</span>
+          <span style="font-size:11px; background:var(--bg3); border:1px solid var(--border); border-radius:6px; padding:3px 9px; color:var(--text2);">Digital Economy & Crypto</span>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-size:10px; color:var(--pink); text-transform:uppercase; letter-spacing:.07em; margin-bottom:7px; font-weight:600;">📣 Marketing & Growth</div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          <span style="font-size:11px; background:var(--bg3); border:1px solid var(--border); border-radius:6px; padding:3px 9px; color:var(--text2);">SEO Strategy & Content Planning</span>
+          <span style="font-size:11px; background:var(--bg3); border:1px solid var(--border); border-radius:6px; padding:3px 9px; color:var(--text2);">SEO: Search Engine Positioning</span>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-size:10px; color:var(--yellow); text-transform:uppercase; letter-spacing:.07em; margin-bottom:7px; font-weight:600;">🤖 AI & Productivity</div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          <span style="font-size:11px; background:var(--bg3); border:1px solid var(--border); border-radius:6px; padding:3px 9px; color:var(--text2);">ChatGPT for Spreadsheets</span>
+          <span style="font-size:11px; background:var(--bg3); border:1px solid var(--border); border-radius:6px; padding:3px 9px; color:var(--text2);">Project Management Fundamentals</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       FOOTER
+  ══════════════════════════════════ -->
+  <!-- FOOTER META NOTE -->
+  <div style="
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    background: rgba(52,211,153,.05);
+    border: 1px solid rgba(52,211,153,.15);
+    border-radius: 10px; padding: 12px 20px;
+    margin-bottom: 20px; text-align:center;
+  ">
+    <span style="font-size:16px;">🤖</span>
+    <p style="font-size:11.5px; color:var(--text3); line-height:1.6;">
+      <strong style="color:var(--text2);">Yes, this CV is a vibe coded HTML file exported to PDF.</strong>
+      &nbsp;·&nbsp; Same stack, same workflow, same discipline as every product I build.
+      &nbsp;·&nbsp; <span style="color:var(--green);">That's the point.</span>
+    </p>
+  </div>
+
+  <div class="footer-bar">
+    <p>Edgar Mancilla · Vibe Coder / AI-Native Builder · Mexico City · 2026</p>
+  </div>
+
+</body>
+</html>
