@@ -44,7 +44,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="section-spacing bg-low">
+    <section id="projects" className="section-spacing-bottom bg-low">
       <div className="container">
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '4rem' }}>
@@ -62,7 +62,7 @@ export default function Projects() {
             <span className="mobile-scroll-arrow">&rarr;</span>
           </div>
 
-          <div className="projects-list" style={{ display: 'flex', flexDirection: 'column', gap: '5rem' }}>
+          <div className="projects-list">
             {projects.map(proj => (
               <div
                 key={proj.id}

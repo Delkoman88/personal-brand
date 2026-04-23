@@ -89,6 +89,26 @@ h3 { font-size: 1.75rem; }
   padding: 8rem 0;
 }
 
+.section-spacing-top {
+  padding: 8rem 0 3rem 0;
+}
+
+.section-spacing-bottom {
+  padding: 3rem 0 8rem 0;
+}
+
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.ai-toolchain-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
 .bg-lowest { background-color: var(--surface-lowest); }
 .bg-low { background-color: var(--surface-low); }
 
@@ -933,11 +953,20 @@ h3 { font-size: 1.75rem; }
   }
 
   .experience-list,
-  .projects-list,
-  .ai-toolchain-grid {
+  .projects-list {
     display: grid !important;
     grid-auto-flow: column;
     grid-auto-columns: minmax(86vw, 86vw);
+    overflow-x: auto;
+    gap: 1.5rem !important;
+    padding-bottom: 0.5rem;
+    scroll-snap-type: x proximity;
+  }
+
+  .ai-toolchain-grid {
+    display: grid !important;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(280px, 80vw);
     overflow-x: auto;
     gap: 1rem !important;
     padding-bottom: 0.5rem;
@@ -1008,6 +1037,14 @@ h3 { font-size: 1.75rem; }
 @media (max-width: 640px) {
   .section-spacing {
     padding: 3.5rem 0;
+  }
+
+  .section-spacing-top {
+    padding: 3.5rem 0 2rem 0;
+  }
+
+  .section-spacing-bottom {
+    padding: 2rem 0 3.5rem 0;
   }
 
   .blog-featured-card,

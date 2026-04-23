@@ -49,7 +49,7 @@ const aiToolGroups = [
 
 export default function Capabilities() {
   return (
-    <section id="capabilities" className="section-spacing bg-low">
+    <section id="capabilities" className="section-spacing-top bg-low">
       <div className="container">
         
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '4rem' }}>
@@ -119,10 +119,10 @@ export default function Capabilities() {
               <span className="mobile-scroll-arrow">&rarr;</span>
             </div>
 
-            <div className="ai-toolchain-grid" style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+            <div className="ai-toolchain-grid">
               {aiToolGroups.map(group => (
                 <div key={group.label} className="project-item" style={{
-                  padding: '1rem',
+                  padding: '1.5rem',
                   border: '1px solid var(--outline-variant)',
                   backgroundColor: 'rgba(28, 27, 27, 0.4)'
                 }}>

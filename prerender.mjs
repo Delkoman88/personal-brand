@@ -280,7 +280,7 @@ function buildHomePage(posts) {
         </div>
       </section>
 
-      <section id="capabilities" class="section-spacing bg-low">
+      <section id="capabilities" class="section-spacing-top bg-low">
         <div class="container" style="display: grid; gap: 2rem;">
           <div style="display: flex; align-items: center; gap: 1rem;">
             <span class="label-text" style="color: var(--primary-container);">02 // Core Capabilities</span>
@@ -304,8 +304,8 @@ function buildHomePage(posts) {
                 <span class="mobile-scroll-arrow">&larr;</span>
                 <span class="mobile-scroll-arrow">&rarr;</span>
               </div>
-              <div class="ai-toolchain-grid" style="display: flex; flex-direction: column; gap: 1.25rem;">
-                <div class="project-item" style="padding: 1rem; border: 1px solid var(--outline-variant); background-color: rgba(28, 27, 27, 0.4);">
+              <div class="ai-toolchain-grid">
+                <div class="project-item" style="padding: 1.5rem; border: 1px solid var(--outline-variant); background-color: rgba(28, 27, 27, 0.4);">
                   <span class="label-text" style="font-size: 0.65rem; color: var(--outline); display: block; margin-bottom: 0.6rem;">Anthropic / Claude</span>
                   <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
                     <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🟣</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Claude Sonnet</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Architecture · Complex code · QA</span></div></div>
@@ -313,14 +313,14 @@ function buildHomePage(posts) {
                     <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🟣</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Claude Cowork</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Agent orchestration</span></div></div>
                   </div>
                 </div>
-                <div class="project-item" style="padding: 1rem; border: 1px solid var(--outline-variant); background-color: rgba(28, 27, 27, 0.4);">
+                <div class="project-item" style="padding: 1.5rem; border: 1px solid var(--outline-variant); background-color: rgba(28, 27, 27, 0.4);">
                   <span class="label-text" style="font-size: 0.65rem; color: var(--outline); display: block; margin-bottom: 0.6rem;">OpenAI</span>
                   <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
                     <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🟢</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">ChatGPT</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Ideation · Drafts · Second opinion</span></div></div>
                     <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🟢</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Codex</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Code generation</span></div></div>
                   </div>
                 </div>
-                <div class="project-item" style="padding: 1rem; border: 1px solid var(--outline-variant); background-color: rgba(28, 27, 27, 0.4);">
+                <div class="project-item" style="padding: 1.5rem; border: 1px solid var(--outline-variant); background-color: rgba(28, 27, 27, 0.4);">
                   <span class="label-text" style="font-size: 0.65rem; color: var(--outline); display: block; margin-bottom: 0.6rem;">Google & Local</span>
                   <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
                     <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🔵</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Gemini</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Cross-review · Long context</span></div></div>
@@ -330,7 +330,7 @@ function buildHomePage(posts) {
                     <div class="ai-tool-chip"><span style="font-size: 0.9rem;">⚙️</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Qwen Code 2.5 7B</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Local inference · Offline tasks</span></div></div>
                   </div>
                 </div>
-                <div class="project-item" style="padding: 1rem; border: 1px solid var(--outline-variant); background-color: rgba(28, 27, 27, 0.4);">
+                <div class="project-item" style="padding: 1.5rem; border: 1px solid var(--outline-variant); background-color: rgba(28, 27, 27, 0.4);">
                   <span class="label-text" style="font-size: 0.65rem; color: var(--outline); display: block; margin-bottom: 0.6rem;">Context & Knowledge</span>
                   <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
                     <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🪨</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Obsidian</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Context management · Knowledge base</span></div></div>
@@ -344,7 +344,7 @@ function buildHomePage(posts) {
       </section>
 
       
-      <section id="projects" class="section-spacing bg-low">
+      <section id="projects" class="section-spacing-bottom bg-low">
         <div class="container">
           <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 4rem;">
             <span class="label-text" style="color: var(--primary-container);">03 // Vibe Coding - Shipped Projects</span>
@@ -358,7 +358,7 @@ function buildHomePage(posts) {
               <span class="mobile-scroll-arrow">&larr;</span>
               <span class="mobile-scroll-arrow">&rarr;</span>
             </div>
-            <div class="projects-list" style="display: flex; flex-direction: column; gap: 5rem;">
+            <div class="projects-list">
               
               <div class="project-item" style="position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; align-items: start; padding-left: 2rem; border-left: 2px solid var(--outline-variant);">
                 <div style="position: absolute; top: 0; left: -6px; width: 10px; height: 10px; background-color: var(--primary-container);"></div>
