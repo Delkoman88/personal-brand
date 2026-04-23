@@ -286,7 +286,7 @@ function buildHomePage(posts) {
             <span class="label-text" style="color: var(--primary-container);">02 // Core Capabilities</span>
             <div style="flex: 1; height: 1px; background-color: var(--outline-variant);"></div>
           </div>
-          <p style="max-width: 800px; margin: 0; color: var(--on-surface-variant); font-size: 1.05rem;">Strategy and operations, compliance and market readiness, traceability, documentation, quality systems, automation, AgTech, cross-functional implementation, and AI-Native Product Development.</p>
+          <p style="max-width: 800px; margin: 0; color: var(--on-surface-variant); font-size: 1.05rem;">AI-Native Product Development, strategy and operations, compliance and market readiness, traceability, documentation, quality systems, automation, AgTech, and cross-functional implementation.</p>
           
           <div style="margin-top: 3.5rem; padding-top: 3rem; border-top: 1px solid var(--outline-variant);">
             <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">

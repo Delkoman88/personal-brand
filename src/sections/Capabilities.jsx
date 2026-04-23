@@ -1,15 +1,15 @@
 import React from 'react';
 
 const capabilities = [
-  { id: '01', title: 'Strategy & Operations', desc: 'Translating high-level company goals into executable operational frameworks and robust daily systems.' },
-  { id: '02', title: 'Compliance & Market Readiness', desc: 'Navigating regulatory requirements to build compliance into operational workflows from day one.' },
-  { id: '03', title: 'Traceability & Documentation', desc: 'Designing clear records and standard operating procedures (SOPs) for total operational visibility.' },
-  { id: '04', title: 'Quality Systems & Process Design', desc: 'Methodological structuring of workflows to guarantee consistency and minimize systemic risks.' },
-  { id: '05', title: 'Lab / Technical Operations', desc: 'Hands-on management of complex technical facilities, assuring scientific rigor meets operational output.' },
-  { id: '06', title: 'Automation & Workflow Design', desc: 'Implementing technical solutions and AI-driven tools to eliminate operational bottlenecks.' },
-  { id: '07', title: 'AgTech & Controlled Environment', desc: 'Building modular production systems and hydroponic workflows for decentralized, localized agriculture.' },
-  { id: '08', title: 'Cross-Functional Implementation', desc: 'Aligning business, technical, and regulatory teams toward unified, coherent execution strategies.' },
-  { id: '09', title: 'AI-Native Product Development', desc: 'Using AI as an execution engine — not autocomplete. Context engineering, model orchestration, and structured debugging to ship complete products fast without cutting corners.' },
+  { id: '01', title: 'AI-Native Product Development', desc: 'Using AI as an execution engine — not autocomplete. Context engineering, model orchestration, and structured debugging to ship complete products fast without cutting corners.' },
+  { id: '02', title: 'Strategy & Operations', desc: 'Translating high-level company goals into executable operational frameworks and robust daily systems.' },
+  { id: '03', title: 'Compliance & Market Readiness', desc: 'Navigating regulatory requirements to build compliance into operational workflows from day one.' },
+  { id: '04', title: 'Traceability & Documentation', desc: 'Designing clear records and standard operating procedures (SOPs) for total operational visibility.' },
+  { id: '05', title: 'Quality Systems & Process Design', desc: 'Methodological structuring of workflows to guarantee consistency and minimize systemic risks.' },
+  { id: '06', title: 'Lab / Technical Operations', desc: 'Hands-on management of complex technical facilities, assuring scientific rigor meets operational output.' },
+  { id: '07', title: 'Automation & Workflow Design', desc: 'Implementing technical solutions and AI-driven tools to eliminate operational bottlenecks.' },
+  { id: '08', title: 'AgTech & Controlled Environment', desc: 'Building modular production systems and hydroponic workflows for decentralized, localized agriculture.' },
+  { id: '09', title: 'Cross-Functional Implementation', desc: 'Aligning business, technical, and regulatory teams toward unified, coherent execution strategies.' },
 ];
 
 const aiToolGroups = [
