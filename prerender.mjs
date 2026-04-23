@@ -296,37 +296,46 @@ function buildHomePage(posts) {
             <p style="font-size: 0.95rem; color: var(--on-surface-variant); line-height: 1.8; border-left: 2px solid rgba(0, 245, 255, 0.3); padding-left: 1rem; font-style: italic; margin-bottom: 1.5rem; max-width: 640px;">
               "I use AI as an execution system, not autocomplete. My workflow includes persistent briefing files per model and context systems that guide implementation, debugging, and architectural decisions."
             </p>
-            <div style="display: flex; flex-direction: column; gap: 1.25rem;">
-              <div>
-                <span class="label-text" style="font-size: 0.65rem; color: var(--outline); display: block; margin-bottom: 0.6rem;">Anthropic / Claude</span>
-                <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
-                  <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🟣</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Claude Sonnet</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Architecture · Complex code · QA</span></div></div>
-                  <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🟣</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Claude Code</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Agentic CLI coding</span></div></div>
-                  <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🟣</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Claude Cowork</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Agent orchestration</span></div></div>
-                </div>
+            <div class="mobile-scroll-shell">
+              <div class="mobile-scroll-indicator">
+                <span class="label-text">Swipe to see more tools</span>
               </div>
-              <div>
-                <span class="label-text" style="font-size: 0.65rem; color: var(--outline); display: block; margin-bottom: 0.6rem;">OpenAI</span>
-                <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
-                  <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🟢</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">ChatGPT</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Ideation · Drafts · Second opinion</span></div></div>
-                  <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🟢</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Codex</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Code generation</span></div></div>
-                </div>
+              <div class="mobile-scroll-cue" aria-hidden="true">
+                <span class="mobile-scroll-arrow">&larr;</span>
+                <span class="mobile-scroll-arrow">&rarr;</span>
               </div>
-              <div>
-                <span class="label-text" style="font-size: 0.65rem; color: var(--outline); display: block; margin-bottom: 0.6rem;">Google & Local</span>
-                <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
-                  <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🔵</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Gemini</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Cross-review · Long context</span></div></div>
-                  <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🟠</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Google Antigravity</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Cloud execution</span></div></div>
-                  <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🔵</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">NotebookLM</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Research synthesis · Knowledge base</span></div></div>
-                  <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🎨</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Stitch</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">UI design & prototyping</span></div></div>
-                  <div class="ai-tool-chip"><span style="font-size: 0.9rem;">⚙️</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Qwen Code 2.5 7B</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Local inference · Offline tasks</span></div></div>
+              <div class="ai-toolchain-grid" style="display: flex; flex-direction: column; gap: 1.25rem;">
+                <div class="project-item" style="padding: 1rem; border: 1px solid var(--outline-variant); background-color: rgba(28, 27, 27, 0.4);">
+                  <span class="label-text" style="font-size: 0.65rem; color: var(--outline); display: block; margin-bottom: 0.6rem;">Anthropic / Claude</span>
+                  <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
+                    <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🟣</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Claude Sonnet</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Architecture · Complex code · QA</span></div></div>
+                    <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🟣</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Claude Code</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Agentic CLI coding</span></div></div>
+                    <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🟣</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Claude Cowork</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Agent orchestration</span></div></div>
+                  </div>
                 </div>
-              </div>
-              <div>
-                <span class="label-text" style="font-size: 0.65rem; color: var(--outline); display: block; margin-bottom: 0.6rem;">Context & Knowledge</span>
-                <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
-                  <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🪨</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Obsidian</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Context management · Knowledge base</span></div></div>
-                  <div class="ai-tool-chip"><span style="font-size: 0.9rem;">📋</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Notion</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Product HQ · Documentation</span></div></div>
+                <div class="project-item" style="padding: 1rem; border: 1px solid var(--outline-variant); background-color: rgba(28, 27, 27, 0.4);">
+                  <span class="label-text" style="font-size: 0.65rem; color: var(--outline); display: block; margin-bottom: 0.6rem;">OpenAI</span>
+                  <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
+                    <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🟢</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">ChatGPT</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Ideation · Drafts · Second opinion</span></div></div>
+                    <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🟢</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Codex</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Code generation</span></div></div>
+                  </div>
+                </div>
+                <div class="project-item" style="padding: 1rem; border: 1px solid var(--outline-variant); background-color: rgba(28, 27, 27, 0.4);">
+                  <span class="label-text" style="font-size: 0.65rem; color: var(--outline); display: block; margin-bottom: 0.6rem;">Google & Local</span>
+                  <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
+                    <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🔵</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Gemini</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Cross-review · Long context</span></div></div>
+                    <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🟠</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Google Antigravity</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Cloud execution</span></div></div>
+                    <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🔵</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">NotebookLM</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Research synthesis · Knowledge base</span></div></div>
+                    <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🎨</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Stitch</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">UI design & prototyping</span></div></div>
+                    <div class="ai-tool-chip"><span style="font-size: 0.9rem;">⚙️</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Qwen Code 2.5 7B</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Local inference · Offline tasks</span></div></div>
+                  </div>
+                </div>
+                <div class="project-item" style="padding: 1rem; border: 1px solid var(--outline-variant); background-color: rgba(28, 27, 27, 0.4);">
+                  <span class="label-text" style="font-size: 0.65rem; color: var(--outline); display: block; margin-bottom: 0.6rem;">Context & Knowledge</span>
+                  <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
+                    <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🪨</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Obsidian</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Context management · Knowledge base</span></div></div>
+                    <div class="ai-tool-chip"><span style="font-size: 0.9rem;">📋</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Notion</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Product HQ · Documentation</span></div></div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -341,66 +350,95 @@ function buildHomePage(posts) {
             <span class="label-text" style="color: var(--primary-container);">03 // Vibe Coding - Shipped Projects</span>
             <div style="flex: 1; height: 1px; background-color: var(--outline-variant);"></div>
           </div>
-          <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-            
-            <div style="position: relative; background-color: var(--surface-high); border: 1px solid var(--outline-variant); padding: 2rem; overflow: hidden;">
-              <div style="position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--primary-container), var(--secondary-container));"></div>
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
-                <div>
-                  <h3 style="margin: 0 0 0.3rem 0; font-size: 1.25rem;">Beauty Studio Copilot</h3>
-                  <span class="label-text" style="font-size: 0.68rem; color: var(--on-surface-variant);">Solo Builder · Product Engineer · LATAM · 2026 — Present</span>
-                </div>
-                <a href="https://beauty-studio-copilot--beauty-studio-copilot.us-east4.hosted.app" target="_blank" rel="noopener noreferrer" class="project-live-badge"><span class="project-live-dot"></span>Live — View project →</a>
-              </div>
-              <p style="color: var(--on-surface-variant); font-size: 0.95rem; line-height: 1.75; margin-bottom: 1.25rem;">SaaS platform for beauty studios — built solo from zero to production and validated by a real user today. Replaces fragmented WhatsApp + Google Sheets workflows with a structured operating system for beauty businesses.</p>
-              
-              <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
-                <div class="project-highlight-chip"><span style="color: var(--primary-container); font-weight: 700; font-size: 1rem; font-family: var(--font-display);">20+</span><span>features in prod</span></div>
-                <div class="project-highlight-chip"><span style="color: var(--primary-container); font-weight: 700; font-size: 1rem; font-family: var(--font-display);">45+</span><span>unit tests</span></div>
-                <div class="project-highlight-chip"><span style="color: var(--primary-container); font-weight: 700; font-size: 1rem; font-family: var(--font-display);">1</span><span>solo builder</span></div>
-              </div>
-              
-              <ul style="list-style: none; padding: 0; margin-bottom: 1.25rem;">
-                <li style="font-size: 0.875rem; color: var(--on-surface-variant); line-height: 1.7; padding: 0.2rem 0 0.2rem 1.1rem; position: relative;"><span style="position: absolute; left: 0; color: var(--primary-container); font-weight: 700;">›</span>Full management system: multi-tenant auth, client CRM, Google Calendar sync, assisted messaging (WhatsApp), loyalty system, checkout & finances, multi-staff with roles, KPI dashboards, automated reminders, and mobile-first UX.</li>
-                <li style="font-size: 0.875rem; color: var(--on-surface-variant); line-height: 1.7; padding: 0.2rem 0 0.2rem 1.1rem; position: relative;"><span style="position: absolute; left: 0; color: var(--primary-container); font-weight: 700;">›</span>Full product ownership: definition, UX decisions, implementation, backlog management, debugging, and continuous iteration.</li>
-                <li style="font-size: 0.875rem; color: var(--on-surface-variant); line-height: 1.7; padding: 0.2rem 0 0.2rem 1.1rem; position: relative;"><span style="position: absolute; left: 0; color: var(--primary-container); font-weight: 700;">›</span>Production monitoring with Sentry, 45+ unit tests, strict TypeScript and ESLint — no shortcuts.</li>
-              </ul>
-              
-              <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
-                <span class="project-stack-badge">Next.js App Router</span>
-                <span class="project-stack-badge">TypeScript</span>
-                <span class="project-stack-badge">Firebase Auth</span>
-                <span class="project-stack-badge">Firestore</span>
-                <span class="project-stack-badge">Cloud Functions</span>
-                <span class="project-stack-badge">Google Calendar API</span>
-                <span class="project-stack-badge">OAuth2</span>
-                <span class="project-stack-badge">Twilio</span>
-                <span class="project-stack-badge">SendGrid</span>
-                <span class="project-stack-badge">Sentry</span>
-              </div>
+          <div class="mobile-scroll-shell">
+            <div class="mobile-scroll-indicator">
+              <span class="label-text">Swipe to see more projects</span>
             </div>
-
-            <div style="position: relative; background-color: var(--surface-high); border: 1px solid var(--outline-variant); padding: 2rem; overflow: hidden;">
-              <div style="position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #f59e0b, #f97316);"></div>
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
-                <div>
-                  <h3 style="margin: 0 0 0.3rem 0; font-size: 1.25rem;">Viajero Sediento</h3>
-                  <span class="label-text" style="font-size: 0.68rem; color: var(--on-surface-variant);">Product Builder · Real client · 2026</span>
-                </div>
-                <a href="https://sitioviajerosediento--sitioviajerosediento.us-central1.hosted.app" target="_blank" rel="noopener noreferrer" class="project-live-badge"><span class="project-live-dot"></span>Live — View project →</a>
-              </div>
-              <p style="color: var(--on-surface-variant); font-size: 0.95rem; line-height: 1.75; margin-bottom: 1rem;">Mobile-first digital catalog and admin platform for a real tap room — Nordic aesthetic, individual beer sheets, full CRUD with image upload and state management. Staff uses the admin panel daily in operations.</p>
-              
-              <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
-                <span class="project-stack-badge">Next.js</span>
-                <span class="project-stack-badge">TypeScript</span>
-                <span class="project-stack-badge">Firebase Auth</span>
-                <span class="project-stack-badge">Firestore</span>
-                <span class="project-stack-badge">Firebase Storage</span>
-                <span class="project-stack-badge">App Hosting</span>
-              </div>
+            <div class="mobile-scroll-cue" aria-hidden="true">
+              <span class="mobile-scroll-arrow">&larr;</span>
+              <span class="mobile-scroll-arrow">&rarr;</span>
             </div>
+            <div class="projects-list" style="display: flex; flex-direction: column; gap: 5rem;">
+              
+              <div class="project-item" style="position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; align-items: start; padding-left: 2rem; border-left: 2px solid var(--outline-variant);">
+                <div style="position: absolute; top: 0; left: -6px; width: 10px; height: 10px; background-color: var(--primary-container);"></div>
+                
+                <div class="project-copy" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                  <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap;">
+                    <div>
+                      <h3 style="margin: 0 0 0.3rem 0; font-size: 1.45rem;">Beauty Studio Copilot</h3>
+                      <span class="label-text" style="font-size: 0.68rem; color: var(--on-surface-variant);">Solo Builder · Product Engineer · LATAM · 2026 — Present</span>
+                    </div>
+                    <a href="https://beauty-studio-copilot--beauty-studio-copilot.us-east4.hosted.app" target="_blank" rel="noopener noreferrer" class="project-live-badge"><span class="project-live-dot" style="background-color: var(--primary-container);"></span>Live — View project →</a>
+                  </div>
+                  
+                  <p style="color: var(--on-surface-variant); font-size: 1rem; line-height: 1.75; margin: 0;">SaaS platform for beauty studios — built solo from zero to production and validated by a real user today. Replaces fragmented WhatsApp + Google Sheets workflows with a structured operating system for beauty businesses.</p>
+                  
+                  <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                    <div class="project-highlight-chip"><span style="color: var(--primary-container); font-weight: 700; font-size: 1rem; font-family: var(--font-display);">20+</span><span>features in prod</span></div>
+                    <div class="project-highlight-chip"><span style="color: var(--primary-container); font-weight: 700; font-size: 1rem; font-family: var(--font-display);">45+</span><span>unit tests</span></div>
+                    <div class="project-highlight-chip"><span style="color: var(--primary-container); font-weight: 700; font-size: 1rem; font-family: var(--font-display);">1</span><span>solo builder</span></div>
+                  </div>
+                  
+                  <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="font-size: 0.875rem; color: var(--on-surface-variant); line-height: 1.7; padding: 0.2rem 0 0.2rem 1.1rem; position: relative;"><span style="position: absolute; left: 0; color: var(--primary-container); font-weight: 700;">›</span>Full management system: multi-tenant auth, client CRM, Google Calendar sync, assisted messaging (WhatsApp), loyalty system, checkout & finances, multi-staff with roles, KPI dashboards, automated reminders, and mobile-first UX.</li>
+                    <li style="font-size: 0.875rem; color: var(--on-surface-variant); line-height: 1.7; padding: 0.2rem 0 0.2rem 1.1rem; position: relative;"><span style="position: absolute; left: 0; color: var(--primary-container); font-weight: 700;">›</span>Full product ownership: definition, UX decisions, implementation, backlog management, debugging, and continuous iteration.</li>
+                    <li style="font-size: 0.875rem; color: var(--on-surface-variant); line-height: 1.7; padding: 0.2rem 0 0.2rem 1.1rem; position: relative;"><span style="position: absolute; left: 0; color: var(--primary-container); font-weight: 700;">›</span>Production monitoring with Sentry, 45+ unit tests, strict TypeScript and ESLint — no shortcuts.</li>
+                  </ul>
+                  
+                  <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem;">
+                    <span class="project-stack-badge">Next.js App Router</span>
+                    <span class="project-stack-badge">TypeScript</span>
+                    <span class="project-stack-badge">Firebase Auth</span>
+                    <span class="project-stack-badge">Firestore</span>
+                    <span class="project-stack-badge">Cloud Functions</span>
+                    <span class="project-stack-badge">Google Calendar API</span>
+                    <span class="project-stack-badge">OAuth2</span>
+                    <span class="project-stack-badge">Twilio</span>
+                    <span class="project-stack-badge">SendGrid</span>
+                    <span class="project-stack-badge">Sentry</span>
+                  </div>
+                </div>
 
+                <div class="project-visual" style="position: relative; width: 100%; aspect-ratio: 16/9; border: 1px solid var(--outline-variant); background-color: var(--surface-lowest); overflow: hidden;">
+                  <div style="position: absolute; top: -1px; left: -1px; width: 10px; height: 10px; border-top: 2px solid var(--primary-container); border-left: 2px solid var(--primary-container); z-index: 2;"></div>
+                  <div style="position: absolute; bottom: -1px; right: -1px; width: 10px; height: 10px; border-bottom: 2px solid var(--primary-container); border-right: 2px solid var(--primary-container); z-index: 2;"></div>
+                  <img src="/project-beauty.png" alt="Beauty Studio Copilot project screenshot" translate="no" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(15%) contrast(1.1) brightness(0.9); mix-blend-mode: lighten;" />
+                </div>
+              </div>
+
+              <div class="project-item" style="position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; align-items: start; padding-left: 2rem; border-left: 2px solid var(--outline-variant);">
+                <div style="position: absolute; top: 0; left: -6px; width: 10px; height: 10px; background-color: #f59e0b;"></div>
+                
+                <div class="project-copy" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                  <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap;">
+                    <div>
+                      <h3 style="margin: 0 0 0.3rem 0; font-size: 1.45rem;">Viajero Sediento</h3>
+                      <span class="label-text" style="font-size: 0.68rem; color: var(--on-surface-variant);">Product Builder · Real client · 2026</span>
+                    </div>
+                    <a href="https://sitioviajerosediento--sitioviajerosediento.us-central1.hosted.app" target="_blank" rel="noopener noreferrer" class="project-live-badge"><span class="project-live-dot" style="background-color: #f59e0b;"></span>Live — View project →</a>
+                  </div>
+                  
+                  <p style="color: var(--on-surface-variant); font-size: 1rem; line-height: 1.75; margin: 0;">Mobile-first digital catalog and admin platform for a real tap room — Nordic aesthetic, individual beer sheets, full CRUD with image upload and state management. Staff uses the admin panel daily in operations.</p>
+                  
+                  <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem;">
+                    <span class="project-stack-badge">Next.js</span>
+                    <span class="project-stack-badge">TypeScript</span>
+                    <span class="project-stack-badge">Firebase Auth</span>
+                    <span class="project-stack-badge">Firestore</span>
+                    <span class="project-stack-badge">Firebase Storage</span>
+                    <span class="project-stack-badge">App Hosting</span>
+                  </div>
+                </div>
+
+                <div class="project-visual" style="position: relative; width: 100%; aspect-ratio: 16/9; border: 1px solid var(--outline-variant); background-color: var(--surface-lowest); overflow: hidden;">
+                  <div style="position: absolute; top: -1px; left: -1px; width: 10px; height: 10px; border-top: 2px solid #f59e0b; border-left: 2px solid #f59e0b; z-index: 2;"></div>
+                  <div style="position: absolute; bottom: -1px; right: -1px; width: 10px; height: 10px; border-bottom: 2px solid #f59e0b; border-right: 2px solid #f59e0b; z-index: 2;"></div>
+                  <img src="/project-viajero.png" alt="Viajero Sediento project screenshot" translate="no" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(15%) contrast(1.1) brightness(0.9); mix-blend-mode: lighten;" />
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
       </section>

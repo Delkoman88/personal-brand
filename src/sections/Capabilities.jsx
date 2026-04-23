@@ -109,25 +109,40 @@ export default function Capabilities() {
             and context systems that guide implementation, debugging, and architectural decisions."
           </p>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-            {aiToolGroups.map(group => (
-              <div key={group.label}>
-                <span className="label-text" style={{ fontSize: '0.65rem', color: 'var(--outline)', display: 'block', marginBottom: '0.6rem' }}>
-                  {group.label}
-                </span>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem' }}>
-                  {group.tools.map(tool => (
-                    <div key={tool.name} className="ai-tool-chip">
-                      <span style={{ fontSize: '0.9rem' }}>{tool.icon}</span>
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.1rem' }}>
-                        <span style={{ fontSize: '0.82rem', color: 'var(--on-surface)', fontWeight: 500 }}>{tool.name}</span>
-                        <span style={{ fontSize: '0.65rem', color: 'var(--on-surface-variant)', fontFamily: 'var(--font-label)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>{tool.role}</span>
+          <div className="mobile-scroll-shell">
+            <div className="mobile-scroll-indicator">
+              <span className="label-text">Swipe to see more tools</span>
+            </div>
+
+            <div className="mobile-scroll-cue" aria-hidden="true">
+              <span className="mobile-scroll-arrow">&larr;</span>
+              <span className="mobile-scroll-arrow">&rarr;</span>
+            </div>
+
+            <div className="ai-toolchain-grid" style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+              {aiToolGroups.map(group => (
+                <div key={group.label} className="project-item" style={{
+                  padding: '1rem',
+                  border: '1px solid var(--outline-variant)',
+                  backgroundColor: 'rgba(28, 27, 27, 0.4)'
+                }}>
+                  <span className="label-text" style={{ fontSize: '0.65rem', color: 'var(--outline)', display: 'block', marginBottom: '0.6rem' }}>
+                    {group.label}
+                  </span>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem' }}>
+                    {group.tools.map(tool => (
+                      <div key={tool.name} className="ai-tool-chip">
+                        <span style={{ fontSize: '0.9rem' }}>{tool.icon}</span>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.1rem' }}>
+                          <span style={{ fontSize: '0.82rem', color: 'var(--on-surface)', fontWeight: 500 }}>{tool.name}</span>
+                          <span style={{ fontSize: '0.65rem', color: 'var(--on-surface-variant)', fontFamily: 'var(--font-label)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>{tool.role}</span>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
 

@@ -932,16 +932,20 @@ h3 { font-size: 1.75rem; }
     scroll-snap-align: start;
   }
 
-  .experience-list {
+  .experience-list,
+  .projects-list,
+  .ai-toolchain-grid {
     display: grid !important;
     grid-auto-flow: column;
     grid-auto-columns: minmax(86vw, 86vw);
     overflow-x: auto;
     gap: 1rem !important;
     padding-bottom: 0.5rem;
+    scroll-snap-type: x proximity;
   }
 
-  .experience-item {
+  .experience-item,
+  .project-item {
     gap: 1rem !important;
     padding: 1rem 1rem 1.25rem !important;
     border: 1px solid rgba(58, 73, 74, 0.35);
@@ -958,7 +962,8 @@ h3 { font-size: 1.75rem; }
     font-size: 1rem !important;
   }
 
-  .experience-visual {
+  .experience-visual,
+  .project-visual {
     order: -1;
   }
 

@@ -23,7 +23,8 @@ const projects = [
       'Next.js App Router', 'TypeScript', 'Firebase Auth', 'Firestore',
       'Cloud Functions', 'Google Calendar API', 'OAuth2', 'Twilio', 'SendGrid', 'Sentry',
     ],
-    accentColor: 'linear-gradient(90deg, var(--primary-container), var(--secondary-container))',
+    accentColor: 'var(--primary-container)',
+    image: '/project-beauty.png',
   },
   {
     id: 'VS',
@@ -36,7 +37,8 @@ const projects = [
     highlights: [],
     bullets: [],
     stack: ['Next.js', 'TypeScript', 'Firebase Auth', 'Firestore', 'Firebase Storage', 'App Hosting'],
-    accentColor: 'linear-gradient(90deg, #f59e0b, #f97316)',
+    accentColor: '#f59e0b',
+    image: '/project-viajero.png',
   },
 ];
 
@@ -50,109 +52,154 @@ export default function Projects() {
           <div style={{ flex: 1, height: '1px', backgroundColor: 'var(--outline-variant)' }}></div>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-          {projects.map(proj => (
-            <div
-              key={proj.id}
-              style={{
-                position: 'relative',
-                backgroundColor: 'var(--surface-high)',
-                border: '1px solid var(--outline-variant)',
-                padding: '2rem',
-                overflow: 'hidden',
-              }}
-            >
-              {/* Colored top accent bar */}
-              <div style={{
-                position: 'absolute', top: 0, left: 0, right: 0, height: '2px',
-                background: proj.accentColor,
-              }} />
+        <div className="mobile-scroll-shell">
+          <div className="mobile-scroll-indicator">
+            <span className="label-text">Swipe to see more projects</span>
+          </div>
 
-              {/* Header row */}
-              <div style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'flex-start',
-                gap: '1rem',
-                marginBottom: '1rem',
-                flexWrap: 'wrap',
-              }}>
-                <div>
-                  <h3 style={{ margin: 0, fontSize: '1.25rem', marginBottom: '0.3rem' }}>{proj.name}</h3>
-                  <span className="label-text" style={{ fontSize: '0.68rem', color: 'var(--on-surface-variant)' }}>
-                    {proj.meta}
-                  </span>
-                </div>
+          <div className="mobile-scroll-cue" aria-hidden="true">
+            <span className="mobile-scroll-arrow">&larr;</span>
+            <span className="mobile-scroll-arrow">&rarr;</span>
+          </div>
 
-                {proj.status === 'live' && (
-                  <a
-                    href={proj.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="project-live-badge"
-                  >
-                    <span className="project-live-dot" />
-                    Live — View project →
-                  </a>
-                )}
-              </div>
+          <div className="projects-list" style={{ display: 'flex', flexDirection: 'column', gap: '5rem' }}>
+            {projects.map(proj => (
+              <div
+                key={proj.id}
+                className="project-item"
+                style={{
+                  position: 'relative',
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                  gap: '3rem',
+                  alignItems: 'start',
+                  paddingLeft: '2rem',
+                  borderLeft: '2px solid var(--outline-variant)'
+                }}
+              >
+                {/* Timeline marker */}
+                <div style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: '-6px',
+                  width: '10px',
+                  height: '10px',
+                  backgroundColor: proj.accentColor
+                }}></div>
 
-              {/* Description */}
-              <p style={{
-                color: 'var(--on-surface-variant)',
-                fontSize: '0.95rem',
-                lineHeight: 1.75,
-                marginBottom: proj.highlights.length > 0 ? '1.25rem' : '1rem',
-              }}>
-                {proj.description}
-              </p>
-
-              {/* Highlights chips */}
-              {proj.highlights.length > 0 && (
-                <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '1.25rem' }}>
-                  {proj.highlights.map(h => (
-                    <div key={h.label} className="project-highlight-chip">
-                      <span style={{
-                        color: 'var(--primary-container)',
-                        fontWeight: 700,
-                        fontSize: '1rem',
-                        fontFamily: 'var(--font-display)',
-                      }}>{h.num}</span>
-                      <span>{h.label}</span>
+                <div className="project-copy" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                  <div style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'flex-start',
+                    gap: '1rem',
+                    flexWrap: 'wrap',
+                  }}>
+                    <div>
+                      <h3 style={{ margin: 0, fontSize: '1.45rem', marginBottom: '0.3rem' }}>{proj.name}</h3>
+                      <span className="label-text" style={{ fontSize: '0.68rem', color: 'var(--on-surface-variant)' }}>
+                        {proj.meta}
+                      </span>
                     </div>
-                  ))}
+
+                    {proj.status === 'live' && (
+                      <a
+                        href={proj.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-live-badge"
+                      >
+                        <span className="project-live-dot" style={{ backgroundColor: proj.accentColor }} />
+                        Live — View project →
+                      </a>
+                    )}
+                  </div>
+
+                  {/* Description */}
+                  <p style={{
+                    color: 'var(--on-surface-variant)',
+                    fontSize: '1rem',
+                    lineHeight: 1.75,
+                    margin: 0,
+                  }}>
+                    {proj.description}
+                  </p>
+
+                  {/* Highlights chips */}
+                  {proj.highlights.length > 0 && (
+                    <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+                      {proj.highlights.map(h => (
+                        <div key={h.label} className="project-highlight-chip">
+                          <span style={{
+                            color: 'var(--primary-container)',
+                            fontWeight: 700,
+                            fontSize: '1rem',
+                            fontFamily: 'var(--font-display)',
+                          }}>{h.num}</span>
+                          <span>{h.label}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Bullets */}
+                  {proj.bullets.length > 0 && (
+                    <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                      {proj.bullets.map((b, i) => (
+                        <li key={i} style={{
+                          fontSize: '0.875rem',
+                          color: 'var(--on-surface-variant)',
+                          lineHeight: 1.7,
+                          padding: '0.2rem 0 0.2rem 1.1rem',
+                          position: 'relative',
+                        }}>
+                          <span style={{
+                            position: 'absolute', left: 0,
+                            color: 'var(--primary-container)', fontWeight: 700,
+                          }}>›</span>
+                          {b}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  {/* Stack badges */}
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginTop: '0.5rem' }}>
+                    {proj.stack.map(s => (
+                      <span key={s} className="project-stack-badge">{s}</span>
+                    ))}
+                  </div>
                 </div>
-              )}
 
-              {/* Bullets */}
-              {proj.bullets.length > 0 && (
-                <ul style={{ listStyle: 'none', padding: 0, marginBottom: '1.25rem' }}>
-                  {proj.bullets.map((b, i) => (
-                    <li key={i} style={{
-                      fontSize: '0.875rem',
-                      color: 'var(--on-surface-variant)',
-                      lineHeight: 1.7,
-                      padding: '0.2rem 0 0.2rem 1.1rem',
-                      position: 'relative',
-                    }}>
-                      <span style={{
-                        position: 'absolute', left: 0,
-                        color: 'var(--primary-container)', fontWeight: 700,
-                      }}>›</span>
-                      {b}
-                    </li>
-                  ))}
-                </ul>
-              )}
-
-              {/* Stack badges */}
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
-                {proj.stack.map(s => (
-                  <span key={s} className="project-stack-badge">{s}</span>
-                ))}
+                {/* Visual Side */}
+                <div className="project-visual" style={{ 
+                  position: 'relative', 
+                  width: '100%', 
+                  aspectRatio: '16/9', 
+                  border: '1px solid var(--outline-variant)',
+                  backgroundColor: 'var(--surface-lowest)',
+                  overflow: 'hidden'
+                }}>
+                  {/* Corner Accents */}
+                  <div style={{ position: 'absolute', top: '-1px', left: '-1px', width: '10px', height: '10px', borderTop: '2px solid ' + proj.accentColor, borderLeft: '2px solid ' + proj.accentColor, zIndex: 2}}></div>
+                  <div style={{ position: 'absolute', bottom: '-1px', right: '-1px', width: '10px', height: '10px', borderBottom: '2px solid ' + proj.accentColor, borderRight: '2px solid ' + proj.accentColor, zIndex: 2}}></div>
+                  
+                  <img 
+                    src={proj.image} 
+                    alt={`${proj.name} project screenshot`}
+                    translate="no"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      filter: 'grayscale(15%) contrast(1.1) brightness(0.9)',
+                      mixBlendMode: 'lighten'
+                    }}
+                  />
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
       </div>
