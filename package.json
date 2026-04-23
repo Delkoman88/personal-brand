@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "postbuild": "node prerender.mjs && node validate-prerender.mjs",
+    "postbuild": "node prerender.mjs && node generate-feeds.mjs && node validate-prerender.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "validate:prerender": "node validate-prerender.mjs",
