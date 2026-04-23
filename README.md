@@ -1,16 +1,20 @@
-# React + Vite
+# edgarmancilla.com
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## What This Project Is
 
-Currently, two official plugins are available:
+This repository contains my personal brand website: a public-facing site, blog, and bilingual CV built to communicate my work at the intersection of AI-native product development, operations, compliance, AgTech, and systems thinking.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+It is also a direct demonstration of my professional **vibe coding** workflow. I built this project end-to-end with AI integrated across the full delivery cycle: planning, structuring, copy iteration, design direction, implementation, testing, debugging, SEO hardening, and production release. The point is not that AI was used at some stage, but that I used it with criteria, orchestration, and engineering discipline to ship a real production website.
 
-## React Compiler
+## Technologies Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend:** React 19 + Vite 8
+- **Routing:** `react-router-dom` v7
+- **Content system:** Markdown posts with YAML frontmatter
+- **Markdown rendering:** `react-markdown` + `remark-gfm`
+- **Comments:** Giscus via `@giscus/react`
+- **Styling:** Custom CSS design system with CSS variables in a single stylesheet
+- **SEO pipeline:** custom `prerender.mjs`, `generate-feeds.mjs`, and `validate-prerender.mjs`
+- **Discovery assets:** auto-generated `sitemap.xml` and `feed.xml`
+- **Hosting:** Firebase Hosting
+- **Workflow:** AI-native, multi-model vibe coding from planning through production
