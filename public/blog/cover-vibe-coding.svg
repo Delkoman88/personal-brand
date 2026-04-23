@@ -1,0 +1,178 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1600" height="900" fill="#0C0D10"/>
+
+  <!-- Blueprint grid lines -->
+  <path d="M120 170H1480" stroke="#1A2628"/>
+  <path d="M120 450H1480" stroke="#1A2628"/>
+  <path d="M120 730H1480" stroke="#1A2628"/>
+  <path d="M400 120V780" stroke="#1A2628"/>
+  <path d="M800 120V780" stroke="#1A2628"/>
+  <path d="M1200 120V780" stroke="#1A2628"/>
+  <path d="M160 120V780" stroke="#1A2628" stroke-opacity="0.4"/>
+  <path d="M560 120V780" stroke="#1A2628" stroke-opacity="0.4"/>
+  <path d="M640 120V780" stroke="#1A2628" stroke-opacity="0.4"/>
+  <path d="M960 120V780" stroke="#1A2628" stroke-opacity="0.4"/>
+  <path d="M1040 120V780" stroke="#1A2628" stroke-opacity="0.4"/>
+  <path d="M1440 120V780" stroke="#1A2628" stroke-opacity="0.4"/>
+  <path d="M120 310H1480" stroke="#1A2628" stroke-opacity="0.4"/>
+  <path d="M120 590H1480" stroke="#1A2628" stroke-opacity="0.4"/>
+
+  <!-- Frame -->
+  <rect x="72" y="72" width="1456" height="756" stroke="#2E3F42" stroke-width="2"/>
+
+  <!-- Corner accents -->
+  <path d="M72 120 L140 120" stroke="#00F5FF" stroke-width="2"/>
+  <path d="M72 120 L72 188" stroke="#00F5FF" stroke-width="2"/>
+  <path d="M1528 120 L1460 120" stroke="#00F5FF" stroke-width="2"/>
+  <path d="M1528 120 L1528 188" stroke="#00F5FF" stroke-width="2"/>
+  <path d="M72 780 L140 780" stroke="#00F5FF" stroke-width="2"/>
+  <path d="M72 780 L72 712" stroke="#00F5FF" stroke-width="2"/>
+  <path d="M1528 780 L1460 780" stroke="#00F5FF" stroke-width="2"/>
+  <path d="M1528 780 L1528 712" stroke="#00F5FF" stroke-width="2"/>
+
+  <!-- Purple glow — human side -->
+  <circle cx="320" cy="450" r="220" fill="url(#glow_purple)"/>
+
+  <!-- Cyan glow — AI/code side -->
+  <circle cx="1280" cy="430" r="260" fill="url(#glow_cyan)"/>
+
+  <!-- ── LEFT PANEL: Human / prompt side ── -->
+  <rect x="130" y="230" width="420" height="440" rx="8" fill="#0E0B1A" stroke="#571BC1" stroke-width="2"/>
+  <!-- Terminal header bar -->
+  <rect x="130" y="230" width="420" height="38" rx="8" fill="#180C30"/>
+  <rect x="130" y="250" width="420" height="18" fill="#180C30"/>
+  <circle cx="162" cy="249" r="7" fill="#2A1050"/>
+  <circle cx="190" cy="249" r="7" fill="#2A1050"/>
+  <circle cx="218" cy="249" r="7" fill="#571BC1"/>
+  <text x="310" y="254" fill="#8B5CF6" font-family="monospace" font-size="11" text-anchor="middle" letter-spacing="2">CONTEXT.briefing</text>
+
+  <!-- Terminal lines -->
+  <text x="160" y="298" fill="#6B3FA0" font-family="monospace" font-size="13" letter-spacing="1">$ define_problem()</text>
+  <text x="160" y="326" fill="#6B3FA0" font-family="monospace" font-size="13" letter-spacing="1">$ structure_architecture()</text>
+  <text x="160" y="354" fill="#8A50D0" font-family="monospace" font-size="13" letter-spacing="1">$ load_briefing(model)</text>
+  <text x="160" y="382" fill="#8A50D0" font-family="monospace" font-size="13" letter-spacing="1">$ decompose_into_tasks()</text>
+  <text x="160" y="418" fill="#B080F0" font-family="monospace" font-size="14" letter-spacing="1">$ vibe_code() <tspan fill="#571BC1">▮</tspan></text>
+
+  <!-- Human label inside left panel -->
+  <rect x="155" y="445" width="370" height="2" fill="#2A1050"/>
+  <text x="160" y="478" fill="#4A2A80" font-family="monospace" font-size="11" letter-spacing="2"># role: human</text>
+  <text x="160" y="498" fill="#4A2A80" font-family="monospace" font-size="11" letter-spacing="2"># task: think, structure, direct</text>
+  <text x="160" y="518" fill="#4A2A80" font-family="monospace" font-size="11" letter-spacing="2"># not required: perfect syntax</text>
+  <text x="160" y="538" fill="#6B3FA0" font-family="monospace" font-size="11" letter-spacing="2"># required: clarity of thought</text>
+  <rect x="155" y="553" width="370" height="2" fill="#2A1050"/>
+
+  <!-- Skill bars inside left panel -->
+  <text x="160" y="580" fill="#4A2A80" font-family="monospace" font-size="10" letter-spacing="1">problem_decomp</text>
+  <rect x="160" y="586" width="350" height="6" rx="3" fill="#1A0A2E"/>
+  <rect x="160" y="586" width="315" height="6" rx="3" fill="#571BC1"/>
+  <text x="160" y="612" fill="#4A2A80" font-family="monospace" font-size="10" letter-spacing="1">systems_thinking</text>
+  <rect x="160" y="618" width="350" height="6" rx="3" fill="#1A0A2E"/>
+  <rect x="160" y="618" width="332" height="6" rx="3" fill="#571BC1"/>
+  <text x="160" y="644" fill="#4A2A80" font-family="monospace" font-size="10" letter-spacing="1">context_quality</text>
+  <rect x="160" y="650" width="350" height="6" rx="3" fill="#1A0A2E"/>
+  <rect x="160" y="650" width="298" height="6" rx="3" fill="#8A50D0"/>
+
+  <!-- ── CENTER CONNECTION ── -->
+  <!-- Main horizontal beams -->
+  <path d="M560 390 L790 390" stroke="#00F5FF" stroke-width="3" stroke-dasharray="10 5"/>
+  <path d="M560 420 L790 420" stroke="#00F5FF" stroke-width="1.5" stroke-dasharray="6 8"/>
+  <path d="M560 450 L790 450" stroke="#00F5FF" stroke-width="5"/>
+  <path d="M560 480 L790 480" stroke="#00F5FF" stroke-width="1.5" stroke-dasharray="6 8"/>
+  <path d="M560 510 L790 510" stroke="#00F5FF" stroke-width="3" stroke-dasharray="10 5"/>
+
+  <!-- Left node -->
+  <circle cx="560" cy="450" r="18" fill="#0C0D10" stroke="#00F5FF" stroke-width="2"/>
+  <circle cx="560" cy="450" r="8" fill="#00F5FF" fill-opacity="0.4"/>
+
+  <!-- Right node -->
+  <circle cx="790" cy="450" r="18" fill="#0C0D10" stroke="#00F5FF" stroke-width="2"/>
+  <circle cx="790" cy="450" r="8" fill="#00F5FF" fill-opacity="0.4"/>
+
+  <!-- Flow arrows on main beam -->
+  <polygon points="680,444 695,450 680,456" fill="#00F5FF"/>
+  <polygon points="720,444 735,450 720,456" fill="#00F5FF"/>
+
+  <!-- Center label box -->
+  <rect x="590" y="196" width="210" height="48" rx="4" fill="#081518" stroke="#00F5FF" stroke-width="1"/>
+  <text x="695" y="215" fill="#00F5FF" font-family="monospace" font-size="9" letter-spacing="3" text-anchor="middle">EXECUTION</text>
+  <text x="695" y="234" fill="#4AB8C0" font-family="monospace" font-size="9" letter-spacing="3" text-anchor="middle">ENGINE: AI</text>
+
+  <!-- Secondary diagonal connections -->
+  <path d="M556 432 L560 390" stroke="#00F5FF" stroke-width="1" stroke-opacity="0.3"/>
+  <path d="M556 468 L560 510" stroke="#00F5FF" stroke-width="1" stroke-opacity="0.3"/>
+  <path d="M794 432 L790 390" stroke="#00F5FF" stroke-width="1" stroke-opacity="0.3"/>
+  <path d="M794 468 L790 510" stroke="#00F5FF" stroke-width="1" stroke-opacity="0.3"/>
+
+  <!-- ── RIGHT PANEL: Code output / AI side ── -->
+  <rect x="830" y="185" width="670" height="500" rx="8" fill="#081518" stroke="#00F5FF" stroke-width="2"/>
+
+  <!-- Code block 1: function definition -->
+  <rect x="855" y="210" width="310" height="110" rx="4" fill="#0A1E22" stroke="#1A4A50"/>
+  <text x="875" y="234" fill="#00F5FF" font-family="monospace" font-size="12" letter-spacing="1">async def build_system():</text>
+  <text x="885" y="256" fill="#4AB8C0" font-family="monospace" font-size="12">ctx = load_briefing(model)</text>
+  <text x="885" y="276" fill="#4AB8C0" font-family="monospace" font-size="12">plan = decompose(ctx)</text>
+  <text x="885" y="296" fill="#00F5FF" font-family="monospace" font-size="12">return ai.execute(plan)</text>
+
+  <!-- Code block 2: git commit -->
+  <rect x="1185" y="210" width="290" height="110" rx="4" fill="#0A1E22" stroke="#00F5FF" stroke-width="2"/>
+  <rect x="1185" y="210" width="290" height="26" rx="4" fill="#00F5FF" fill-opacity="0.10"/>
+  <text x="1205" y="228" fill="#00F5FF" font-family="monospace" font-size="10" letter-spacing="2">SHIPPED</text>
+  <text x="1205" y="254" fill="#4AB8C0" font-family="monospace" font-size="12">$ git commit -m</text>
+  <text x="1205" y="274" fill="#4AB8C0" font-family="monospace" font-size="12">"feat: 2 weeks not</text>
+  <text x="1205" y="294" fill="#4AB8C0" font-family="monospace" font-size="12"> 2 months"</text>
+  <text x="1205" y="314" fill="#2A7A80" font-family="monospace" font-size="11">✓ production-ready</text>
+
+  <!-- Code block 3: wide status bar -->
+  <rect x="855" y="340" width="620" height="64" rx="4" fill="#0A1E22" stroke="#1A4A50"/>
+  <text x="875" y="362" fill="#3A9EA8" font-family="monospace" font-size="11" letter-spacing="1"># decisions: HUMAN  |  syntax: AI  |  output: OPERATIONAL SYSTEM</text>
+  <text x="875" y="384" fill="#2A7A80" font-family="monospace" font-size="11">[ scripts built at Tryp: months → weeks ] [ barriers removed: syntax dependency ]</text>
+
+  <!-- Code block 4: error handler -->
+  <rect x="855" y="424" width="220" height="130" rx="4" fill="#0A1E22" stroke="#1A4A50"/>
+  <text x="875" y="448" fill="#4AB8C0" font-family="monospace" font-size="12">if not understood:</text>
+  <text x="885" y="470" fill="#4AB8C0" font-family="monospace" font-size="12">ask_ai(code)</text>
+  <text x="875" y="492" fill="#4AB8C0" font-family="monospace" font-size="12">elif error:</text>
+  <text x="885" y="514" fill="#4AB8C0" font-family="monospace" font-size="12">debug_with_ai()</text>
+  <text x="875" y="540" fill="#00F5FF" font-family="monospace" font-size="12">else: ship()</text>
+
+  <!-- Code block 5: execution metrics (highlighted) -->
+  <rect x="1095" y="424" width="380" height="130" rx="4" fill="#0A2226" stroke="#00F5FF" stroke-width="2"/>
+  <rect x="1095" y="424" width="380" height="28" rx="4" fill="#00F5FF" fill-opacity="0.10"/>
+  <text x="1115" y="443" fill="#00F5FF" font-family="monospace" font-size="10" letter-spacing="3">EXECUTION METRICS</text>
+  <text x="1115" y="470" fill="#4AB8C0" font-family="monospace" font-size="11">context_quality ██████████ 90%</text>
+  <text x="1115" y="492" fill="#4AB8C0" font-family="monospace" font-size="11">problem_decomp  █████████░ 85%</text>
+  <text x="1115" y="514" fill="#00F5FF" font-family="monospace" font-size="11">shipping_speed  ██████████ ×10</text>
+  <text x="1115" y="536" fill="#2A7A80" font-family="monospace" font-size="11">syntax_required ░░░░░░░░░░  0%</text>
+
+  <!-- Code block 6: bottom comments -->
+  <rect x="855" y="574" width="620" height="86" rx="4" fill="#0A1E22" stroke="#1A4A50"/>
+  <text x="875" y="596" fill="#2A5A60" font-family="monospace" font-size="11" letter-spacing="1"># vibe coding = knowledge + structure + objective + intuition + common sense</text>
+  <text x="875" y="618" fill="#2A5A60" font-family="monospace" font-size="11" letter-spacing="1"># AI is your execution engine. Direction is still yours.</text>
+  <text x="875" y="640" fill="#00F5FF" font-family="monospace" font-size="11" letter-spacing="1"># barrier_removed = syntax_dependency  →  barrier_that_remains = clarity_of_thought</text>
+
+  <!-- Floating ambient code fragments -->
+  <text x="155" y="185" fill="#1A1028" font-family="monospace" font-size="11">import context_framework</text>
+  <text x="600" y="162" fill="#081518" font-family="monospace" font-size="11">npm run build</text>
+  <text x="1360" y="162" fill="#081518" font-family="monospace" font-size="11">build: success ✓</text>
+  <text x="155" y="762" fill="#1A1028" font-family="monospace" font-size="11">def solve(problem, ai):</text>
+  <text x="1330" y="762" fill="#081518" font-family="monospace" font-size="11">exit_code: 0</text>
+  <text x="620" y="762" fill="#081518" font-family="monospace" font-size="11">deploy → firebase ✓</text>
+
+  <!-- Top label -->
+  <text x="190" y="132" fill="#00F5FF" font-family="Arial, sans-serif" font-size="22" letter-spacing="5">VIBE CODING // HUMAN JUDGMENT × AI EXECUTION</text>
+
+  <!-- Bottom quote -->
+  <text x="190" y="808" fill="#B9CACA" font-family="Arial, sans-serif" font-size="27">The limiting factor was never syntax. It was always clarity of thought.</text>
+
+  <defs>
+    <radialGradient id="glow_purple" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(320 450) rotate(90) scale(220)">
+      <stop stop-color="#571BC1" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#571BC1" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow_cyan" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1280 430) rotate(90) scale(260)">
+      <stop stop-color="#00F5FF" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#00F5FF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>
