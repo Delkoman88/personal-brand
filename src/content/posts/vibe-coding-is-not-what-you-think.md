@@ -2,12 +2,12 @@
 id: '04'
 slug: 'vibe-coding-is-not-what-you-think'
 category: 'Systems'
-title: 'Vibe coding is not what you think it is'
+title: 'Vibe coding is not what you think'
 date: 'April 2026'
 publishedAt: '2026-04-22'
 readTime: '7 min read'
 excerpt: 'Everyone has an opinion on vibe coding. Most of them are wrong. Here is what it actually takes to build real things with AI — and why the barrier it removes is not the one people think.'
-seoTitle: 'Vibe Coding Is Not What You Think It Is | Edgar Mancilla Sanchez'
+seoTitle: 'Vibe Coding Is Not What You Think | Edgar Mancilla Sanchez'
 seoDescription: 'Vibe coding is not about letting AI do everything. It is a structured, context-driven approach to building real systems. Here is what it actually requires.'
 coverImage: '/blog/cover-vibe-coding.svg'
 coverAlt: 'Abstract cover image for an article about vibe coding and AI-assisted development'
@@ -24,7 +24,7 @@ insights:
   - 'Knowing how to talk to an LLM is a skill. Most people underestimate how much it determines the quality of the output.'
 ---
 
-# Vibe coding is not what you think it is
+# Vibe coding is not what you think
 
 I started doing what people now call vibe coding about two years ago, before anyone had given it that name. I was not a developer. I had basic to intermediate Python knowledge and a job title that said Strategy & Operations. What I had was a problem that code could solve and no patience for waiting months to hire someone to solve it for me.
 
