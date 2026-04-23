@@ -21,13 +21,20 @@ function escapeHtml(value) {
     .replace(/'/g, '&#39;');
 }
 
+const NO_TRANSLATE_PATTERN = /(\s*\bvibe\s+cod(?:ing|e|er|ers)?\b\s*)/gi;
+
+function wrapNoTranslateStatic(html) {
+  if (!html) return html;
+  return String(html).replace(NO_TRANSLATE_PATTERN, '<span translate="no">$1</span>');
+}
+
 function inlineMd(text) {
   let html = escapeHtml(text);
   html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
   html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
   html = html.replace(/`(.+?)`/g, '<code>$1</code>');
   html = html.replace(/\[(.+?)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2">$1</a>');
-  html = html.replace(/\b(vibe\s+cod(?:ing|e|er|ers)?)\b/gi, '<span translate="no">$1</span>');
+  html = wrapNoTranslateStatic(html);
   return html;
 }
 
@@ -198,8 +205,9 @@ function buildHomePage(posts) {
                 <time class="label-text" dateTime="${escapeHtml(post.publishedAt)}" style="color: var(--outline)">${escapeHtml(post.date)} // ${escapeHtml(post.readTime)}</time>
               </div>
               <div style="display: grid; gap: 0.75rem;">
-                <h3 style="margin: 0; font-size: 1.45rem;">${escapeHtml(post.title)}</h3>
-                <p style="margin: 0; color: var(--on-surface-variant);">${escapeHtml(post.excerpt)}</p>
+                <h3 style="margin: 0; font-size: 1.45rem;">${wrapNoTranslateStatic(escapeHtml(post.title))}</h3>
+                <p style="color: var(--on-surface-variant); margin: 0.5rem 0 0; font-size: 1.05rem;">
+                  ${wrapNoTranslateStatic(escapeHtml(post.excerpt))}</p>
               </div>
               <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
                 <a href="/blog/${escapeHtml(post.slug)}" class="btn-primary">Read article</a>
@@ -380,8 +388,9 @@ function buildBlogIndexPage(posts) {
                 <time class="label-text" dateTime="${escapeHtml(post.publishedAt)}" style="color: var(--outline)">${escapeHtml(post.date)} // ${escapeHtml(post.readTime)}</time>
               </div>
               <div style="display: grid; gap: 0.75rem;">
-                <h2 style="margin: 0; font-size: 1.6rem;">${escapeHtml(post.title)}</h2>
-                <p style="margin: 0; color: var(--on-surface-variant);">${escapeHtml(post.excerpt)}</p>
+                <h2 style="margin: 0; font-size: 1.6rem;">${wrapNoTranslateStatic(escapeHtml(post.title))}</h2>
+                <p style="color: var(--on-surface-variant); margin: 0.5rem 0 0; font-size: 1.1rem; line-height: 1.6;">
+                  ${wrapNoTranslateStatic(escapeHtml(post.excerpt))}</p>
               </div>
               <div class="blog-index-tags">${post.keywords.slice(0, 3).map((keyword) => `<span class="blog-keyword-chip">${escapeHtml(keyword)}</span>`).join('')}</div>
               <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
@@ -445,8 +454,8 @@ function buildBlogPostPages(posts) {
     const relatedMarkup = relatedPosts.map((item) => `
                 <a href="/blog/${escapeHtml(item.slug)}" class="blog-related-link">
                   <span class="label-text" style="color: var(--outline)">${escapeHtml(item.category)}</span>
-                  <strong>${escapeHtml(item.title)}</strong>
-                  <span style="color: var(--on-surface-variant); font-size: 0.95rem;">${escapeHtml(item.excerpt)}</span>
+                  <strong>${wrapNoTranslateStatic(escapeHtml(item.title))}</strong>
+                  <span style="color: var(--on-surface-variant); font-size: 0.95rem;">${wrapNoTranslateStatic(escapeHtml(item.excerpt))}</span>
                 </a>`).join('');
 
     const body = `
@@ -457,8 +466,8 @@ function buildBlogPostPages(posts) {
               <span class="label-text" style="color: var(--primary-container)">${escapeHtml(post.category)}</span>
               <time class="label-text" dateTime="${escapeHtml(post.publishedAt)}" style="color: var(--outline)">${escapeHtml(post.date)} // ${escapeHtml(post.readTime)}</time>
             </div>
-            <h1 style="margin-bottom: 1rem;">${escapeHtml(post.title)}</h1>
-            <p class="blog-article-lead">${escapeHtml(post.excerpt)}</p>
+            <h1 style="margin-bottom: 1rem;">${wrapNoTranslateStatic(escapeHtml(post.title))}</h1>
+            <p class="blog-article-lead">${wrapNoTranslateStatic(escapeHtml(post.excerpt))}</p>
             <figure class="blog-cover-frame">
               <img src="${escapeHtml(post.coverImage)}" alt="${escapeHtml(post.coverAlt)}" class="blog-cover-image" />
             </figure>
@@ -470,7 +479,7 @@ function buildBlogPostPages(posts) {
             <section class="blog-insights-grid" aria-label="Key ideas from article">${post.insights.map((insight) => `
                 <div class="blog-insight-card">
                   <span class="label-text" style="color: var(--primary-container)">Key idea</span>
-                  <p>${escapeHtml(insight)}</p>
+                  <p>${wrapNoTranslateStatic(escapeHtml(insight))}</p>
                 </div>`).join('')}
             </section>
           </article>

@@ -9,7 +9,9 @@ import { SITE_NAME, SITE_URL } from '../config/site';
 
 // Terms that should never be auto-translated by browsers.
 // Add new terms here as needed — they will be protected across all posts.
-const NO_TRANSLATE_PATTERN = /\b(vibe\s+cod(?:ing|e|er|ers)?)\b/gi;
+// We capture surrounding spaces (\s*) inside the match so they get wrapped in the translate="no" span.
+// This prevents Google Translate from "eating" spaces around the protected term.
+const NO_TRANSLATE_PATTERN = /(\s*\bvibe\s+cod(?:ing|e|er|ers)?\b\s*)/gi;
 
 function wrapNoTranslate(children) {
   const pattern = new RegExp(NO_TRANSLATE_PATTERN.source, NO_TRANSLATE_PATTERN.flags);
@@ -91,8 +93,8 @@ export default function BlogPostPage() {
               </time>
             </div>
 
-            <h1 style={{ marginBottom: '1rem' }}>{post.title}</h1>
-            <p className="blog-article-lead">{post.excerpt}</p>
+            <h1 style={{ marginBottom: '1rem' }}>{wrapNoTranslate(post.title)}</h1>
+            <p className="blog-article-lead">{wrapNoTranslate(post.excerpt)}</p>
 
             <figure className="blog-cover-frame">
               <img src={post.coverImage} alt={post.coverAlt} className="blog-cover-image" />
@@ -110,10 +112,10 @@ export default function BlogPostPage() {
             </div>
 
             <section className="blog-insights-grid" aria-label="Key ideas from article">
-              {post.insights.map((insight) => (
-                <div key={insight} className="blog-insight-card">
+              {post.insights.map((insight, idx) => (
+                <div key={idx} className="blog-insight-card">
                   <span className="label-text" style={{ color: 'var(--primary-container)' }}>Key idea</span>
-                  <p>{insight}</p>
+                  <p>{wrapNoTranslate(insight)}</p>
                 </div>
               ))}
             </section>
@@ -128,8 +130,8 @@ export default function BlogPostPage() {
                 {relatedPosts.map((item) => (
                   <Link key={item.slug} to={`/blog/${item.slug}`} className="blog-related-link">
                     <span className="label-text" style={{ color: 'var(--outline)' }}>{item.category}</span>
-                    <strong>{item.title}</strong>
-                    <span style={{ color: 'var(--on-surface-variant)', fontSize: '0.95rem' }}>{item.excerpt}</span>
+                    <strong>{wrapNoTranslate(item.title)}</strong>
+                    <span style={{ color: 'var(--on-surface-variant)', fontSize: '0.95rem' }}>{wrapNoTranslate(item.excerpt)}</span>
                   </Link>
                 ))}
               </div>
