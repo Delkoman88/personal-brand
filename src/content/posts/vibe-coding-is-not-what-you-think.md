@@ -68,7 +68,7 @@ But the compression only holds if your context is good. An under-specified promp
 
 The discipline of writing clear context for AI ends up improving the discipline of how you think about systems generally. You cannot be vague with an LLM and expect a precise output. That constraint, once internalized, makes you better at every form of communication about technical work.
 
-On the question of trust in high-stakes systems — trazability, compliance, critical operations — the answer is not "trust the AI" or "never trust AI-generated code." The answer is: use the same AI to understand what you do not understand. The tool that writes the code can explain it. The tool that flags a bug can help you trace why it happened. Not understanding something is no longer a terminal blocker. It is a question you have not asked yet.
+On the question of trust in high-stakes systems — traceability, compliance, critical operations — the answer is not "trust the AI" or "never trust AI-generated code." The answer is: use the same AI to understand what you do not understand. The tool that writes the code can explain it. The tool that flags a bug can help you trace why it happened. Not understanding something is no longer a terminal blocker. It is a question you have not asked yet.
 
 ## Final thought
 
