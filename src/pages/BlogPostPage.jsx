@@ -9,9 +9,9 @@ import { SITE_NAME, SITE_URL } from '../config/site';
 
 // Terms that should never be auto-translated by browsers.
 // Add new terms here as needed — they will be protected across all posts.
-// We capture surrounding spaces (\s*) inside the match so they get wrapped in the translate="no" span.
+// We capture surrounding spaces (\s*) and punctuation inside the match so they get wrapped in the translate="no" span.
 // This prevents Google Translate from "eating" spaces around the protected term.
-const NO_TRANSLATE_PATTERN = /(\s*\bvibe\s+cod(?:ing|e|er|ers)?\b\s*)/gi;
+const NO_TRANSLATE_PATTERN = /(\s*\bvibe\s+cod(?:ing|e|er|ers)?\b[.,;:!?]*\s*)/gi;
 
 function wrapNoTranslate(children) {
   const pattern = new RegExp(NO_TRANSLATE_PATTERN.source, NO_TRANSLATE_PATTERN.flags);

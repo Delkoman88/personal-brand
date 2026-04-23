@@ -21,7 +21,7 @@ function escapeHtml(value) {
     .replace(/'/g, '&#39;');
 }
 
-const NO_TRANSLATE_PATTERN = /(\s*\bvibe\s+cod(?:ing|e|er|ers)?\b\s*)/gi;
+const NO_TRANSLATE_PATTERN = /(\s*\bvibe\s+cod(?:ing|e|er|ers)?\b[.,;:!?]*\s*)/gi;
 
 function wrapNoTranslateStatic(html) {
   if (!html) return html;
