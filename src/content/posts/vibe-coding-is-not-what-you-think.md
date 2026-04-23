@@ -20,7 +20,7 @@ keywords:
 insights:
   - 'Vibe coding is not about zero knowledge — it is about shifting what knowledge matters.'
   - 'The AI is your execution engine. Context, structure, and problem decomposition are still yours.'
-  - 'The real barrier vibe coding removes is not syntax — it is the fear of starting.'
+  - 'The real barrier that vibe coding removes is not syntax — it is the fear of starting.'
   - 'Knowing how to talk to an LLM is a skill. Most people underestimate how much it determines the quality of the output.'
 ---
 
