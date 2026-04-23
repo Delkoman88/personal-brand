@@ -56,7 +56,7 @@ export default function Navigation() {
              color: 'var(--on-surface)'
             }}>EDGAR MANCILLA SANCHEZ</span>
             <span className="label-text" style={{ fontSize: '0.7rem', color: 'var(--primary-container)' }}>
-              BIOTECH PHD // VENTURE BUILDER, AGTECH & AI-NATIVE PRODUCTS
+              BIOTECH PHD // VENTURE BUILDER, STRATEGY, AGTECH & AI-NATIVE PRODUCTS
             </span>
           </Link>
         </div>
