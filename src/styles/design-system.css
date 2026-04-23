@@ -759,6 +759,7 @@ h3 { font-size: 1.75rem; }
   .blog-featured-excerpt {
     display: -webkit-box;
     -webkit-line-clamp: 3;
+    line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
