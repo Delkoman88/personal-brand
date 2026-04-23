@@ -1,15 +1,15 @@
 import React from 'react';
 
 const highlights = [
-  'Operations and Process Standardization',
-  'Reporting Workflows and Quality Systems',
-  'Operational Problem Solving',
-  'Traceability and Documentation Processes',
-  'AgTech and Urban Agriculture',
-  'Client-Facing Communication & Strategy',
-  'Startup and High-Growth Environments',
-  'Python & AI Tools for Automation',
-  'AI Tools for Workflow Optimization and Research'
+  'AI-Native Product Development',
+  'Vibe Coding & Multi-Model Orchestration',
+  'Solo Builder — Zero to Production',
+  'Context Engineering & Structured AI Workflows',
+  'Operations & Process Standardization',
+  'Compliance & Regulatory Systems',
+  'Traceability & Documentation',
+  'AgTech & Urban Agriculture',
+  'Startup & High-Growth Environments',
 ];
 
 export default function Credibility() {

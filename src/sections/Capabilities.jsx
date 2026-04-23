@@ -12,13 +12,39 @@ const capabilities = [
   { id: '09', title: 'AI-Native Product Development', desc: 'Using AI as an execution engine — not autocomplete. Context engineering, model orchestration, and structured debugging to ship complete products fast without cutting corners.' },
 ];
 
-const aiTools = [
-  { icon: '🤖', name: 'Claude / Cowork', role: 'Orchestration · Long-context reasoning' },
-  { icon: '⌨️', name: 'Claude Code', role: 'Agentic coding · CLI' },
-  { icon: '🎯', name: 'Cursor', role: 'AI-powered IDE' },
-  { icon: '🔍', name: 'Gemini CLI', role: 'Research · Analysis' },
-  { icon: '💬', name: 'ChatGPT', role: 'Ideation · Drafting' },
-  { icon: '🎨', name: 'v0 by Vercel', role: 'UI prototyping' },
+const aiToolGroups = [
+  {
+    label: 'Anthropic / Claude',
+    tools: [
+      { icon: '🟣', name: 'Claude Sonnet', role: 'Architecture · Complex code · QA' },
+      { icon: '🟣', name: 'Claude Code', role: 'Agentic CLI coding' },
+      { icon: '🟣', name: 'Claude Cowork', role: 'Agent orchestration' },
+    ],
+  },
+  {
+    label: 'OpenAI',
+    tools: [
+      { icon: '🟢', name: 'ChatGPT', role: 'Ideation · Drafts · Second opinion' },
+      { icon: '🟢', name: 'Codex', role: 'Code generation' },
+    ],
+  },
+  {
+    label: 'Google & Local',
+    tools: [
+      { icon: '🔵', name: 'Gemini', role: 'Cross-review · Long context' },
+      { icon: '🟠', name: 'Google Antigravity', role: 'Cloud execution' },
+      { icon: '🔵', name: 'NotebookLM', role: 'Research synthesis · Knowledge base' },
+      { icon: '🎨', name: 'Stitch', role: 'UI design & prototyping' },
+      { icon: '⚙️', name: 'Qwen Code 2.5 7B', role: 'Local inference · Offline tasks' },
+    ],
+  },
+  {
+    label: 'Context & Knowledge',
+    tools: [
+      { icon: '🪨', name: 'Obsidian', role: 'Context management · Knowledge base' },
+      { icon: '📋', name: 'Notion', role: 'Product HQ · Documentation' },
+    ],
+  },
 ];
 
 export default function Capabilities() {
@@ -83,13 +109,22 @@ export default function Capabilities() {
             and context systems that guide implementation, debugging, and architectural decisions."
           </p>
 
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
-            {aiTools.map(tool => (
-              <div key={tool.name} className="ai-tool-chip">
-                <span style={{ fontSize: '1rem' }}>{tool.icon}</span>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.1rem' }}>
-                  <span style={{ fontSize: '0.85rem', color: 'var(--on-surface)', fontWeight: 500 }}>{tool.name}</span>
-                  <span style={{ fontSize: '0.68rem', color: 'var(--on-surface-variant)', fontFamily: 'var(--font-label)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>{tool.role}</span>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+            {aiToolGroups.map(group => (
+              <div key={group.label}>
+                <span className="label-text" style={{ fontSize: '0.65rem', color: 'var(--outline)', display: 'block', marginBottom: '0.6rem' }}>
+                  {group.label}
+                </span>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem' }}>
+                  {group.tools.map(tool => (
+                    <div key={tool.name} className="ai-tool-chip">
+                      <span style={{ fontSize: '0.9rem' }}>{tool.icon}</span>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.1rem' }}>
+                        <span style={{ fontSize: '0.82rem', color: 'var(--on-surface)', fontWeight: 500 }}>{tool.name}</span>
+                        <span style={{ fontSize: '0.65rem', color: 'var(--on-surface-variant)', fontFamily: 'var(--font-label)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>{tool.role}</span>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             ))}

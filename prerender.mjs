@@ -274,7 +274,7 @@ function buildHomePage(posts) {
             <h2 style="font-size: clamp(2rem, 3vw, 2.5rem); color: var(--on-surface);">I am an interdisciplinary professional navigating the complex intersections of science, technology, and operational realities.</h2>
             <div style="padding-left: 2rem; border-left: 2px solid var(--outline-variant);">
               <p style="font-size: 1.125rem; color: var(--on-surface-variant); margin-bottom: 1.5rem;">My background as a Biotech PhD provided the analytical rigor. My experience in high-growth operational environments and regulated industries built the strategic execution. I am a hands-on builder, systems-oriented, and execution-heavy.</p>
-              <p style="font-size: 1.125rem; color: var(--on-surface-variant);">I focus on <span style="color: var(--on-surface);">process design, operational implementation, quality systems, documentation, workflow design, and automation</span> within complex and regulated environments. My approach centers on turning chaos into functioning, scalable architectures that enable strong decision-making and cross-functional alignment.</p>
+              <p style="font-size: 1.125rem; color: var(--on-surface-variant);">I work at the intersection of <span style="color: var(--on-surface);">product, operations, and AI execution</span> — using vibe coding and multi-model workflows to turn ambiguous problems into real, shipped software while keeping the process discipline that complex environments demand.</p>
             </div>
           </div>
         </div>
@@ -296,13 +296,39 @@ function buildHomePage(posts) {
             <p style="font-size: 0.95rem; color: var(--on-surface-variant); line-height: 1.8; border-left: 2px solid rgba(0, 245, 255, 0.3); padding-left: 1rem; font-style: italic; margin-bottom: 1.5rem; max-width: 640px;">
               "I use AI as an execution system, not autocomplete. My workflow includes persistent briefing files per model and context systems that guide implementation, debugging, and architectural decisions."
             </p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-              <div class="ai-tool-chip"><span style="font-size: 1rem;">🤖</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.85rem; color: var(--on-surface); font-weight: 500;">Claude / Cowork</span><span style="font-size: 0.68rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Orchestration · Long-context reasoning</span></div></div>
-              <div class="ai-tool-chip"><span style="font-size: 1rem;">⌨️</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.85rem; color: var(--on-surface); font-weight: 500;">Claude Code</span><span style="font-size: 0.68rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Agentic coding · CLI</span></div></div>
-              <div class="ai-tool-chip"><span style="font-size: 1rem;">🎯</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.85rem; color: var(--on-surface); font-weight: 500;">Cursor</span><span style="font-size: 0.68rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">AI-powered IDE</span></div></div>
-              <div class="ai-tool-chip"><span style="font-size: 1rem;">🔍</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.85rem; color: var(--on-surface); font-weight: 500;">Gemini CLI</span><span style="font-size: 0.68rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Research · Analysis</span></div></div>
-              <div class="ai-tool-chip"><span style="font-size: 1rem;">💬</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.85rem; color: var(--on-surface); font-weight: 500;">ChatGPT</span><span style="font-size: 0.68rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Ideation · Drafting</span></div></div>
-              <div class="ai-tool-chip"><span style="font-size: 1rem;">🎨</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.85rem; color: var(--on-surface); font-weight: 500;">v0 by Vercel</span><span style="font-size: 0.68rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">UI prototyping</span></div></div>
+            <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+              <div>
+                <span class="label-text" style="font-size: 0.65rem; color: var(--outline); display: block; margin-bottom: 0.6rem;">Anthropic / Claude</span>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
+                  <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🟣</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Claude Sonnet</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Architecture · Complex code · QA</span></div></div>
+                  <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🟣</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Claude Code</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Agentic CLI coding</span></div></div>
+                  <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🟣</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Claude Cowork</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Agent orchestration</span></div></div>
+                </div>
+              </div>
+              <div>
+                <span class="label-text" style="font-size: 0.65rem; color: var(--outline); display: block; margin-bottom: 0.6rem;">OpenAI</span>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
+                  <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🟢</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">ChatGPT</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Ideation · Drafts · Second opinion</span></div></div>
+                  <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🟢</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Codex</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Code generation</span></div></div>
+                </div>
+              </div>
+              <div>
+                <span class="label-text" style="font-size: 0.65rem; color: var(--outline); display: block; margin-bottom: 0.6rem;">Google & Local</span>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
+                  <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🔵</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Gemini</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Cross-review · Long context</span></div></div>
+                  <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🟠</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Google Antigravity</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Cloud execution</span></div></div>
+                  <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🔵</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">NotebookLM</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Research synthesis · Knowledge base</span></div></div>
+                  <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🎨</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Stitch</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">UI design & prototyping</span></div></div>
+                  <div class="ai-tool-chip"><span style="font-size: 0.9rem;">⚙️</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Qwen Code 2.5 7B</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Local inference · Offline tasks</span></div></div>
+                </div>
+              </div>
+              <div>
+                <span class="label-text" style="font-size: 0.65rem; color: var(--outline); display: block; margin-bottom: 0.6rem;">Context & Knowledge</span>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
+                  <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🪨</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Obsidian</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Context management · Knowledge base</span></div></div>
+                  <div class="ai-tool-chip"><span style="font-size: 0.9rem;">📋</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Notion</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Product HQ · Documentation</span></div></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -417,7 +443,7 @@ function buildHomePage(posts) {
             <span class="label-text" style="color: var(--primary-container);">06 // Credibility & Substance</span>
             <div style="flex: 1; height: 1px; background-color: var(--outline-variant);"></div>
           </div>
-          <p style="max-width: 860px; margin: 0; color: var(--on-surface-variant);">Core themes across the work include operations and process standardization, reporting workflows, quality systems, traceability, AgTech, startup execution, client-facing strategy, and automation with Python and AI tools.</p>
+          <p style="max-width: 860px; margin: 0; color: var(--on-surface-variant);">Core themes across the work include AI-native product development, vibe coding & multi-model orchestration, solo builder — zero to production, context engineering & structured AI workflows, operations & process standardization, compliance & regulatory systems, traceability & documentation, AgTech & urban agriculture, and startup & high-growth environments.</p>
         </div>
       </section>
 
@@ -438,8 +464,8 @@ function buildHomePage(posts) {
       <section id="contact" class="section-spacing bg-lowest contact-section" style="border-top: 1px solid var(--outline-variant);">
         <div class="container" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
           <div style="width: 40px; height: 2px; background-color: var(--primary-container); margin-bottom: 2rem;"></div>
-          <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Ready to architect the next system?</h2>
-          <p style="color: var(--on-surface-variant); font-size: 1.125rem; max-width: 600px; margin-bottom: 3rem;">Whether you need to structure an early-stage startup, require deep traceability systems, or want to explore AgTech implementation. Let&#39;s build the framework.</p>
+          <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Ready to build something real?</h2>
+          <p style="color: var(--on-surface-variant); font-size: 1.125rem; max-width: 600px; margin-bottom: 3rem;">Whether you need an AI-native product built from scratch, want to structure an early-stage startup with solid operational systems, or want to explore how vibe coding can accelerate your execution. Let&#39;s work.</p>
           <div class="contact-actions" style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
             <a href="https://linktr.ee/delkoman" target="_blank" rel="noopener noreferrer" class="btn-primary">Connect via Linktree</a>
             <a href="mailto:delkoman@gmail.com" class="btn-secondary">Send an Email</a>

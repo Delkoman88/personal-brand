@@ -12,15 +12,15 @@ export default function About() {
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', maxWidth: '800px' }}>
           <h2 style={{ fontSize: 'clamp(2rem, 3vw, 2.5rem)', color: 'var(--on-surface)' }}>
-            I am an interdisciplinary professional navigating the complex intersections of science, technology, and operational realities.
+            I build AI-native products and operational systems. Two capabilities, one execution mindset.
           </h2>
-          
+
           <div style={{ paddingLeft: '2rem', borderLeft: '2px solid var(--outline-variant)' }}>
             <p style={{ fontSize: '1.125rem', color: 'var(--on-surface-variant)', marginBottom: '1.5rem' }}>
-              My background as a Biotech PhD provided the analytical rigor. My experience in high-growth operational environments and regulated industries built the strategic execution. I am a hands-on builder, systems-oriented, and execution-heavy.
+              The Biotech PhD gave me analytical rigor and systems thinking. The years in high-growth, regulated environments gave me operational judgment. And AI became the execution engine that connects both — letting me build complete digital products, fast, without cutting corners.
             </p>
             <p style={{ fontSize: '1.125rem', color: 'var(--on-surface-variant)' }}>
-              I focus on <span style={{ color: 'var(--on-surface)' }}>process design, operational implementation, quality systems, documentation, workflow design, and automation</span> within complex and regulated environments. My approach centers on turning chaos into functioning, scalable architectures that enable strong decision-making and cross-functional alignment.
+              I work at the intersection of <span style={{ color: 'var(--on-surface)' }}>product, operations, and AI execution</span> — using vibe coding and multi-model workflows to turn ambiguous problems into real, shipped software while keeping the process discipline that complex environments demand.
             </p>
           </div>
         </div>

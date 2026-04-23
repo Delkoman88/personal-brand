@@ -14,10 +14,10 @@ export default function Contact() {
           marginBottom: '2rem'
         }}></div>
 
-        <h2 style={{ fontSize: '2.5rem', marginBottom: '1.5rem' }}>Ready to architect the next system?</h2>
-        
+        <h2 style={{ fontSize: '2.5rem', marginBottom: '1.5rem' }}>Ready to build something real?</h2>
+
         <p style={{ color: 'var(--on-surface-variant)', fontSize: '1.125rem', maxWidth: '600px', marginBottom: '3rem' }}>
-          Whether you need to structure an early-stage startup, require deep traceability systems, or want to explore AgTech implementation. Let's build the framework.
+          Whether you need an AI-native product built from scratch, want to structure an early-stage startup with solid operational systems, or want to explore how vibe coding can accelerate your execution. Let's work.
         </p>
 
         <div className="contact-actions" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
@@ -30,7 +30,7 @@ export default function Contact() {
         </div>
 
         <div className="contact-footer" style={{ marginTop: '6rem', color: 'var(--outline)', fontSize: '0.8rem', fontFamily: 'var(--font-label)', letterSpacing: '0.05em' }}>
-          © {new Date().getFullYear()} EDGAR MANCILLA SÁNCHEZ // SYSTEMS & OPERATIONS
+          © {new Date().getFullYear()} EDGAR MANCILLA SÁNCHEZ // VIBE CODER · AI-NATIVE BUILDER · OPS ARCHITECT
         </div>
       </div>
     </section>
