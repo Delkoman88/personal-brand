@@ -84,6 +84,8 @@ export function readPosts(postsDir) {
 
       return {
         ...data,
+        sourceFile: file,
+        sourcePath: path.join(postsDir, file),
         content,
         body,
         previewBody: body.filter((paragraph) => !paragraph.startsWith('#')).slice(0, 2)

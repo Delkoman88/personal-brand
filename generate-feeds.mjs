@@ -11,6 +11,7 @@
 
 import fs from 'fs';
 import path from 'path';
+import { execFileSync } from 'child_process';
 import { fileURLToPath } from 'url';
 import { cvPageConfig } from './src/content/cvPageConfig.js';
 import { readPosts } from './src/utils/markdown.mjs';
@@ -37,29 +38,96 @@ function escapeXml(value) {
     .replace(/'/g, '&apos;');
 }
 
+function formatDate(value) {
+  return value.toISOString().split('T')[0];
+}
+
+function getFileLastModified(filePath) {
+  try {
+    return fs.statSync(filePath).mtime;
+  } catch {
+    return null;
+  }
+}
+
+function getGitLastModified(filePath) {
+  try {
+    const output = execFileSync('git', ['log', '-1', '--format=%cI', '--', filePath], {
+      cwd: __dirname,
+      stdio: ['ignore', 'pipe', 'ignore']
+    }).toString().trim();
+
+    return output ? new Date(output) : null;
+  } catch {
+    return null;
+  }
+}
+
+function resolveLastModified(filePaths, fallback = new Date()) {
+  const timestamps = filePaths
+    .map((filePath) => {
+      const absolutePath = path.isAbsolute(filePath) ? filePath : path.join(__dirname, filePath);
+      return [getFileLastModified(absolutePath), getGitLastModified(absolutePath)];
+    })
+    .flat()
+    .filter(Boolean)
+    .map((date) => date.getTime());
+
+  return formatDate(timestamps.length ? new Date(Math.max(...timestamps)) : fallback);
+}
+
 // ---------------------------------------------------------------------------
 // Sitemap generation
 // ---------------------------------------------------------------------------
 
 function generateSitemap(posts) {
-  const today = new Date().toISOString().split('T')[0];
+  const sectionFiles = fs.readdirSync(path.join(__dirname, 'src/sections'))
+    .filter((file) => file.endsWith('.jsx'))
+    .map((file) => path.join('src/sections', file));
+  const sharedSeoFiles = [
+    'src/components/Seo.jsx',
+    'src/config/site.js'
+  ];
+  const cvSharedFiles = [
+    'src/pages/CvPage.jsx',
+    'src/content/cvPageConfig.js',
+    'src/content/cvPages.js',
+    'src/utils/cvHtml.js'
+  ];
+  const homeLastmod = resolveLastModified([
+    'src/pages/HomePage.jsx',
+    'src/content/blogPosts.js',
+    ...sharedSeoFiles,
+    ...sectionFiles
+  ]);
+  const blogIndexLastmod = resolveLastModified([
+    'src/pages/BlogIndexPage.jsx',
+    'src/content/blogPosts.js',
+    ...sharedSeoFiles,
+    ...posts.map((post) => post.sourcePath)
+  ]);
 
   const staticPages = [
-    { loc: '/', changefreq: 'weekly', priority: '1.0', lastmod: today },
-    { loc: '/blog', changefreq: 'weekly', priority: '0.9', lastmod: today },
+    { loc: '/', lastmod: homeLastmod },
+    { loc: '/blog', lastmod: blogIndexLastmod },
     ...Object.values(cvPageConfig).map((page) => ({
       loc: page.path,
-      changefreq: 'monthly',
-      priority: '0.8',
-      lastmod: today
+      lastmod: resolveLastModified([
+        page.sourceFile,
+        ...cvSharedFiles,
+        ...sharedSeoFiles
+      ])
     }))
   ];
 
   const postEntries = posts.map((post) => ({
     loc: `/blog/${post.slug}`,
-    changefreq: 'monthly',
-    priority: '0.8',
-    lastmod: post.publishedAt
+    lastmod: resolveLastModified([
+      post.sourcePath,
+      'src/pages/BlogPostPage.jsx',
+      'src/content/blogPosts.js',
+      ...sharedSeoFiles
+    ], new Date(post.publishedAt))
   }));
 
   const allEntries = [...staticPages, ...postEntries];
@@ -67,8 +135,6 @@ function generateSitemap(posts) {
   const urls = allEntries.map((entry) => `  <url>
     <loc>${escapeXml(SITE_URL + entry.loc)}</loc>
     <lastmod>${escapeXml(entry.lastmod)}</lastmod>
-    <changefreq>${entry.changefreq}</changefreq>
-    <priority>${entry.priority}</priority>
   </url>`).join('\n');
 
   return `<?xml version="1.0" encoding="UTF-8"?>
