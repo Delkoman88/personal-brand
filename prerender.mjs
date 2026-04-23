@@ -338,7 +338,7 @@ function buildHomePage(posts) {
       <section id="projects" class="section-spacing bg-low">
         <div class="container">
           <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 4rem;">
-            <span class="label-text" style="color: var(--primary-container);">03 // Shipped Projects</span>
+            <span class="label-text" style="color: var(--primary-container);">03 // Vibe Coding - Shipped Projects</span>
             <div style="flex: 1; height: 1px; background-color: var(--outline-variant);"></div>
           </div>
           <div style="display: flex; flex-direction: column; gap: 1.5rem;">

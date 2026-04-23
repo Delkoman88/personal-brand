@@ -46,7 +46,7 @@ export default function Projects() {
       <div className="container">
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '4rem' }}>
-          <span className="label-text" style={{ color: 'var(--primary-container)' }}>03 // Shipped Projects</span>
+          <span className="label-text" style={{ color: 'var(--primary-container)' }}>03 // Vibe Coding - Shipped Projects</span>
           <div style={{ flex: 1, height: '1px', backgroundColor: 'var(--outline-variant)' }}></div>
         </div>
 
