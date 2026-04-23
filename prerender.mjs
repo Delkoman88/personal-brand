@@ -27,6 +27,7 @@ function inlineMd(text) {
   html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
   html = html.replace(/`(.+?)`/g, '<code>$1</code>');
   html = html.replace(/\[(.+?)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2">$1</a>');
+  html = html.replace(/\b(vibe\s+cod(?:ing|e|er|ers)?)\b/gi, '<span translate="no">$1</span>');
   return html;
 }
 

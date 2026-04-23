@@ -129,7 +129,10 @@ function validateBlogIndex(posts, failures) {
 function validatePostPages(posts, failures) {
   posts.forEach((post) => {
     const routePath = `/blog/${post.slug}`;
-    const html = readFile(path.join(DIST, 'blog', post.slug, 'index.html'));
+    const rawHtml = readFile(path.join(DIST, 'blog', post.slug, 'index.html'));
+    // Strip the translation spans so text matching doesn't fail
+    const html = rawHtml.replace(/<span translate="no">/g, '').replace(/<\/span>/g, '');
+    
     validateSharedSeo(html, routePath, failures);
     expectIncludes(html, '<article class="blog-article-main">', `${routePath}: missing article wrapper`, failures);
     expectIncludes(html, post.title, `${routePath}: missing H1/title content`, failures);
