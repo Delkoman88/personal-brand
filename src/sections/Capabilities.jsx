@@ -32,7 +32,7 @@ const aiToolGroups = [
     label: 'Google & Local',
     tools: [
       { icon: '🔵', name: 'Gemini', role: 'Cross-review · Long context' },
-      { icon: '🟠', name: 'Google Antigravity', role: 'Cloud execution' },
+      { icon: '🟠', name: 'Google Antigravity', role: 'Agentic coding · Full-stack execution' },
       { icon: '🔵', name: 'NotebookLM', role: 'Research synthesis · Knowledge base' },
       { icon: '🎨', name: 'Stitch', role: 'UI design & prototyping' },
       { icon: '⚙️', name: 'Qwen Code 2.5 7B', role: 'Local inference · Offline tasks' },
