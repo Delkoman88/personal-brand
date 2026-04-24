@@ -293,6 +293,33 @@
   gap: 14px;
 }
 
+.cv-page .swipe-hint {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  margin: -2px 0 12px;
+  color: var(--cv-text3);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cv-page .swipe-hint::before {
+  content: '⇄';
+  font-size: 12px;
+  color: var(--cv-accent2);
+}
+
+.cv-page .swipe-hint::after {
+  content: '';
+  flex: 1;
+  min-width: 36px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(124, 106, 255, 0.45), rgba(124, 106, 255, 0));
+}
+
 .cv-page .exp-list,
 .cv-page .edu-list,
 .cv-page .lang-list {
@@ -754,6 +781,25 @@
     padding-top: 7.75rem;
   }
 
+  .cv-page .swipe-hint {
+    display: inline-flex;
+  }
+
+  .cv-page .projects-list {
+    display: grid !important;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(85vw, 85vw);
+    overflow-x: auto;
+    gap: 12px;
+    padding: 0 1rem 0.75rem 0;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .cv-page .proj {
+    scroll-snap-align: start;
+  }
+
   .cv-page .stat-bar {
     grid-template-columns: 1fr;
   }
@@ -789,6 +835,7 @@
 
   .cv-page .badge-available,
   .cv-page .dot,
+  .cv-page .swipe-hint,
   .cv-page .footer-bar {
     display: none !important;
   }

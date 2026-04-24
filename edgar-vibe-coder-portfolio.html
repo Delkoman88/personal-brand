@@ -161,6 +161,18 @@
        PROJECTS
     ───────────────────────────────────── */
     .projects-list { display: flex; flex-direction: column; gap: 14px; }
+    .swipe-hint {
+      display: none; align-items: center; gap: 8px;
+      margin: -2px 0 12px; color: var(--text3);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 500;
+      letter-spacing: .08em; text-transform: uppercase;
+    }
+    .swipe-hint::before { content: '⇄'; font-size: 12px; color: var(--accent2); }
+    .swipe-hint::after {
+      content: ''; flex: 1; min-width: 36px; height: 1px;
+      background: linear-gradient(90deg, rgba(124,106,255,.45), rgba(124,106,255,0));
+    }
     .proj {
       background: var(--bg3); border: 1px solid var(--border);
       border-radius: 14px; padding: 22px 24px;
@@ -340,6 +352,19 @@
       padding: 4px 10px; border-radius: 5px;
     }
 
+    @media (max-width: 640px) {
+      .swipe-hint { display: inline-flex; }
+      .projects-list {
+        display: grid; grid-auto-flow: column;
+        grid-auto-columns: minmax(85vw, 85vw);
+        overflow-x: auto; gap: 12px;
+        padding: 0 1rem .75rem 0;
+        scroll-snap-type: x proximity;
+        -webkit-overflow-scrolling: touch;
+      }
+      .proj { scroll-snap-align: start; }
+    }
+
     /* ─────────────────────────────────────
        PRINT
     ───────────────────────────────────── */
@@ -349,7 +374,7 @@
         --bg:#fff; --bg2:#f7f7f9; --bg3:#f0f0f3; --bg4:#eaeaee;
         --border:#ddd; --text:#111; --text2:#444; --text3:#888; --accent2:#5b45d4; --green:#059669;
       }
-      .badge-available, .dot { display: none !important; }
+      .badge-available, .dot, .swipe-hint { display: none !important; }
       .footer-bar { display: none; }
       a { color: #5b45d4; }
     }
@@ -465,6 +490,7 @@
        SELECTED PROJECTS
   ══════════════════════════════════ -->
   <div class="sec"><div class="sec-icon pink">🚀</div><h2>Selected Projects</h2><div class="sec-line"></div></div>
+  <p class="swipe-hint">Swipe to see more projects</p>
   <div class="projects-list">
 
     <!-- BSC -->
