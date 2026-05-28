@@ -39,3 +39,8 @@ QWEN.md
 *.njsproj
 *.sln
 *.sw?
+
+# Local CVs and cover letters not meant for production
+Edgar_Mancilla_CV_*.html
+Edgar_Mancilla_CV_*.pdf
+cover-letter-*.md
