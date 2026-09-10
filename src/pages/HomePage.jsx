@@ -10,7 +10,7 @@ import Projects from '../sections/Projects';
 import Timeline from '../sections/Timeline';
 import Seo from '../components/Seo';
 import { blogPosts } from '../content/blogPosts';
-import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from '../config/site';
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL, HOME_TITLE, HOME_KEYWORDS } from '../config/site';
 
 export default function HomePage() {
   const structuredData = [
@@ -45,23 +45,25 @@ export default function HomePage() {
   return (
     <>
       <Seo
-        title="Edgar Mancilla Sanchez | Vibe Coder · AI-Native Builder · Biotech PhD"
+        title={HOME_TITLE}
         description={SITE_DESCRIPTION}
         path="/"
         image="/og-image.png"
         twitterSite="@urbanbeautygarden"
-        keywords={['Edgar Mancilla Sanchez', 'vibe coder', 'AI-native builder', 'biotech phd', 'systems', 'compliance', 'AgTech', 'strategy and operations', 'traceability', 'quality systems', 'automation', 'vibe coding']}
+        keywords={HOME_KEYWORDS}
         structuredData={structuredData}
       />
-      <Hero />
-      <About />
-      <Capabilities />
-      <Projects />
-      <Experience />
-      <Timeline />
-      <Credibility />
-      <Blog />
-      <Contact />
+      <main>
+        <Hero />
+        <Projects />
+        <About />
+        <Capabilities />
+        <Experience />
+        <Timeline />
+        <Credibility />
+        <Blog />
+        <Contact />
+      </main>
     </>
   );
 }

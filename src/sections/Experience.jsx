@@ -1,60 +1,14 @@
 import React from 'react';
 
-const experiences = [
-  {
-    id: 'TRP',
-    company: 'TRYP México',
-    role: 'Operations & Process Standardization',
-    description: 'An accelerated growth marketplace environment where I led operational improvement, reporting workflows, process standardization, and vendor onboarding structure. Directed coordination across three distribution centers in Mexico, integrating quality and compliance initiatives with actionable automation.',
-    tags: ['Operational Improvement', 'Workflow Design', 'Automation', 'Logistics'],
-    image: '/tryp.png'
-  },
-  {
-    id: 'TRC',
-    company: 'TRACELAB CONSULTING',
-    role: 'Business Strategy Consultant | Operations, Compliance & Market Readiness',
-    description: 'I support early-stage and growth-stage brands with business strategy, process design, and operational structuring. My work focuses on translating technical, regulatory, and commercial needs into practical systems, clear documentation, and actionable execution frameworks. Our approach helps transform science, compliance, and strong brand positioning into real competitive advantages.',
-    tags: ['Business Strategy', 'Market Readiness', 'Regulatory Discipline'],
-    image: '/tracelab.png'
-  },
-  {
-    id: 'URL',
-    company: 'URBN LEAVES',
-    role: 'AgTech Venture — Founder / Operations',
-    description: 'A Mexican AgTech venture focused on urban agriculture, hydroponics, and controlled-environment systems. The vision was to decentralize food production by enabling people to use available home space to grow and generate income. Explored modular production systems, traceability, sustainability, and blockchain integration.',
-    tags: ['AgTech', 'Hydroponics', 'Sustainability', 'Top 20 Green Innovation'],
-    highlights: [
-      'Selected by Entrepreneur magazine (2019) as one of the "60 rockstars de los emprendedores"',
-      'Invited to Shark Tank (2020)'
-    ],
-    image: '/urbn.png'
-  },
-  {
-    id: 'BJB',
-    company: 'Baja Biotech',
-    role: 'Biotech Consultant / Co-Founder (2014-2017)',
-    description:
-      'At Baja Biotech, I designed and commercialized tailored R&D solutions for biotechnology and molecular biology laboratories across Mexico and the United States. My work focused on genetics and molecular biology, helping connect research institutions in La Jolla, California, with laboratories in Mexico to support technology transfer and applied scientific innovation. I led technical sales, client training, and laboratory setup projects, contributing to cross-border collaboration and practical implementation in life sciences research environments.',
-    tags: ['Biotech Consulting', 'Molecular Biology', 'Technology Transfer', 'Lab Setup'],
-    image: '/baja-biotech.svg'
-  },
-  {
-    id: 'UBG',
-    company: 'URBAN BEAUTY GARDEN',
-    role: 'Experimental Urban Agriculture',
-    description: 'A living, experimental project combining urban agriculture, practical cultivation, and content creation. I am exploring how to integrate 3D printing into localized food systems through the design and testing of tools and growing solutions for small spaces. The long-term ambition is to establish a restaurant chain centered entirely on locally cultivated ingredients.',
-    tags: ['3D Printing', 'Maker Culture', 'Localized Food Systems', '@urbanbeautygarden'],
-    image: '/ubg.png'
-  }
-];
+import { experienceGroups } from '../content/experience';
 
-export default function Experience() {
+function ExperienceGroup({ id, title, items: experiences }) {
   return (
-    <section id="experience" className="section-spacing bg-surface">
+    <section id={id} className="section-spacing bg-surface" aria-labelledby={`${id}-heading`}>
       <div className="container">
         
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '4rem' }}>
-          <span className="label-text" style={{ color: 'var(--primary-container)' }}>04 // Selected Experience</span>
+          <h2 id={`${id}-heading`} className="label-text" style={{ color: 'var(--primary-container)', margin: 0 }}>{title}</h2>
           <div style={{ flex: 1, height: '1px', backgroundColor: 'var(--outline-variant)' }}></div>
         </div>
 
@@ -72,7 +26,7 @@ export default function Experience() {
             {experiences.map((exp, index) => (
               <div key={index} className="experience-item" style={{
                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
                 gap: '3rem',
               alignItems: 'start',
               paddingLeft: '2rem',
@@ -92,7 +46,7 @@ export default function Experience() {
               {/* Text Side */}
               <div className="experience-copy" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                 <div>
-                  <span className="label-text" style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--secondary-container)' }}>
+                  <span className="label-text" style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--on-surface-variant)' }}>
                     [{exp.id}] // {exp.role}
                   </span>
                   <h3 translate="no" className="notranslate" style={{ fontSize: '2rem', margin: 0 }}>{exp.company}</h3>
@@ -187,4 +141,8 @@ export default function Experience() {
       </div>
     </section>
   );
+}
+
+export default function Experience() {
+  return <>{experienceGroups.map(group => <ExperienceGroup key={group.id} {...group} />)}</>;
 }

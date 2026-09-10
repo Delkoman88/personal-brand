@@ -12,9 +12,9 @@ import { readPosts } from './src/utils/markdown.mjs';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST = path.join(__dirname, 'dist');
 const POSTS_DIR = path.join(__dirname, 'src/content/posts');
-const SITE_URL = 'https://edgarmancilla.com';
-const SITE_NAME = 'Edgar Mancilla Sanchez';
-const SITE_DESCRIPTION = 'Biotech PhD designing operational systems for complex and regulated environments. Strategy and operations, compliance and market readiness, traceability, quality systems, automation, and AgTech.';
+import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, HOME_TITLE, HOME_KEYWORDS, CONTACT_EMAIL, LINKEDIN_URL } from './src/config/site.js';
+import { experienceGroups } from './src/content/experience.js';
+import { homeCopy, projects, projectFields, capabilities, toolGroups, credibilityHighlights } from './src/content/homeContent.js';
 
 
 
@@ -209,12 +209,12 @@ function buildHomePage(posts) {
   ];
 
   const head = buildHead({
-    title: 'Edgar Mancilla Sanchez | Biotech PhD | Systems, Compliance & AgTech',
+    title: HOME_TITLE,
     description: SITE_DESCRIPTION,
     pathName: '/',
     image: '/og-image.png',
     twitterSite: '@urbanbeautygarden',
-    keywords: ['Edgar Mancilla Sanchez', 'biotech phd', 'systems', 'compliance', 'AgTech', 'strategy and operations', 'traceability', 'quality systems', 'automation'],
+    keywords: HOME_KEYWORDS,
     structuredData
   });
 
@@ -239,254 +239,94 @@ function buildHomePage(posts) {
             </article>`).join('');
 
   const body = `
+    <nav class="site-navigation" aria-label="Main navigation">
+      <div class="site-navigation-inner">
+        <a href="/" class="site-brand"><span>EDGAR MANCILLA SANCHEZ</span><span class="label-text">Applications · Automation · Operations</span></a>
+        <div class="site-nav-links">
+          <a href="#projects" class="nav-projects">Projects</a><a href="#biotech-agtech">Biotech &amp; AgTech</a><a href="#about">Profile</a>
+          <a href="#experience">Experience</a><a href="/blog">Blog</a><a href="#contact">Contact</a>
+        </div>
+      </div>
+    </nav>
     <main>
-      <section class="bg-lowest grid-blueprint hero-section" style="min-height: 100vh; display: flex; align-items: center; padding-top: 80px; position: relative; overflow: hidden;">
-        <div style="position: absolute; top: -10%; left: -10%; width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(0, 245, 255, 0.05) 0%, rgba(19, 19, 19, 0) 70%); z-index: 0; pointer-events: none;"></div>
-        <div class="container hero-layout" style="position: relative; z-index: 1; display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 4rem; flex-wrap: wrap;">
-          <div class="hero-copy" style="flex: 1 1 500px;">
-            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
-              <div style="width: 40px; height: 2px; background-color: var(--primary-container);"></div>
-              <span class="label-text" style="color: var(--on-surface-variant);">Vibe Coder · AI-Native Builder · Ops Architect</span>
-            </div>
-            <h1 style="margin-bottom: 1.5rem;">Biotech PhD. Building <span class="text-accent-cyan" style="display: inline-block;">AI-native products</span> for complex environments.</h1>
-            <p style="font-size: 1.125rem; color: var(--on-surface-variant); margin-bottom: 2rem; max-width: 600px;">Operating at the intersection of science, product, and execution. I use AI as an execution engine to turn ambiguous problems into real, shipped software — fast.</p>
-            
-            <div style="display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--outline-variant);">
-              <div style="display: flex; flex-direction: column; gap: 0.2rem;">
-                <span style="font-family: var(--font-display); font-size: 1.75rem; font-weight: 700; color: var(--primary-container); line-height: 1;">3</span>
-                <span class="label-text" style="font-size: 0.68rem; color: var(--on-surface-variant);">Products in production</span>
-              </div>
-              <div style="display: flex; flex-direction: column; gap: 0.2rem;">
-                <span style="font-family: var(--font-display); font-size: 1.75rem; font-weight: 700; color: var(--primary-container); line-height: 1;">10+</span>
-                <span class="label-text" style="font-size: 0.68rem; color: var(--on-surface-variant);">AI models in workflow</span>
-              </div>
-              <div style="display: flex; flex-direction: column; gap: 0.2rem;">
-                <span style="font-family: var(--font-display); font-size: 1.75rem; font-weight: 700; color: var(--primary-container); line-height: 1;">12+</span>
-                <span class="label-text" style="font-size: 0.68rem; color: var(--on-surface-variant);">Years building ventures</span>
-              </div>
-            </div>
-
-            <div class="hero-signal-grid">
-              <span class="hero-signal-pill">Vibe Coder</span>
-              <span class="hero-signal-pill">AI Builder</span>
-              <span class="hero-signal-pill">AgTech</span>
-              <span class="hero-signal-pill">Compliance</span>
-            </div>
-            <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
-              <a href="/cv/es" class="btn-primary">Ver CV en español</a>
+      <section class="bg-lowest grid-blueprint hero-section">
+        <div class="container hero-layout">
+          <div class="hero-copy">
+            <p class="label-text hero-eyebrow">${escapeHtml(homeCopy.eyebrow)}</p>
+            <h1>I build <span class="text-accent-cyan">applications and automations</span> with AI to solve real operational problems.</h1>
+            <p class="hero-intro">${escapeHtml(homeCopy.intro)}</p>
+            <div class="hero-actions">
+              <a href="#projects" class="btn-primary">View projects <span aria-hidden="true">↗</span></a>
               <a href="/cv/en" class="btn-secondary">Read CV in English</a>
+              <a href="/cv/es" class="hero-cv-link" lang="es">Ver CV en español</a>
             </div>
           </div>
-          <div class="hero-visual" style="flex: 1 1 300px; display: flex; justify-content: center;">
-            <div class="hero-portrait" style="position: relative; width: 100%; max-width: 400px; aspect-ratio: 3/4; background-color: var(--surface-high); border: 1px solid var(--outline-variant);">
-              <div style="position: absolute; top: -1px; left: -1px; width: 10px; height: 10px; border-top: 2px solid var(--primary-container); border-left: 2px solid var(--primary-container); z-index: 2;"></div>
-              <div style="position: absolute; bottom: -1px; right: -1px; width: 10px; height: 10px; border-bottom: 2px solid var(--primary-container); border-right: 2px solid var(--primary-container); z-index: 2;"></div>
-              <img src="/profile.jpg" alt="Edgar Mancilla Sanchez" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(60%) contrast(1.1) brightness(0.9); mix-blend-mode: lighten;" />
-            </div>
+          <div class="hero-visual"><div class="hero-portrait"><img src="/profile.jpg" alt="Edgar Mancilla Sánchez" width="400" height="533" /></div></div>
+        </div>
+      </section>
+      <section id="projects" class="section-spacing bg-low" aria-labelledby="projects-heading">
+        <div class="container">
+          <div class="section-heading"><h2 id="projects-heading" class="label-text">01 // Selected projects</h2></div>
+          <div class="projects-list">
+            ${projects.map(project => `
+              <article class="project-item project-case project-case--${escapeHtml(project.id)}">
+                <div class="project-copy">
+                  <div><p class="label-text project-meta">${escapeHtml(project.meta)}</p><h3>${escapeHtml(project.name)}</h3></div>
+                  <dl class="project-details">${projectFields.map(([field, label]) => `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(project[field])}</dd></div>`).join('')}</dl>
+                  <ul class="project-stack" aria-label="${escapeHtml(project.name)} technologies">${project.stack.map(item => `<li class="project-stack-badge">${escapeHtml(item)}</li>`).join('')}</ul>
+                  <div class="project-actions">
+                    <a href="${escapeHtml(project.url)}" target="_blank" rel="noopener noreferrer" class="btn-secondary">${escapeHtml(project.linkLabel)} <span aria-hidden="true">↗</span></a>
+                    <span class="project-access">${escapeHtml(project.accessNote)}</span>
+                  </div>
+                </div>
+                <figure class="project-evidence">
+                  <a href="${escapeHtml(project.image)}" target="_blank" rel="noopener noreferrer" class="project-visual" aria-label="Open full image: ${escapeHtml(project.imageAlt)}">
+                    <img src="${escapeHtml(project.image)}" alt="${escapeHtml(project.imageAlt)}" width="1280" height="800" loading="lazy" />
+                  </a>
+                  <figcaption>${escapeHtml(project.caption)}</figcaption>
+                </figure>
+              </article>`).join('')}
           </div>
         </div>
       </section>
-
       <section id="about" class="section-spacing bg-surface">
         <div class="container">
-          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 3rem;">
-            <span class="label-text" style="color: var(--primary-container);">01 // Profile</span>
-            <div style="flex: 1; height: 1px; background-color: var(--outline-variant);"></div>
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 2rem; max-width: 800px;">
-            <h2 style="font-size: clamp(2rem, 3vw, 2.5rem); color: var(--on-surface);">I am an interdisciplinary professional navigating the complex intersections of science, technology, and operational realities.</h2>
-            <div style="padding-left: 2rem; border-left: 2px solid var(--outline-variant);">
-              <p style="font-size: 1.125rem; color: var(--on-surface-variant); margin-bottom: 1.5rem;">My background as a Biotech PhD provided the analytical rigor. My experience in high-growth operational environments and regulated industries built the strategic execution. I am a hands-on builder, systems-oriented, and execution-heavy.</p>
-              <p style="font-size: 1.125rem; color: var(--on-surface-variant);">I work at the intersection of <span style="color: var(--on-surface);">product, operations, and AI execution</span> — using vibe coding and multi-model workflows to turn ambiguous problems into real, shipped software while keeping the process discipline that complex environments demand.</p>
-            </div>
-          </div>
+          <div class="section-heading"><span class="label-text">02 // Profile</span></div>
+          <div class="profile-copy"><h2>${escapeHtml(homeCopy.profileTitle)}</h2>${homeCopy.profile.map(text => `<p>${escapeHtml(text)}</p>`).join('')}</div>
         </div>
       </section>
-
-      <section id="capabilities" class="section-spacing-top bg-low">
-        <div class="container" style="display: grid; gap: 2rem;">
-          <div style="display: flex; align-items: center; gap: 1rem;">
-            <span class="label-text" style="color: var(--primary-container);">02 // Core Capabilities</span>
-            <div style="flex: 1; height: 1px; background-color: var(--outline-variant);"></div>
-          </div>
-          <p style="max-width: 800px; margin: 0; color: var(--on-surface-variant); font-size: 1.05rem;">AI-Native Product Development, strategy and operations, compliance and market readiness, traceability, documentation, quality systems, automation, AgTech, and cross-functional implementation.</p>
-          
-          <div style="margin-top: 3.5rem; padding-top: 3rem; border-top: 1px solid var(--outline-variant);">
-            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-              <span class="label-text" style="color: var(--primary-container); white-space: nowrap;">AI Toolchain</span>
-              <div style="flex: 1; height: 1px; background-color: var(--outline-variant);"></div>
-            </div>
-            <p style="font-size: 0.95rem; color: var(--on-surface-variant); line-height: 1.8; border-left: 2px solid rgba(0, 245, 255, 0.3); padding-left: 1rem; font-style: italic; margin-bottom: 1.5rem; max-width: 640px;">
-              "I use AI as an execution system, not autocomplete. My workflow includes persistent briefing files per model and context systems that guide implementation, debugging, and architectural decisions."
-            </p>
-            <div class="mobile-scroll-shell">
-              <div class="mobile-scroll-indicator">
-                <span class="label-text">Swipe to see more tools</span>
-              </div>
-              <div class="mobile-scroll-cue" aria-hidden="true">
-                <span class="mobile-scroll-arrow">&larr;</span>
-                <span class="mobile-scroll-arrow">&rarr;</span>
-              </div>
-              <div class="ai-toolchain-grid">
-                <div class="project-item" style="padding: 1.5rem; border: 1px solid var(--outline-variant); background-color: rgba(28, 27, 27, 0.4);">
-                  <span class="label-text" style="font-size: 0.65rem; color: var(--outline); display: block; margin-bottom: 0.6rem;">Anthropic / Claude</span>
-                  <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
-                    <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🟣</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Claude Sonnet</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Architecture · Complex code · QA</span></div></div>
-                    <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🟣</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Claude Code</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Agentic CLI coding</span></div></div>
-                    <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🟣</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Claude Cowork</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Agent orchestration</span></div></div>
-                  </div>
-                </div>
-                <div class="project-item" style="padding: 1.5rem; border: 1px solid var(--outline-variant); background-color: rgba(28, 27, 27, 0.4);">
-                  <span class="label-text" style="font-size: 0.65rem; color: var(--outline); display: block; margin-bottom: 0.6rem;">OpenAI</span>
-                  <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
-                    <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🟢</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">ChatGPT</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Ideation · Drafts · Second opinion</span></div></div>
-                    <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🟢</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Codex</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Code generation</span></div></div>
-                  </div>
-                </div>
-                <div class="project-item" style="padding: 1.5rem; border: 1px solid var(--outline-variant); background-color: rgba(28, 27, 27, 0.4);">
-                  <span class="label-text" style="font-size: 0.65rem; color: var(--outline); display: block; margin-bottom: 0.6rem;">Google & Local</span>
-                  <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
-                    <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🔵</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Gemini</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Cross-review · Long context</span></div></div>
-                    <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🟠</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Google Antigravity</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Agentic coding · Full-stack execution</span></div></div>
-                    <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🔵</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">NotebookLM</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Research synthesis · Knowledge base</span></div></div>
-                    <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🎨</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Stitch</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">UI design & prototyping</span></div></div>
-                    <div class="ai-tool-chip"><span style="font-size: 0.9rem;">⚙️</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Qwen Code 2.5 7B</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Local inference · Offline tasks</span></div></div>
-                  </div>
-                </div>
-                <div class="project-item" style="padding: 1.5rem; border: 1px solid var(--outline-variant); background-color: rgba(28, 27, 27, 0.4);">
-                  <span class="label-text" style="font-size: 0.65rem; color: var(--outline); display: block; margin-bottom: 0.6rem;">Context & Knowledge</span>
-                  <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
-                    <div class="ai-tool-chip"><span style="font-size: 0.9rem;">🪨</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Obsidian</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Context management · Knowledge base</span></div></div>
-                    <div class="ai-tool-chip"><span style="font-size: 0.9rem;">📋</span><div style="display: flex; flex-direction: column; gap: 0.1rem;"><span style="font-size: 0.82rem; color: var(--on-surface); font-weight: 500;">Notion</span><span style="font-size: 0.65rem; color: var(--on-surface-variant); font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.04em;">Product HQ · Documentation</span></div></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      
-      <section id="projects" class="section-spacing-bottom bg-low">
+      <section id="capabilities" class="section-spacing bg-low" aria-labelledby="capabilities-heading">
         <div class="container">
-          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 4rem;">
-            <span class="label-text" style="color: var(--primary-container);">03 // Vibe Coding - Shipped Projects</span>
-            <div style="flex: 1; height: 1px; background-color: var(--outline-variant);"></div>
-          </div>
+          <div class="section-heading"><h2 id="capabilities-heading" class="label-text">03 // Capabilities &amp; tools</h2></div>
           <div class="mobile-scroll-shell">
-            <div class="mobile-scroll-indicator">
-              <span class="label-text">Swipe to see more projects</span>
-            </div>
-            <div class="mobile-scroll-cue" aria-hidden="true">
-              <span class="mobile-scroll-arrow">&larr;</span>
-              <span class="mobile-scroll-arrow">&rarr;</span>
-            </div>
-            <div class="projects-list">
-              
-              <div class="project-item" style="position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; align-items: start; align-content: start; padding-left: 2rem; border-left: 2px solid var(--outline-variant);">
-                <div style="position: absolute; top: 0; left: -6px; width: 10px; height: 10px; background-color: var(--primary-container);"></div>
-                
-                <div class="project-copy" style="display: flex; flex-direction: column; gap: 1.5rem;">
-                  <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap;">
-                    <div>
-                      <h3 style="margin: 0 0 0.3rem 0; font-size: 1.45rem;">Beauty Studio Copilot</h3>
-                      <span class="label-text" style="font-size: 0.68rem; color: var(--on-surface-variant);">Solo Builder · Product Engineer · LATAM · 2026 — Present</span>
-                    </div>
-                    <a href="https://beauty-studio-copilot--beauty-studio-copilot.us-east4.hosted.app" target="_blank" rel="noopener noreferrer" class="project-live-badge"><span class="project-live-dot" style="background-color: var(--primary-container);"></span>Live — View project →</a>
-                  </div>
-                  
-                  <p style="color: var(--on-surface-variant); font-size: 1rem; line-height: 1.75; margin: 0;">SaaS platform for beauty studios — built solo from zero to production and validated by a real user today. Replaces fragmented WhatsApp + Google Sheets workflows with a structured operating system for beauty businesses.</p>
-                  
-                  <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-                    <div class="project-highlight-chip"><span style="color: var(--primary-container); font-weight: 700; font-size: 1rem; font-family: var(--font-display);">20+</span><span>features in prod</span></div>
-                    <div class="project-highlight-chip"><span style="color: var(--primary-container); font-weight: 700; font-size: 1rem; font-family: var(--font-display);">45+</span><span>unit tests</span></div>
-                    <div class="project-highlight-chip"><span style="color: var(--primary-container); font-weight: 700; font-size: 1rem; font-family: var(--font-display);">1</span><span>solo builder</span></div>
-                  </div>
-                  
-                  <ul style="list-style: none; padding: 0; margin: 0;">
-                    <li style="font-size: 0.875rem; color: var(--on-surface-variant); line-height: 1.7; padding: 0.2rem 0 0.2rem 1.1rem; position: relative;"><span style="position: absolute; left: 0; color: var(--primary-container); font-weight: 700;">›</span>Full management system: multi-tenant auth, client CRM, Google Calendar sync, assisted messaging (WhatsApp), loyalty system, checkout & finances, multi-staff with roles, KPI dashboards, automated reminders, and mobile-first UX.</li>
-                    <li style="font-size: 0.875rem; color: var(--on-surface-variant); line-height: 1.7; padding: 0.2rem 0 0.2rem 1.1rem; position: relative;"><span style="position: absolute; left: 0; color: var(--primary-container); font-weight: 700;">›</span>Full product ownership: definition, UX decisions, implementation, backlog management, debugging, and continuous iteration.</li>
-                    <li style="font-size: 0.875rem; color: var(--on-surface-variant); line-height: 1.7; padding: 0.2rem 0 0.2rem 1.1rem; position: relative;"><span style="position: absolute; left: 0; color: var(--primary-container); font-weight: 700;">›</span>Production monitoring with Sentry, 45+ unit tests, strict TypeScript and ESLint — no shortcuts.</li>
-                  </ul>
-                  
-                  <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem;">
-                    <span class="project-stack-badge">Next.js App Router</span>
-                    <span class="project-stack-badge">TypeScript</span>
-                    <span class="project-stack-badge">Firebase Auth</span>
-                    <span class="project-stack-badge">Firestore</span>
-                    <span class="project-stack-badge">Cloud Functions</span>
-                    <span class="project-stack-badge">Google Calendar API</span>
-                    <span class="project-stack-badge">OAuth2</span>
-                    <span class="project-stack-badge">Twilio</span>
-                    <span class="project-stack-badge">SendGrid</span>
-                    <span class="project-stack-badge">Sentry</span>
-                  </div>
-                </div>
-
-                <div class="project-visual" style="position: relative; width: 100%; aspect-ratio: 16/9; border: 1px solid var(--outline-variant); background-color: var(--surface-lowest); overflow: hidden;">
-                  <div style="position: absolute; top: -1px; left: -1px; width: 10px; height: 10px; border-top: 2px solid var(--primary-container); border-left: 2px solid var(--primary-container); z-index: 2;"></div>
-                  <div style="position: absolute; bottom: -1px; right: -1px; width: 10px; height: 10px; border-bottom: 2px solid var(--primary-container); border-right: 2px solid var(--primary-container); z-index: 2;"></div>
-                  <img src="/project-beauty.png" alt="Beauty Studio Copilot project screenshot" translate="no" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(15%) contrast(1.1) brightness(0.9); mix-blend-mode: lighten;" />
-                </div>
-              </div>
-
-              <div class="project-item" style="position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; align-items: start; align-content: start; padding-left: 2rem; border-left: 2px solid var(--outline-variant);">
-                <div style="position: absolute; top: 0; left: -6px; width: 10px; height: 10px; background-color: #f59e0b;"></div>
-                
-                <div class="project-copy" style="display: flex; flex-direction: column; gap: 1.5rem;">
-                  <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap;">
-                    <div>
-                      <h3 style="margin: 0 0 0.3rem 0; font-size: 1.45rem;">Viajero Sediento</h3>
-                      <span class="label-text" style="font-size: 0.68rem; color: var(--on-surface-variant);">Product Builder · Real client · 2026</span>
-                    </div>
-                    <a href="https://sitioviajerosediento--sitioviajerosediento.us-central1.hosted.app" target="_blank" rel="noopener noreferrer" class="project-live-badge"><span class="project-live-dot" style="background-color: #f59e0b;"></span>Live — View project →</a>
-                  </div>
-                  
-                  <p style="color: var(--on-surface-variant); font-size: 1rem; line-height: 1.75; margin: 0;">Mobile-first digital catalog and admin platform for a real tap room — Nordic aesthetic, individual beer sheets, full CRUD with image upload and state management. Staff uses the admin panel daily in operations.</p>
-                  
-                  <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem;">
-                    <span class="project-stack-badge">Next.js</span>
-                    <span class="project-stack-badge">TypeScript</span>
-                    <span class="project-stack-badge">Firebase Auth</span>
-                    <span class="project-stack-badge">Firestore</span>
-                    <span class="project-stack-badge">Firebase Storage</span>
-                    <span class="project-stack-badge">App Hosting</span>
-                  </div>
-                </div>
-
-                <div class="project-visual" style="position: relative; width: 100%; aspect-ratio: 16/9; border: 1px solid var(--outline-variant); background-color: var(--surface-lowest); overflow: hidden;">
-                  <div style="position: absolute; top: -1px; left: -1px; width: 10px; height: 10px; border-top: 2px solid #f59e0b; border-left: 2px solid #f59e0b; z-index: 2;"></div>
-                  <div style="position: absolute; bottom: -1px; right: -1px; width: 10px; height: 10px; border-bottom: 2px solid #f59e0b; border-right: 2px solid #f59e0b; z-index: 2;"></div>
-                  <img src="/project-viajero.png" alt="Viajero Sediento project screenshot" translate="no" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(15%) contrast(1.1) brightness(0.9); mix-blend-mode: lighten;" />
-                </div>
-              </div>
-
-            </div>
+            <div class="mobile-scroll-indicator"><span class="label-text">Swipe to explore more cards</span></div>
+            <div class="capabilities-grid">${capabilities.map(cap => `<div class="card-elevated capability-card"><h3>${escapeHtml(cap.title)}</h3><p>${escapeHtml(cap.desc)}</p></div>`).join('')}</div>
+          </div>
+          <div class="tools-summary"><h3>How I build</h3><p>${escapeHtml(homeCopy.workflow)}</p>
+            <dl class="tools-list">${toolGroups.map(group => `<div><dt>${escapeHtml(group.label)}</dt><dd>${escapeHtml(group.tools)}</dd></div>`).join('')}</dl>
           </div>
         </div>
       </section>
-      <section id="experience" class="section-spacing bg-surface">
-        <div class="container" style="display: grid; gap: 2rem;">
-          <div style="display: flex; align-items: center; gap: 1rem;">
-            <span class="label-text" style="color: var(--primary-container);">04 // Selected Experience</span>
-            <div style="flex: 1; height: 1px; background-color: var(--outline-variant);"></div>
+      ${experienceGroups.map(group => `
+        <section id="${group.id}" class="section-spacing bg-surface" aria-labelledby="${group.id}-heading">
+          <div class="container">
+            <div class="section-heading"><h2 id="${group.id}-heading" class="label-text">${escapeHtml(group.title)}</h2></div>
+            <div class="mobile-scroll-shell">
+              <div class="mobile-scroll-indicator"><span class="label-text">Swipe to see more work</span></div>
+              <div class="experience-list" style="display:flex;flex-direction:column;gap:5rem;">
+                ${group.items.map(exp => `<article class="experience-item" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:3rem;align-items:start;padding-left:2rem;border-left:2px solid var(--outline-variant);">
+                  <div class="experience-copy">
+                    <p class="label-text">${escapeHtml(exp.role)}</p><h3>${escapeHtml(exp.company)}</h3>
+                    <p>${escapeHtml(exp.description)}</p>
+                    ${exp.highlights ? `<ul>${exp.highlights.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : ''}
+                    <div class="experience-tag-list">${exp.tags.map(tag => `<span class="experience-tag">${escapeHtml(tag)}</span>`).join(' · ')}</div>
+                  </div>
+                  <div class="experience-visual"><img src="${escapeHtml(exp.image)}" alt="${escapeHtml(exp.company)} visualization" loading="lazy" /></div>
+                </article>`).join('')}
+              </div>
+            </div>
           </div>
-          <div style="display: grid; gap: 1.25rem; max-width: 980px;">
-            <article style="padding-left: 1.25rem; border-left: 2px solid var(--outline-variant);">
-              <h3 style="margin: 0 0 0.5rem;">TRYP Mexico</h3>
-              <p style="margin: 0; color: var(--on-surface-variant);">Operations and process standardization across three distribution centers, with reporting workflows, vendor onboarding, automation, and quality/compliance coordination.</p>
-            </article>
-            <article style="padding-left: 1.25rem; border-left: 2px solid var(--outline-variant);">
-              <h3 style="margin: 0 0 0.5rem;">TraceLab Consulting</h3>
-              <p style="margin: 0; color: var(--on-surface-variant);">Business strategy, operations, compliance, and market readiness for early-stage and growth-stage brands translating technical and regulatory needs into practical systems.</p>
-            </article>
-            <article style="padding-left: 1.25rem; border-left: 2px solid var(--outline-variant);">
-              <h3 style="margin: 0 0 0.5rem;">Urbn Leaves</h3>
-              <p style="margin: 0; color: var(--on-surface-variant);">AgTech venture focused on urban agriculture, hydroponics, controlled-environment systems, traceability, and decentralized food production.</p>
-            </article>
-          </div>
-        </div>
-      </section>
+        </section>`).join('')}
 
       <section id="timeline" class="section-spacing bg-low">
         <div class="container" style="display: grid; gap: 2rem;">
@@ -504,7 +344,7 @@ function buildHomePage(posts) {
             <span class="label-text" style="color: var(--primary-container);">06 // Credibility & Substance</span>
             <div style="flex: 1; height: 1px; background-color: var(--outline-variant);"></div>
           </div>
-          <p style="max-width: 860px; margin: 0; color: var(--on-surface-variant);">Core themes across the work include AI-native product development, vibe coding & multi-model orchestration, solo builder — zero to production, context engineering & structured AI workflows, operations & process standardization, compliance & regulatory systems, traceability & documentation, AgTech & urban agriculture, and startup & high-growth environments.</p>
+          <p style="max-width: 860px; margin: 0; color: var(--on-surface-variant);">${escapeHtml(credibilityHighlights.join('; '))}.</p>
         </div>
       </section>
 
@@ -522,15 +362,15 @@ function buildHomePage(posts) {
         </div>
       </section>
 
-      <section id="contact" class="section-spacing bg-lowest contact-section" style="border-top: 1px solid var(--outline-variant);">
-        <div class="container" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-          <div style="width: 40px; height: 2px; background-color: var(--primary-container); margin-bottom: 2rem;"></div>
-          <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Ready to build something real?</h2>
-          <p style="color: var(--on-surface-variant); font-size: 1.125rem; max-width: 600px; margin-bottom: 3rem;">Whether you need an AI-native product built from scratch, want to structure an early-stage startup with solid operational systems, or want to explore how vibe coding can accelerate your execution. Let&#39;s work.</p>
-          <div class="contact-actions" style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
-            <a href="https://linktr.ee/delkoman" target="_blank" rel="noopener noreferrer" class="btn-primary">Connect via Linktree</a>
-            <a href="mailto:delkoman@gmail.com" class="btn-secondary">Send an Email</a>
+      <section id="contact" class="section-spacing bg-lowest contact-section">
+        <div class="container contact-content">
+          <h2>${escapeHtml(homeCopy.contactTitle)}</h2><p>${escapeHtml(homeCopy.contact)}</p>
+          <div class="contact-actions">
+            <a href="mailto:${CONTACT_EMAIL}" class="btn-primary">${CONTACT_EMAIL}</a>
+            <a href="${LINKEDIN_URL}" target="_blank" rel="noopener noreferrer" class="btn-secondary">LinkedIn <span aria-hidden="true">↗</span></a>
           </div>
+          <div class="contact-links"><a href="/cv/en">Read CV in English</a><a href="/cv/es" lang="es">Ver CV en español</a><a href="https://linktr.ee/delkoman" target="_blank" rel="noopener noreferrer">More links</a></div>
+          <div class="contact-footer">© ${new Date().getFullYear()} EDGAR MANCILLA SÁNCHEZ // APPLICATIONS · AUTOMATION · OPERATIONS</div>
         </div>
       </section>
     </main>`;

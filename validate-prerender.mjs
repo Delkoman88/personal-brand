@@ -2,6 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { cvPageConfig, getCvAlternateLinks } from './src/content/cvPageConfig.js';
+import { homeCopy, projects, projectFields } from './src/content/homeContent.js';
+import { HOME_TITLE, SITE_DESCRIPTION, CONTACT_EMAIL, LINKEDIN_URL } from './src/config/site.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST = path.join(__dirname, 'dist');
@@ -118,12 +120,36 @@ function validateAlternates(html, routePath, alternates, failures) {
 function validateHomePage(failures) {
   const html = readFile(path.join(DIST, 'index.html'));
   validateSharedSeo(html, '/', failures);
-  expectIncludes(html, 'Biotech PhD. Building', '/: missing hero headline in initial HTML', failures);
-  expectIncludes(html, 'Operating at the intersection of science, product, and execution', '/: missing hero intro copy in initial HTML', failures);
+  const text = html.replace(/<[^>]*>/g, '').replace(/&amp;/g, '&').replace(/&#39;/g, "'");
+  expectIncludes(text, homeCopy.headline, '/: missing hero headline in initial HTML', failures);
+  expectIncludes(text, homeCopy.intro, '/: missing hero intro copy in initial HTML', failures);
+  expectIncludes(text, HOME_TITLE, '/: homepage SEO title mismatch', failures);
+  expectIncludes(html, SITE_DESCRIPTION, '/: homepage SEO description mismatch', failures);
+  expectRegex(html, /href="#projects"[^>]*class="btn-primary"[^>]*>View projects/, '/: missing primary projects CTA', failures);
+  expectIncludes(html, 'href="/cv/en"', '/: missing English CV link', failures);
+  expectIncludes(html, 'href="/cv/es"', '/: missing Spanish CV link', failures);
+  expectIncludes(html, `href="mailto:${CONTACT_EMAIL}"`, '/: missing email link', failures);
+  expectIncludes(html, `href="${LINKEDIN_URL}"`, '/: missing LinkedIn link', failures);
+  expectIncludes(text, 'Biotech PhD · Applied AI · Operations', '/: missing scientific profile in hero', failures);
+  expectIncludes(html, 'id="biotech-agtech"', '/: missing sector experience section', failures);
+  ['URBN LEAVES', 'Baja Biotech', 'URBAN BEAUTY GARDEN'].forEach(name => expectIncludes(text, name, `/: missing sector experience ${name}`, failures));
+  const projectPosition = html.indexOf('id="projects"');
+  if (projectPosition < 0 || projectPosition > html.indexOf('id="about"') || projectPosition > html.indexOf('id="capabilities"')) {
+    failures.push('/: projects must appear before profile and capabilities');
+  }
+  projects.forEach(project => {
+    expectIncludes(text, project.name, `/: missing project ${project.name}`, failures);
+    projectFields.forEach(([field]) => expectIncludes(text, project[field], `/: missing ${project.name} ${field}`, failures));
+    expectIncludes(html, `href="${project.url}"`, `/: missing ${project.name} link`, failures);
+    expectIncludes(html, `src="${project.image}"`, `/: missing ${project.name} image`, failures);
+  });
+  if (/Products in production|AI models in workflow|AI-native products/i.test(text)) {
+    failures.push('/: stale positioning or counters in homepage');
+  }
   expectIncludes(html, 'Ver CV en español', '/: missing Spanish CV CTA in initial HTML', failures);
   expectIncludes(html, 'Read CV in English', '/: missing English CV CTA in initial HTML', failures);
-  expectIncludes(html, '04 // Selected Experience', '/: missing selected experience section in initial HTML', failures);
-  expectIncludes(html, 'TRYP Mexico', '/: missing selected experience content in initial HTML', failures);
+  expectIncludes(html, '04 // Operations &amp; Consulting', '/: missing selected experience section in initial HTML', failures);
+  expectIncludes(html, 'TRYP México', '/: missing selected experience content in initial HTML', failures);
   expectIncludes(html, '06 // Credibility & Substance', '/: missing credibility section in initial HTML', failures);
 }
 

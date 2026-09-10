@@ -1,16 +1,6 @@
 import React from 'react';
 
-const highlights = [
-  'AI-Native Product Development',
-  'Vibe Coding & Multi-Model Orchestration',
-  'Solo Builder — Zero to Production',
-  'Context Engineering & Structured AI Workflows',
-  'Operations & Process Standardization',
-  'Compliance & Regulatory Systems',
-  'Traceability & Documentation',
-  'AgTech & Urban Agriculture',
-  'Startup & High-Growth Environments',
-];
+import { credibilityHighlights as highlights } from '../content/homeContent';
 
 export default function Credibility() {
   return (
