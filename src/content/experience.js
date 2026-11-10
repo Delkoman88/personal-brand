@@ -2,17 +2,28 @@ export const experiences = [
   {
     id: 'TRP',
     company: 'TRYP México',
-    role: 'Operations & Process Standardization',
-    description: 'An accelerated growth marketplace environment where I led operational improvement, reporting workflows, process standardization, and vendor onboarding structure. Directed coordination across three distribution centers in Mexico, integrating quality and compliance initiatives with actionable automation.',
-    tags: ['Operational Improvement', 'Workflow Design', 'Automation', 'Logistics'],
+    role: 'Strategy & Operations | Marketplace Health & B2B',
+    description: 'At Tryp, I connected marketplace operations with vendor performance and commercial priorities. My work covered supplier onboarding, B2B initiatives, quality and compliance, and coordination across distribution centers in Mexico City, Guadalajara, and Monterrey.',
+    highlights: [
+      'Led a logistics initiative to collect inventory from suppliers and distribute it across the three cities, improving product availability. Participating vendors increased sales by 35%.'
+    ],
+    tags: ['Marketplace Operations', 'Vendor Performance', 'B2B', 'Logistics'],
     image: '/tryp.png'
   },
   {
     id: 'TRC',
     company: 'TRACELAB CONSULTING',
-    role: 'Business Strategy Consultant | Operations, Compliance & Market Readiness',
-    description: 'I support early-stage and growth-stage brands with business strategy, process design, and operational structuring. My work focuses on translating technical, regulatory, and commercial needs into practical systems, clear documentation, and actionable execution frameworks. Our approach helps transform science, compliance, and strong brand positioning into real competitive advantages.',
-    tags: ['Business Strategy', 'Market Readiness', 'Regulatory Discipline'],
+    role: 'Growth & Business Strategy Consultant',
+    description: 'At TraceLab, we combine growth consulting, business strategy, and operational design. We help brands structure SEO, content, acquisition, and measurement around their commercial priorities. My contribution focuses on SEO strategy, process design, and translating business needs into practical execution frameworks.',
+    highlights: [
+      'Gods Beard Cult: completed growth consulting, including SEO guidance, content planning, and performance measurement.',
+      'Happy Bites: ongoing growth engagement covering SEO, paid media, email segmentation, and monthly reporting.'
+    ],
+    links: [
+      { label: 'Explore TraceLab', url: 'https://tracelabconsulting.com.mx/' },
+      { label: 'Growth consulting cases', url: 'https://tracelabconsulting.com.mx/services/growth' }
+    ],
+    tags: ['Growth Strategy', 'SEO & Content', 'Commercial Strategy', 'Measurement'],
     image: '/tracelab.png'
   },
   {
@@ -33,7 +44,7 @@ export const experiences = [
     role: 'Biotech Consultant / Co-Founder (2014-2017)',
     description:
       'At Baja Biotech, I designed and commercialized tailored R&D solutions for biotechnology and molecular biology laboratories across Mexico and the United States. My work focused on genetics and molecular biology, helping connect research institutions in La Jolla, California, with laboratories in Mexico to support technology transfer and applied scientific innovation. I led technical sales, client training, and laboratory setup projects, contributing to cross-border collaboration and practical implementation in life sciences research environments.',
-    tags: ['Biotech Consulting', 'Molecular Biology', 'Technology Transfer', 'Lab Setup'],
+    tags: ['Technical Sales', 'Biotech Consulting', 'Technology Transfer', 'Lab Setup'],
     image: '/baja-biotech.svg'
   },
   {

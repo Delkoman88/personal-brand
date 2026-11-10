@@ -130,7 +130,7 @@ function validateHomePage(failures) {
   expectIncludes(html, 'href="/cv/es"', '/: missing Spanish CV link', failures);
   expectIncludes(html, `href="mailto:${CONTACT_EMAIL}"`, '/: missing email link', failures);
   expectIncludes(html, `href="${LINKEDIN_URL}"`, '/: missing LinkedIn link', failures);
-  expectIncludes(text, 'Biotech PhD · Applied AI · Operations', '/: missing scientific profile in hero', failures);
+  expectIncludes(text, homeCopy.eyebrow, '/: missing scientific profile in hero', failures);
   expectIncludes(html, 'id="biotech-agtech"', '/: missing sector experience section', failures);
   ['URBN LEAVES', 'Baja Biotech', 'URBAN BEAUTY GARDEN'].forEach(name => expectIncludes(text, name, `/: missing sector experience ${name}`, failures));
   const projectPosition = html.indexOf('id="projects"');

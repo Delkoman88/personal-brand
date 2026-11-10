@@ -1242,3 +1242,19 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 #biotech-agtech-heading { font-size: clamp(1.4rem, 3vw, 2rem); }
 #biotech-agtech { background: var(--surface-low); }
+
+.experience-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+}
+
+.experience-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--primary-container);
+  font-family: var(--font-label);
+  font-size: 0.85rem;
+  text-underline-offset: 0.25em;
+}
