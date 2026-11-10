@@ -24,7 +24,9 @@ export default function Projects() {
                   {project.stack.map(item => <li key={item} className="project-stack-badge">{item}</li>)}
                 </ul>
                 <div className="project-actions">
-                  <a href={project.url} target="_blank" rel="noopener noreferrer" className="btn-secondary">{project.linkLabel} <span aria-hidden="true">↗</span></a>
+                  {project.url ? (
+                    <a href={project.url} target="_blank" rel="noopener noreferrer" className="btn-secondary">{project.linkLabel} <span aria-hidden="true">↗</span></a>
+                  ) : null}
                   <span className="project-access">{project.accessNote}</span>
                 </div>
               </div>
@@ -33,6 +35,18 @@ export default function Projects() {
                   <img src={project.image} alt={project.imageAlt} width="1280" height="800" loading="lazy" />
                 </a>
                 <figcaption>{project.caption}</figcaption>
+                {project.gallery ? (
+                  <div className="project-gallery">
+                    {project.gallery.map(item => (
+                      <figure key={item.image} className="project-gallery-item">
+                        <a href={item.image} target="_blank" rel="noopener noreferrer" className="project-visual" aria-label={`Open full image: ${item.imageAlt}`}>
+                          <img src={item.image} alt={item.imageAlt} width="1280" height="800" loading="lazy" />
+                        </a>
+                        <figcaption>{item.caption}</figcaption>
+                      </figure>
+                    ))}
+                  </div>
+                ) : null}
               </figure>
             </article>
           ))}

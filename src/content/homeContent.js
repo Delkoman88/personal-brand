@@ -46,6 +46,32 @@ export const projects = [
     linkLabel: 'View live site',
     accessNote: 'Current site: Viajero Hambriento',
   },
+  {
+    id: 'aqvarivs',
+    name: 'AQVARIVS / AQUARIUS',
+    meta: 'Agent developer · Private project · 2026 — Present',
+    problem: 'MRLN, an electronic music artist, needs a persistent personal intelligence system to think, create, and finish more, without losing control of his attention.',
+    solution: 'AQVAR1VS, a coordinating agent built on OpenClaw and self-hosted on an Ubuntu server with Tailscale access. It includes a music feed with verified Beatport discovery, a library, sets, a musical map, and integrated chat, with documented control, handoffs, and evidence for each task.',
+    contribution: 'I was hired by MRLN to develop the system: architecture, deployment, a Python toolkit, testing, and ongoing operation with Codex from the server.',
+    usage: 'In active development. Music feed at v58 (1 November 2026); library, sets, map, and chat published and pending the artist’s confirmation on mobile.',
+    stack: ['OpenClaw', 'Codex', 'Python', 'SQLite', 'Tailscale', 'Ubuntu', 'Beatport MCP'],
+    image: '/project-aqvarivs-library.png',
+    imageAlt: 'MRLN Music Space library with 489 received tracks',
+    caption: 'Music library, 10 November 2026: 489 received tracks with covers, BPM, and Beatport links.',
+    accessNote: 'Private project · In development · No public link',
+    gallery: [
+      {
+        image: '/project-aqvarivs-map.png',
+        imageAlt: 'Musical map with 514 tracks in 20 genre groups',
+        caption: 'Musical map: 514 tracks in 20 genre groups and 500 connections.',
+      },
+      {
+        image: '/project-aqvarivs-detail.png',
+        imageAlt: 'Track detail for Cristalis by TroniKol with a grounded recommendation',
+        caption: 'Track detail: grounded recommendation with tempo, label, and reference tracks.',
+      },
+    ],
+  },
 ];
 
 export const projectFields = [

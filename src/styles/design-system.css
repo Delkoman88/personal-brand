@@ -1173,6 +1173,10 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   gap: 3rem; align-items: start; border-left: 2px solid var(--project-accent); padding-left: 2rem;
 }
 .project-case--viajero-sediento { --project-accent: var(--project-warm); }
+.project-case--aqvarivs { --project-accent: #b388ff; }
+.project-gallery { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1rem; margin-top: 1rem; }
+.project-gallery-item { margin: 0; min-width: 0; }
+.project-gallery-item figcaption { margin-top: 0.5rem; }
 .project-copy { min-width: 0; display: grid; gap: var(--portfolio-gap); }
 .project-copy h3 { font-size: 1.7rem; margin: 0.4rem 0 0; }
 .project-meta { font-size: 0.65rem; color: var(--on-surface-variant); }
