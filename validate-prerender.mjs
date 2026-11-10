@@ -140,8 +140,13 @@ function validateHomePage(failures) {
   projects.forEach(project => {
     expectIncludes(text, project.name, `/: missing project ${project.name}`, failures);
     projectFields.forEach(([field]) => expectIncludes(text, project[field], `/: missing ${project.name} ${field}`, failures));
-    expectIncludes(html, `href="${project.url}"`, `/: missing ${project.name} link`, failures);
+    if (project.url) {
+      expectIncludes(html, `href="${project.url}"`, `/: missing ${project.name} link`, failures);
+    }
     expectIncludes(html, `src="${project.image}"`, `/: missing ${project.name} image`, failures);
+    (project.gallery || []).forEach(item => {
+      expectIncludes(html, `src="${item.image}"`, `/: missing ${project.name} gallery image`, failures);
+    });
   });
   if (/Products in production|AI models in workflow|AI-native products/i.test(text)) {
     failures.push('/: stale positioning or counters in homepage');

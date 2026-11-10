@@ -51,7 +51,7 @@ export const projects = [
     name: 'AQVARIVS / AQUARIUS',
     meta: 'Agent developer · Private project · 2026 — Present',
     problem: 'MRLN, an electronic music artist, needs a persistent personal intelligence system to think, create, and finish more, without losing control of his attention.',
-    solution: 'AQVAR1VS, a coordinating agent built on OpenClaw and self-hosted on an Ubuntu server with Tailscale access. It includes a music feed with verified Beatport discovery, a library, sets, a musical map, and integrated chat, with documented control, handoffs, and evidence for each task.',
+    solution: 'AQVAR1VS, a coordinating agent built on OpenClaw and self-hosted on an Ubuntu server. It includes a music feed with verified Beatport discovery, a library, sets, a musical map, and integrated chat, with documented control, handoffs, and evidence for each task.',
     contribution: 'I was hired by MRLN to develop the system: architecture, deployment, a Python toolkit, testing, and ongoing operation with Codex from the server.',
     usage: 'In active development. Music feed at v58 (1 November 2026); library, sets, map, and chat published and pending the artist’s confirmation on mobile.',
     stack: ['OpenClaw', 'Codex', 'Python', 'SQLite', 'Tailscale', 'Ubuntu', 'Beatport MCP'],

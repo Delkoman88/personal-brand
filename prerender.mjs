@@ -275,7 +275,7 @@ function buildHomePage(posts) {
                   <dl class="project-details">${projectFields.map(([field, label]) => `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(project[field])}</dd></div>`).join('')}</dl>
                   <ul class="project-stack" aria-label="${escapeHtml(project.name)} technologies">${project.stack.map(item => `<li class="project-stack-badge">${escapeHtml(item)}</li>`).join('')}</ul>
                   <div class="project-actions">
-                    <a href="${escapeHtml(project.url)}" target="_blank" rel="noopener noreferrer" class="btn-secondary">${escapeHtml(project.linkLabel)} <span aria-hidden="true">↗</span></a>
+                    ${project.url ? `<a href="${escapeHtml(project.url)}" target="_blank" rel="noopener noreferrer" class="btn-secondary">${escapeHtml(project.linkLabel)} <span aria-hidden="true">↗</span></a>` : ''}
                     <span class="project-access">${escapeHtml(project.accessNote)}</span>
                   </div>
                 </div>
@@ -284,6 +284,13 @@ function buildHomePage(posts) {
                     <img src="${escapeHtml(project.image)}" alt="${escapeHtml(project.imageAlt)}" width="1280" height="800" loading="lazy" />
                   </a>
                   <figcaption>${escapeHtml(project.caption)}</figcaption>
+                  ${project.gallery ? `<div class="project-gallery">${project.gallery.map(item => `
+                      <figure class="project-gallery-item">
+                        <a href="${escapeHtml(item.image)}" target="_blank" rel="noopener noreferrer" class="project-visual" aria-label="Open full image: ${escapeHtml(item.imageAlt)}">
+                          <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.imageAlt)}" width="1280" height="800" loading="lazy" />
+                        </a>
+                        <figcaption>${escapeHtml(item.caption)}</figcaption>
+                      </figure>`).join('')}</div>` : ''}
                 </figure>
               </article>`).join('')}
           </div>
