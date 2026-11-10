@@ -7,7 +7,7 @@ export default function Hero() {
       <div className="container hero-layout">
         <div className="hero-copy">
           <p className="label-text hero-eyebrow">{homeCopy.eyebrow}</p>
-          <h1>I build <span className="text-accent-cyan">applications and automations</span> with AI to solve real operational problems.</h1>
+          <h1>I turn business challenges into <span className="text-accent-cyan">growth strategies and useful tools</span> with AI.</h1>
           <p className="hero-intro">{homeCopy.intro}</p>
           <div className="hero-actions">
             <a href="#projects" className="btn-primary">View projects <span aria-hidden="true">↗</span></a>

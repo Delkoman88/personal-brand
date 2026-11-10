@@ -70,6 +70,16 @@ function ExperienceGroup({ id, title, items: experiences }) {
                   </ul>
                 )}
 
+                {exp.links && (
+                  <div className="experience-links">
+                    {exp.links.map(link => (
+                      <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer">
+                        {link.label} ↗
+                      </a>
+                    ))}
+                  </div>
+                )}
+
                 <div className="experience-tag-list" style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginTop: '0.5rem' }}>
                   {exp.tags.map((tag, i) => (
                     tag === '@urbanbeautygarden' ? (

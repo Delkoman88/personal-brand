@@ -253,7 +253,7 @@ function buildHomePage(posts) {
         <div class="container hero-layout">
           <div class="hero-copy">
             <p class="label-text hero-eyebrow">${escapeHtml(homeCopy.eyebrow)}</p>
-            <h1>I build <span class="text-accent-cyan">applications and automations</span> with AI to solve real operational problems.</h1>
+            <h1>I turn business challenges into <span class="text-accent-cyan">growth strategies and useful tools</span> with AI.</h1>
             <p class="hero-intro">${escapeHtml(homeCopy.intro)}</p>
             <div class="hero-actions">
               <a href="#projects" class="btn-primary">View projects <span aria-hidden="true">↗</span></a>
@@ -319,6 +319,7 @@ function buildHomePage(posts) {
                     <p class="label-text">${escapeHtml(exp.role)}</p><h3>${escapeHtml(exp.company)}</h3>
                     <p>${escapeHtml(exp.description)}</p>
                     ${exp.highlights ? `<ul>${exp.highlights.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : ''}
+                    ${exp.links ? `<div class="experience-links">${exp.links.map(link => `<a href="${escapeHtml(link.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(link.label)} ↗</a>`).join('')}</div>` : ''}
                     <div class="experience-tag-list">${exp.tags.map(tag => `<span class="experience-tag">${escapeHtml(tag)}</span>`).join(' · ')}</div>
                   </div>
                   <div class="experience-visual"><img src="${escapeHtml(exp.image)}" alt="${escapeHtml(exp.company)} visualization" loading="lazy" /></div>

@@ -1,8 +1,8 @@
 // Shared by the React homepage and the static prerenderer.
 export const homeCopy = {
-  eyebrow: 'Biotech PhD · Applied AI · Operations',
-  headline: 'I build applications and automations with AI to solve real operational problems.',
-  intro: 'My background spans biotechnology, AgTech, and operations. I use AI-assisted development to turn operational needs into useful applications, automations, and connected workflows.',
+  eyebrow: 'Biotech PhD · Strategy & Operations · Applied AI',
+  headline: 'I turn business challenges into growth strategies and useful tools with AI.',
+  intro: 'My background spans biotechnology, AgTech, and marketplace operations. I connect commercial priorities with practical processes, growth strategy, and AI-assisted applications and automations.',
   profileTitle: 'Operational judgment. Scientific rigor. Hands-on building.',
   profile: [
     'My Biotech PhD gave me analytical rigor and systems thinking. Work in high-growth operations, regulated environments, and AgTech taught me how to define problems, structure processes, and build around the people who use them.',
@@ -62,7 +62,7 @@ export const toolGroups = [
 export const capabilities = [
   { title: 'AI-assisted product development', desc: 'Turning requirements into working applications through implementation, structured debugging, and review.' },
   { title: 'Automation & integrations', desc: 'Connecting systems and designing workflows around operational needs, from calendar sync to reminders.' },
-  { title: 'Strategy & operations', desc: 'Translating business goals into practical processes, clear responsibilities, and useful daily tools.' },
+  { title: 'Strategy, growth & operations', desc: 'Connecting commercial priorities, supplier performance, SEO, and measurement with practical processes and useful daily tools.' },
   { title: 'Compliance & quality systems', desc: 'Bringing regulatory discipline, process design, and documentation into operational workflows.' },
   { title: 'Traceability & documentation', desc: 'Structuring records and standard operating procedures so teams can understand and run their processes.' },
   { title: 'Science & AgTech', desc: 'Applying experience in biotechnology, technical operations, and controlled-environment agriculture.' },
