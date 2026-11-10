@@ -48,7 +48,7 @@ export const projects = [
     problem: 'Beauty studios need to coordinate clients, appointments, and daily operations across fragmented WhatsApp and spreadsheet workflows.',
     solution: 'A management platform with client CRM, scheduling, Google Calendar integration, automated reminders, and operational dashboards.',
     contribution: 'I built the product solo, from problem definition and UX through implementation, production release, debugging, and ongoing iteration.',
-    usage: 'In production, with real users validating the MVP.',
+    usage: 'Over 200 active users; preparing for market launch.',
     stack: ['Next.js', 'TypeScript', 'Firebase Auth', 'Firestore', 'Cloud Functions', 'Google Calendar API'],
     image: '/project-beauty.png',
     imageAlt: 'Beauty Studio Copilot sign-in page',
