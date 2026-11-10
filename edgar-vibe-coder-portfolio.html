@@ -379,6 +379,16 @@
       .footer-bar { display: none; }
       a { color: #5b45d4; }
     }
+  
+    .print-btn { margin-top: 10px; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; color: var(--accent2); background: rgba(124,106,255,.1); border: 1px solid rgba(124,106,255,.25); padding: 6px 12px; border-radius: 20px; cursor: pointer; }
+    .print-btn:hover { background: rgba(124,106,255,.2); }
+    .toolchain-details summary { cursor: pointer; font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--text3); margin: 0 0 12px; }
+    .toolchain-details summary:hover { color: var(--accent2); }
+    @media print {
+      :root { --bg: #ffffff; --bg2: #ffffff; --bg3: #f4f4f6; --bg4: #ececf1; --border: #d5d5dd; --text: #111118; --text2: #444452; --text3: #6a6a78; }
+      .no-print { display: none !important; }
+      body { max-width: 100%; padding: 0; }
+    }
   </style>
 </head>
 <body>
@@ -398,6 +408,8 @@
       <span>📞 +52 55 3107 9026</span>
       <a href="https://edgarmancilla.com" target="_blank">🌐 edgarmancilla.com</a>
       <a href="https://www.linkedin.com/in/edgar-mancilla-sanchez/" target="_blank">💼 linkedin/edgar-mancilla-sanchez</a>
+      <a href="https://github.com/Delkoman88" target="_blank">💻 github/Delkoman88</a>
+      <button class="print-btn no-print" onclick="window.print()">⬇ Download / Print PDF</button>
     </div>
   </header>
 
@@ -424,7 +436,7 @@
   ══════════════════════════════════ -->
   <div class="sec"><div class="sec-icon purple">💡</div><h2>Professional Summary</h2><div class="sec-line"></div></div>
   <div class="summary-box">
-    I build <strong>applications and automations with AI-assisted development</strong> to solve operational problems. My work connects product definition, UX, systems integration, implementation, and iteration. Experience in operations, compliance, and AgTech helps me design around real workflows; my Biotech PhD contributes analytical rigor and systems thinking. I use AI throughout development, while each project describes the functionality actually built into the product.
+    I design and build <strong>AI agents and operational copilots</strong> — systems that work on real data, with documented control and evidence — plus the applications around them. <strong>AQVARIVS</strong>, a coordinating agent for an electronic music artist, and <strong>Beauty Studio Copilot</strong>, a SaaS platform with 200+ active users, are the current proof. My work connects product definition, UX, systems integration, implementation, and iteration. Experience in operations, compliance, and AgTech helps me design around real workflows; my Biotech PhD contributes analytical rigor and systems thinking.
   </div>
 
   <!-- ══════════════════════════════════
@@ -477,6 +489,25 @@
   <p class="swipe-hint">Swipe to see more projects</p>
   <div class="projects-list">
 
+    <!-- AQVARIVS -->
+    <div class="proj">
+      <div class="proj-top">
+        <div>
+          <div class="proj-name">AQVARIVS / AQUARIUS</div>
+          <div class="proj-meta">Agent Developer · Private project · 2026 – Present</div>
+        </div>
+        <span class="pill">Private project · No public link</span>
+      </div>
+      <p class="proj-desc">Coordinating agent built on OpenClaw for electronic music artist MRLN — a persistent personal intelligence system: grounded music recommendations, library, set preparation, musical map, and audio analysis by chat, with documented control, handoffs, and evidence for each task.</p>
+      <ul class="proj-bullets">
+        <li>Designed the agent architecture, deployment, Python toolkit, testing, and ongoing operation with Codex from the server.</li>
+        <li>Music feed with verified Beatport discovery, library, sets, musical map, and integrated chat — published and in confirmation with the artist.</li>
+      </ul>
+      <div class="stack-row">
+        <span class="stack-badge">OpenClaw</span><span class="stack-badge">Codex</span><span class="stack-badge">Python</span><span class="stack-badge">SQLite</span><span class="stack-badge">Tailscale</span><span class="stack-badge">Ubuntu</span><span class="stack-badge">Beatport MCP</span>
+      </div>
+    </div>
+
     <!-- BSC -->
     <div class="proj bsc">
       <div class="proj-top">
@@ -486,7 +517,7 @@
         </div>
         <a class="pill live" href="https://beauty-studio-copilot--beauty-studio-copilot.us-east4.hosted.app" target="_blank"><span class="dot"></span>View project · Sign-in required →</a>
       </div>
-      <p class="proj-desc">Production SaaS web platform for beauty studios — built solo from zero to production with <strong>real users validating the MVP</strong>. Replaces fragmented WhatsApp + Google Sheets workflows with a structured operating system for beauty businesses.</p>
+      <p class="proj-desc">Production SaaS web platform for beauty studios — built solo from zero to production with <strong>200+ active users, preparing for market launch</strong>. Replaces fragmented WhatsApp + Google Sheets workflows with a structured operating system for beauty businesses.</p>
       <ul class="proj-bullets">
         <li>Built a complete management system: multi-tenant auth, client CRM, scheduling with Google Calendar sync, assisted messaging (WhatsApp), loyalty system, checkout & finance flows, multi-staff roles, per-role KPIs, automated reminders, and mobile-first UX.</li>
         <li>Full ownership across product definition, UX decisions, implementation, backlog management, debugging, and iteration.</li>
@@ -618,7 +649,15 @@
   ══════════════════════════════════ -->
   <div class="sec"><div class="sec-icon yellow">🤖</div><h2>AI Toolchain</h2><div class="sec-line"></div></div>
   <p class="toolchain-intro">"I use AI as an execution system, not as autocomplete. My workflow includes model-specific briefing files and persistent context systems to guide implementation, debugging, and architectural decisions."</p>
+  <details class="toolchain-details" open>
+  <summary>Show / hide tools</summary>
 
+  <div class="tool-group">
+    <div class="tool-group-label">OpenClaw</div>
+    <div class="tools-row">
+      <div class="tool-chip"><span class="t-icon">🐙</span> OpenClaw <span class="role">· agent orchestration, gateway, coordinating agents</span></div>
+    </div>
+  </div>
   <div class="tool-group">
     <div class="tool-group-label">Anthropic / Claude</div>
     <div class="tools-row">
@@ -662,6 +701,7 @@
       <div class="tool-chip"><span class="t-icon">📋</span> Notion <span class="role">· product HQ & documentation</span></div>
     </div>
   </div>
+  </details>
 
   <!-- ══════════════════════════════════
        TECHNICAL APPROACH
@@ -692,6 +732,7 @@
         <div>
           <div class="edu-degree">PhD in Science — Biotechnology & Bioengineering</div>
           <div class="edu-school">Universidad Autónoma de Baja California</div>
+          <div style="font-size:12px;color:var(--text2);margin-top:2px;">Thesis: hydroxyapatite obtained from <em>Strongylocentrotus purpuratus</em>.</div>
         </div>
       </div>
       <div class="edu-item">
