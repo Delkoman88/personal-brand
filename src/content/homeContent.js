@@ -10,7 +10,7 @@ export const homeCopy = {
   ],
   contactTitle: 'Let’s build useful tools.',
   contact: 'Interested in working together? I welcome conversations about roles in applied AI, automation, biotechnology, AgTech, and innovation, as well as consulting projects that connect science, software, and operational needs.',
-  workflow: 'I use AI to support architecture, implementation, debugging, and review, with clear requirements and project context guiding the work.',
+  workflow: 'I start with clear requirements and context in Obsidian and Notion, build with AI-assisted tools, and verify each increment against the requirements — with tests, evidence, and documentation — so the result is a working system, not just a demo.',
 };
 
 export const projects = [
@@ -80,17 +80,17 @@ export const projectFields = [
 ];
 
 export const toolGroups = [
-  { label: 'Development & review', tools: 'Claude Code, Codex, Google Antigravity, Gemini' },
+  { label: 'Development & review', tools: 'OpenClaw, Codex, Claude Code, Google Antigravity, Gemini' },
   { label: 'Research & design', tools: 'ChatGPT, NotebookLM, Stitch' },
   { label: 'Project context', tools: 'Obsidian, Notion' },
 ];
 
 export const capabilities = [
-  { title: 'AI-assisted product development', desc: 'Turning requirements into working applications through implementation, structured debugging, and review.' },
+  { title: 'AI agents & copilots', desc: 'Coordinating agents and operational copilots that work on real data: recommendations, libraries, sets, and daily operations, with documented control and evidence for each task.' },
+  { title: 'AI-assisted product development', desc: 'Turning requirements into working applications through implementation, structured debugging, and review, verified against the requirements, not just built.' },
   { title: 'Automation & integrations', desc: 'Connecting systems and designing workflows around operational needs, from calendar sync to reminders.' },
   { title: 'Strategy, growth & operations', desc: 'Connecting commercial priorities, supplier performance, SEO, and measurement with practical processes and useful daily tools.' },
-  { title: 'Compliance & quality systems', desc: 'Bringing regulatory discipline, process design, and documentation into operational workflows.' },
-  { title: 'Traceability & documentation', desc: 'Structuring records and standard operating procedures so teams can understand and run their processes.' },
+  { title: 'Compliance & quality systems', desc: 'Bringing regulatory discipline, traceability, process design, and documentation into operational workflows.' },
   { title: 'Science & AgTech', desc: 'Applying experience in biotechnology, technical operations, and controlled-environment agriculture.' },
 ];
 
