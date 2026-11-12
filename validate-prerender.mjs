@@ -155,6 +155,7 @@ function validateHomePage(failures) {
   expectIncludes(html, 'Ver CV en español', '/: missing Spanish CV CTA in initial HTML', failures);
   expectIncludes(html, 'Read CV in English', '/: missing English CV CTA in initial HTML', failures);
   expectIncludes(html, 'href="/servicios"', '/: missing Servicios nav link in initial HTML', failures);
+  expectIncludes(html, 'Ver servicios de agentes de IA', '/: missing contextual Servicios link', failures);
   expectIncludes(html, '04 // Operations &amp; Consulting', '/: missing selected experience section in initial HTML', failures);
   expectIncludes(html, 'TRYP México', '/: missing selected experience content in initial HTML', failures);
   expectIncludes(html, '06 // Credibility & Substance', '/: missing credibility section in initial HTML', failures);

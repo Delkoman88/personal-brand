@@ -313,6 +313,10 @@ function buildHomePage(posts) {
           <div class="tools-summary"><h3>How I build</h3><p>${escapeHtml(homeCopy.workflow)}</p>
             <dl class="tools-list">${toolGroups.map(group => `<div><dt>${escapeHtml(group.label)}</dt><dd>${escapeHtml(group.tools)}</dd></div>`).join('')}</dl>
           </div>
+          <div class="services-promo">
+            <p>¿Necesitas un agente para un proceso concreto?</p>
+            <a href="/servicios">Ver servicios de agentes de IA <span aria-hidden="true">→</span></a>
+          </div>
         </div>
       </section>
       ${experienceGroups.map(group => `

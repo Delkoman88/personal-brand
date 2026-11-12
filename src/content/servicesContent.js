@@ -1,9 +1,9 @@
 // Shared by the React services page and the static prerenderer.
 // Content for the independent services offer (not TraceLab).
 export const servicesSeo = {
-  title: 'Agentes de IA a la medida y copilotos operativos',
+  title: 'Agentes de IA a la medida',
   description:
-    'Agentes de IA a la medida y copilotos operativos que trabajan sobre tu operación real. Diagnóstico gratis; proyectos desde MXN $10,000.',
+    'Construyo agentes de IA y copilotos operativos para negocios y personas. Diagnóstico gratis; proyectos a la medida desde MXN $10,000.',
   keywords: [
     'agentes de IA a la medida',
     'copiloto operativo',
@@ -15,7 +15,7 @@ export const servicesSeo = {
 };
 
 export const servicesCopy = {
-  eyebrow: 'Servicios · Edgar Mancilla Sánchez',
+  eyebrow: 'Agentes de IA a la medida · Edgar Mancilla Sánchez',
   headline: 'Un agente que trabaja en tu negocio todos los días',
   intro:
     'Son las nueve de la mañana. Anoche llegaron cuatro mensajes por WhatsApp, una clienta canceló y hoy tienes tres citas por confirmar. Yo construyo el agente que se encarga de eso mientras tú trabajas: confirma las citas, reacomoda las cancelaciones, contesta los mensajes y te deja la agenda del día lista. Lo conecto con las herramientas que ya usas.',

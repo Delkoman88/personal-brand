@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { capabilities, homeCopy, toolGroups } from '../content/homeContent';
 
 export default function Capabilities() {
@@ -20,6 +21,10 @@ export default function Capabilities() {
           <dl className="tools-list">
             {toolGroups.map(group => <div key={group.label}><dt>{group.label}</dt><dd>{group.tools}</dd></div>)}
           </dl>
+        </div>
+        <div className="services-promo">
+          <p>¿Necesitas un agente para un proceso concreto?</p>
+          <Link to="/servicios">Ver servicios de agentes de IA <span aria-hidden="true">→</span></Link>
         </div>
       </div>
     </section>
