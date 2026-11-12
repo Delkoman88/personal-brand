@@ -15,6 +15,7 @@ const POSTS_DIR = path.join(__dirname, 'src/content/posts');
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, HOME_TITLE, HOME_KEYWORDS, CONTACT_EMAIL, LINKEDIN_URL } from './src/config/site.js';
 import { experienceGroups } from './src/content/experience.js';
 import { homeCopy, projects, projectFields, capabilities, toolGroups, credibilityHighlights } from './src/content/homeContent.js';
+import { servicesSeo, servicesCopy, packages, proofCases, methodSteps, pricing, clientNeeds, faqs } from './src/content/servicesContent.js';
 
 
 
@@ -244,7 +245,7 @@ function buildHomePage(posts) {
         <a href="/" class="site-brand"><span>EDGAR MANCILLA SANCHEZ</span><span class="label-text">Applications · Automation · Operations</span></a>
         <div class="site-nav-links">
           <a href="#projects" class="nav-projects">Projects</a><a href="#biotech-agtech">Biotech &amp; AgTech</a><a href="#about">Profile</a>
-          <a href="#experience">Experience</a><a href="/blog">Blog</a><a href="#contact">Contact</a>
+          <a href="#experience">Experience</a><a href="/blog">Blog</a><a href="/servicios">Servicios</a><a href="#contact">Contact</a>
         </div>
       </div>
     </nav>
@@ -455,6 +456,176 @@ function buildBlogIndexPage(posts) {
   console.log('✓ prerendered /blog');
 }
 
+function buildServicesPage() {
+  const structuredData = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: servicesSeo.title,
+      description: servicesSeo.description,
+      url: `${SITE_URL}/servicios`,
+      provider: {
+        '@type': 'Person',
+        name: SITE_NAME,
+        url: SITE_URL,
+      },
+      areaServed: {
+        '@type': 'Country',
+        name: 'México',
+      },
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Agentes y copilotos operativos',
+        itemListElement: [
+          {
+            '@type': 'Offer',
+            name: 'Diagnóstico',
+            description: 'Reviso un proceso y te digo con franqueza si un agente te sirve.',
+            priceSpecification: {
+              '@type': 'PriceSpecification',
+              priceCurrency: 'MXN',
+              price: 0,
+            },
+          },
+          {
+            '@type': 'Offer',
+            name: 'Agente a la medida',
+            description: 'Agente con sus propias fuentes, memoria y documentos de control. Precio desde, según alcance.',
+            priceSpecification: {
+              '@type': 'PriceSpecification',
+              priceCurrency: 'MXN',
+              price: 10000,
+            },
+          },
+          {
+            '@type': 'Offer',
+            name: 'Copiloto operativo',
+            description: 'Un asistente diario para tu operación. Precio desde, según alcance.',
+            priceSpecification: {
+              '@type': 'PriceSpecification',
+              priceCurrency: 'MXN',
+              price: 10000,
+            },
+          },
+        ],
+      },
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((faq) => ({
+        '@type': 'Question',
+        name: faq.q,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.a,
+        },
+      })),
+    },
+  ];
+
+  const head = buildHead({
+    title: servicesSeo.title,
+    description: servicesSeo.description,
+    pathName: '/servicios',
+    image: '/og-image.png',
+    twitterSite: '@urbanbeautygarden',
+    keywords: servicesSeo.keywords,
+    structuredData
+  });
+
+  const body = `
+    <main lang="es" class="section-spacing bg-lowest grid-blueprint" style="min-height: 100vh; padding-top: 8rem;">
+      <div class="container" style="display: grid; gap: 3rem;">
+        <div style="display: grid; gap: 1rem; max-width: 760px;">
+          <span class="label-text" style="color: var(--primary-container)">${escapeHtml(servicesCopy.eyebrow)}</span>
+          <h1 style="margin: 0;">${escapeHtml(servicesCopy.headline)}</h1>
+          <p style="margin: 0; color: var(--on-surface-variant); font-size: 1.05rem;">
+            ${escapeHtml(servicesCopy.intro)}
+          </p>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="mailto:${CONTACT_EMAIL}?subject=Llamada de descubrimiento: agente o copiloto operativo" class="btn-primary">Agenda una llamada de descubrimiento</a>
+            <a href="/#projects" class="btn-secondary">Ver los casos</a>
+          </div>
+        </div>
+
+        <section aria-labelledby="prueba-heading">
+          <div class="section-heading"><h2 id="prueba-heading" class="label-text">${escapeHtml(servicesCopy.proofTitle)}</h2></div>
+          <p style="color: var(--on-surface-variant); max-width: 760px;">${escapeHtml(servicesCopy.proofIntro)}</p>
+          <div class="capabilities-grid">${proofCases.map((proof) => `
+            <div class="card-elevated capability-card">
+              <h3>${escapeHtml(proof.name)}</h3>
+              <p>${escapeHtml(proof.desc)}</p>
+            </div>`).join('')}
+          </div>
+        </section>
+
+        <section id="paquetes" aria-labelledby="paquetes-heading">
+          <div class="section-heading"><h2 id="paquetes-heading" class="label-text">${escapeHtml(servicesCopy.packagesTitle)}</h2></div>
+          <div class="capabilities-grid">${packages.map((pkg) => `
+            <article class="card-elevated capability-card">
+              <h3>${escapeHtml(pkg.name)}</h3>
+              <p><strong>${escapeHtml(pkg.tagline)}</strong></p>
+              <p>${escapeHtml(pkg.desc)}</p>
+              <p class="services-price">${escapeHtml(pkg.price)}</p>
+              <p>Ideal para: ${escapeHtml(pkg.ideal)}</p>
+            </article>`).join('')}
+          </div>
+        </section>
+
+        <section aria-labelledby="para-quien-heading">
+          <div class="section-heading"><h2 id="para-quien-heading" class="label-text">${escapeHtml(servicesCopy.audienceTitle)}</h2></div>
+          <p style="color: var(--on-surface-variant); max-width: 760px;">${escapeHtml(servicesCopy.audience)}</p>
+        </section>
+
+        <section id="metodo" aria-labelledby="metodo-heading">
+          <div class="section-heading"><h2 id="metodo-heading" class="label-text">${escapeHtml(servicesCopy.methodTitle)}</h2></div>
+          <ol class="services-steps">${methodSteps.map((step) => `
+            <li>
+              <h3>${escapeHtml(step.title)}</h3>
+              <p>${escapeHtml(step.desc)}</p>
+            </li>`).join('')}
+          </ol>
+        </section>
+
+        <section id="inversion" aria-labelledby="inversion-heading">
+          <div class="section-heading"><h2 id="inversion-heading" class="label-text">${escapeHtml(servicesCopy.pricingTitle)}</h2></div>
+          <ul>${pricing.lines.map((line) => `<li>${escapeHtml(line)}</li>`).join('')}
+          </ul>
+          <p style="color: var(--on-surface-variant); max-width: 760px;">${escapeHtml(pricing.note)}</p>
+        </section>
+
+        <section aria-labelledby="necesito-heading">
+          <div class="section-heading"><h2 id="necesito-heading" class="label-text">${escapeHtml(servicesCopy.needsTitle)}</h2></div>
+          <ul>${clientNeeds.map((need) => `<li>${escapeHtml(need)}</li>`).join('')}
+          </ul>
+        </section>
+
+        <section id="faq" aria-labelledby="faq-heading">
+          <div class="section-heading"><h2 id="faq-heading" class="label-text">${escapeHtml(servicesCopy.faqTitle)}</h2></div>
+          <div style="display: grid; gap: 1.5rem; max-width: 760px;">${faqs.map((faq) => `
+            <div class="services-faq-item">
+              <h3>${escapeHtml(faq.q)}</h3>
+              <p>${escapeHtml(faq.a)}</p>
+            </div>`).join('')}
+          </div>
+        </section>
+
+        <section aria-labelledby="cta-heading">
+          <div class="section-heading"><h2 id="cta-heading" class="label-text">${escapeHtml(servicesCopy.ctaTitle)}</h2></div>
+          <p style="color: var(--on-surface-variant); max-width: 760px;">${escapeHtml(servicesCopy.ctaText)}</p>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="mailto:${CONTACT_EMAIL}?subject=Llamada de descubrimiento: agente o copiloto operativo" class="btn-primary">${CONTACT_EMAIL}</a>
+            <a href="/#projects" class="btn-secondary">Ver los casos</a>
+          </div>
+        </section>
+      </div>
+    </main>`;
+
+  injectPage({ outputPath: 'servicios/index.html', head, body, lang: 'es' });
+  console.log('✓ prerendered /servicios');
+}
+
 function buildBlogPostPages(posts) {
   posts.forEach((post) => {
     const relatedPosts = posts.filter((item) => item.slug !== post.slug).slice(0, 2);
@@ -571,5 +742,6 @@ buildHomePage(posts);
 buildCvPages();
 buildBlogIndexPage(posts);
 buildBlogPostPages(posts);
+buildServicesPage();
 
 console.log('\n✔ Prerender complete.');

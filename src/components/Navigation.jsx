@@ -32,6 +32,7 @@ export default function Navigation() {
           <a href={sectionHref('about')}>Profile</a>
           <a href={sectionHref('experience')}>Experience</a>
           <Link to="/blog">Blog</Link>
+          <Link to="/servicios">Servicios</Link>
           <a href={sectionHref('contact')}>Contact</a>
         </div>
       </div>

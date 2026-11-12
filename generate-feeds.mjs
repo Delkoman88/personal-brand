@@ -106,10 +106,16 @@ function generateSitemap(posts) {
     ...sharedSeoFiles,
     ...posts.map((post) => post.sourcePath)
   ]);
+  const servicesLastmod = resolveLastModified([
+    'src/pages/ServicesPage.jsx',
+    'src/content/servicesContent.js',
+    ...sharedSeoFiles
+  ]);
 
   const staticPages = [
     { loc: '/', lastmod: homeLastmod },
     { loc: '/blog', lastmod: blogIndexLastmod },
+    { loc: '/servicios', lastmod: servicesLastmod },
     ...Object.values(cvPageConfig).map((page) => ({
       loc: page.path,
       lastmod: resolveLastModified([
@@ -195,7 +201,7 @@ const posts = readPosts(POSTS_DIR);
 
 const sitemap = generateSitemap(posts);
 fs.writeFileSync(path.join(DIST, 'sitemap.xml'), sitemap, 'utf8');
-console.log(`✓ generated sitemap.xml (${posts.length} posts + ${Object.keys(cvPageConfig).length + 2} static pages)`);
+console.log(`✓ generated sitemap.xml (${posts.length} posts + ${Object.keys(cvPageConfig).length + 3} static pages)`);
 
 const feed = generateRssFeed(posts);
 fs.writeFileSync(path.join(DIST, 'feed.xml'), feed, 'utf8');

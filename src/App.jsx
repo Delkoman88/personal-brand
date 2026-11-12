@@ -7,6 +7,7 @@ import BlogIndexPage from './pages/BlogIndexPage';
 import HomePage from './pages/HomePage';
 import BlogPostPage from './pages/BlogPostPage';
 import CvPage from './pages/CvPage';
+import ServicesPage from './pages/ServicesPage';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/cv/es" element={<CvPage locale="es" />} />
         <Route path="/blog" element={<BlogIndexPage />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
+        <Route path="/servicios" element={<ServicesPage />} />
       </Routes>
     </>
   );

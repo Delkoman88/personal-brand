@@ -3,6 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { cvPageConfig, getCvAlternateLinks } from './src/content/cvPageConfig.js';
 import { homeCopy, projects, projectFields } from './src/content/homeContent.js';
+import { servicesSeo, servicesCopy, packages, proofCases, methodSteps, pricing, clientNeeds, faqs } from './src/content/servicesContent.js';
 import { HOME_TITLE, SITE_DESCRIPTION, CONTACT_EMAIL, LINKEDIN_URL } from './src/config/site.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -153,6 +154,7 @@ function validateHomePage(failures) {
   }
   expectIncludes(html, 'Ver CV en español', '/: missing Spanish CV CTA in initial HTML', failures);
   expectIncludes(html, 'Read CV in English', '/: missing English CV CTA in initial HTML', failures);
+  expectIncludes(html, 'href="/servicios"', '/: missing Servicios nav link in initial HTML', failures);
   expectIncludes(html, '04 // Operations &amp; Consulting', '/: missing selected experience section in initial HTML', failures);
   expectIncludes(html, 'TRYP México', '/: missing selected experience content in initial HTML', failures);
   expectIncludes(html, '06 // Credibility & Substance', '/: missing credibility section in initial HTML', failures);
@@ -196,6 +198,36 @@ function validatePostPages(posts, failures) {
   });
 }
 
+function validateServicesPage(failures) {
+  const html = readFile(path.join(DIST, 'servicios', 'index.html'));
+  const text = html.replace(/<[^>]*>/g, '').replace(/&amp;/g, '&').replace(/&#39;/g, "'");
+  validateSharedSeo(html, '/servicios', failures);
+  expectRegex(html, /<html[^>]*lang="es"[^>]*>/, '/servicios: html lang mismatch', failures);
+  expectIncludes(text, servicesCopy.headline, '/servicios: missing H1 in initial HTML', failures);
+  expectIncludes(html, servicesSeo.description, '/servicios: SEO description mismatch', failures);
+  expectIncludes(html, '"@type":"Service"', '/servicios: missing Service structured data', failures);
+  expectIncludes(html, '"@type":"FAQPage"', '/servicios: missing FAQPage structured data', failures);
+  packages.forEach((pkg) => {
+    expectIncludes(text, pkg.name, `/servicios: missing package ${pkg.name}`, failures);
+    expectIncludes(text, pkg.price, `/servicios: missing price for ${pkg.name}`, failures);
+  });
+  expectIncludes(text, 'Diagnóstico: gratis.', '/servicios: missing free diagnosis price line', failures);
+  expectIncludes(text, 'Operación y soporte: se cotiza aparte, por proyecto', '/servicios: missing separate operation fee line', failures);
+  proofCases.forEach((proof) => {
+    expectIncludes(text, proof.name, `/servicios: missing proof case ${proof.name}`, failures);
+  });
+  methodSteps.forEach((step) => {
+    expectIncludes(text, step.title, `/servicios: missing method step ${step.title}`, failures);
+  });
+  clientNeeds.forEach((need) => {
+    expectIncludes(text, need, '/servicios: missing client need', failures);
+  });
+  faqs.forEach((faq) => {
+    expectIncludes(text, faq.q, `/servicios: missing FAQ ${faq.q}`, failures);
+  });
+  expectIncludes(html, `href="mailto:${CONTACT_EMAIL}`, '/servicios: missing email link', failures);
+}
+
 function validateCvPages(failures) {
   Object.values(cvPageConfig).forEach((page) => {
     const html = readFile(path.join(DIST, page.path.replace(/^\//, ''), 'index.html'));
@@ -220,6 +252,7 @@ validateHomePage(failures);
 validateCvPages(failures);
 validateBlogIndex(posts, failures);
 validatePostPages(posts, failures);
+validateServicesPage(failures);
 
 if (failures.length) {
   console.error('\nPrerender validation failed:\n');
@@ -227,4 +260,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`✓ prerender validation passed for /, /cv/es, /cv/en, /blog, and ${posts.length} blog post routes`);
+console.log(`✓ prerender validation passed for /, /cv/es, /cv/en, /blog, /servicios, and ${posts.length} blog post routes`);
