@@ -3,8 +3,8 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { cvPageConfig, getCvAlternateLinks } from './src/content/cvPageConfig.js';
 import { homeCopy, projects, projectFields } from './src/content/homeContent.js';
-import { servicesSeo, servicesCopy, packages, proofCases, methodSteps, pricing, clientNeeds, faqs } from './src/content/servicesContent.js';
-import { HOME_TITLE, SITE_DESCRIPTION, CONTACT_EMAIL, LINKEDIN_URL } from './src/config/site.js';
+import { servicesSeo, servicesCopy, serviceCases, packages, methodSteps, pricing, clientNeeds, faqs } from './src/content/servicesContent.js';
+import { HOME_TITLE, SITE_DESCRIPTION, CONTACT_EMAIL, LINKEDIN_URL, BOOKING_URL } from './src/config/site.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST = path.join(__dirname, 'dist');
@@ -214,8 +214,21 @@ function validateServicesPage(failures) {
   });
   expectIncludes(text, 'Diagnóstico: gratis.', '/servicios: missing free diagnosis price line', failures);
   expectIncludes(text, 'Operación y soporte: se cotiza aparte, por proyecto', '/servicios: missing separate operation fee line', failures);
-  proofCases.forEach((proof) => {
-    expectIncludes(text, proof.name, `/servicios: missing proof case ${proof.name}`, failures);
+  serviceCases.forEach((caseItem) => {
+    expectIncludes(html, `<details id="${caseItem.id}"`, `/servicios: missing disclosure for ${caseItem.id}`, failures);
+    expectIncludes(text, caseItem.title, `/servicios: missing case title ${caseItem.title}`, failures);
+    expectIncludes(text, caseItem.collapsedSummary, `/servicios: missing collapsed summary for ${caseItem.id}`, failures);
+    caseItem.badges.forEach((badge) => expectIncludes(text, badge, `/servicios: missing badge ${badge}`, failures));
+    expectIncludes(text, caseItem.usageLabel, `/servicios: missing usage statement for ${caseItem.id}`, failures);
+    expectIncludes(text, caseItem.usageNote, `/servicios: missing usage verification date for ${caseItem.id}`, failures);
+    if (caseItem.url) {
+      expectIncludes(html, `href="${caseItem.url}"`, `/servicios: missing public link for ${caseItem.id}`, failures);
+      expectIncludes(text, caseItem.linkLabel, `/servicios: missing public link label for ${caseItem.id}`, failures);
+    }
+    caseItem.images.forEach((image) => {
+      expectIncludes(html, `src="${image.src}"`, `/servicios: missing case image ${image.src}`, failures);
+      expectIncludes(html, `alt="${image.alt}"`, `/servicios: missing alt text for ${image.src}`, failures);
+    });
   });
   methodSteps.forEach((step) => {
     expectIncludes(text, step.title, `/servicios: missing method step ${step.title}`, failures);
@@ -226,7 +239,9 @@ function validateServicesPage(failures) {
   faqs.forEach((faq) => {
     expectIncludes(text, faq.q, `/servicios: missing FAQ ${faq.q}`, failures);
   });
-  expectIncludes(html, `href="mailto:${CONTACT_EMAIL}`, '/servicios: missing email link', failures);
+  expectIncludes(html, `href="${BOOKING_URL}"`, '/servicios: missing Google Calendar booking link', failures);
+  expectIncludes(text, 'Agenda una llamada de 30 minutos', '/servicios: missing booking CTA', failures);
+  expectIncludes(html, `href="mailto:${CONTACT_EMAIL}`, '/servicios: missing fallback email link', failures);
 }
 
 function validateCvPages(failures) {

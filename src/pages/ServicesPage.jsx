@@ -1,17 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 import {
   servicesSeo,
   servicesCopy,
+  serviceCases,
   packages,
-  proofCases,
   methodSteps,
   pricing,
   clientNeeds,
   faqs,
 } from '../content/servicesContent';
-import { CONTACT_EMAIL, SITE_NAME, SITE_URL } from '../config/site';
+import { BOOKING_URL, CONTACT_EMAIL, SITE_NAME, SITE_URL } from '../config/site';
 
 export default function ServicesPage() {
   const structuredData = [
@@ -66,6 +65,11 @@ export default function ServicesPage() {
           },
         ],
       },
+      potentialAction: {
+        '@type': 'ReserveAction',
+        name: 'Agenda una llamada de 30 minutos',
+        target: BOOKING_URL,
+      },
     },
     {
       '@context': 'https://schema.org',
@@ -94,39 +98,106 @@ export default function ServicesPage() {
         htmlLang="es"
       />
 
-      <main lang="es" className="services-page section-spacing bg-lowest grid-blueprint" style={{ minHeight: '100vh', paddingTop: '8rem' }}>
-        <div className="container" style={{ display: 'grid', gap: '3rem' }}>
-          <div style={{ display: 'grid', gap: '1rem', maxWidth: '760px' }}>
-            <span className="label-text" style={{ color: 'var(--primary-container)' }}>{servicesCopy.eyebrow}</span>
-            <h1 style={{ margin: 0 }}>{servicesCopy.headline}</h1>
-            <p style={{ margin: 0, color: 'var(--on-surface-variant)', fontSize: '1.05rem' }}>
+      <main lang="es" className="services-page bg-lowest grid-blueprint">
+        <div className="container services-layout">
+          <header className="services-hero">
+            <span className="label-text services-eyebrow">{servicesCopy.eyebrow}</span>
+            <h1>{servicesCopy.headline}</h1>
+            <p className="services-lead">
               {servicesCopy.intro}
             </p>
-            <p style={{ margin: 0, color: 'var(--on-surface-variant)', fontSize: '1.05rem' }}>
+            <p className="services-lead">
               {servicesCopy.introSecond}
             </p>
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-              <a href={`mailto:${CONTACT_EMAIL}?subject=Llamada de descubrimiento: agente o copiloto operativo`} className="btn-primary">Agenda una llamada de descubrimiento</a>
-              <Link to="/#projects" className="btn-secondary">Ver los casos</Link>
+            <div className="services-actions">
+              <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">Agenda una llamada de 30 minutos</a>
+              <a href="#casos" className="btn-secondary">Ver los casos</a>
             </div>
-          </div>
+          </header>
 
-          <section aria-labelledby="prueba-heading">
+          <section id="casos" aria-labelledby="prueba-heading">
             <div className="section-heading"><h2 id="prueba-heading" className="label-text">{servicesCopy.proofTitle}</h2></div>
-            <p style={{ color: 'var(--on-surface-variant)', maxWidth: '760px' }}>{servicesCopy.proofIntro}</p>
-            <div className="capabilities-grid">
-              {proofCases.map((proof) => (
-                <div key={proof.name} className="card-elevated capability-card">
-                  <h3>{proof.name}</h3>
-                  <p>{proof.desc}</p>
-                </div>
+            <p className="services-section-intro">{servicesCopy.proofIntro}</p>
+            <div className="services-cases-list">
+              {serviceCases.map((caseItem) => (
+                <details key={caseItem.id} id={caseItem.id} className="services-case-disclosure">
+                  <summary>
+                    <span>
+                      <span className="label-text services-eyebrow">{caseItem.eyebrow}</span>
+                      <span className="services-case-summary-title" role="heading" aria-level="3">{caseItem.title}</span>
+                      <span className="services-case-summary-description">{caseItem.collapsedSummary}</span>
+                      <span className="services-case-badges" aria-label="Indicadores del caso">
+                        {caseItem.badges.map((badge) => <span key={badge}>{badge}</span>)}
+                      </span>
+                      {caseItem.url ? (
+                        <a
+                          href={caseItem.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="services-case-summary-link"
+                          onClick={(event) => event.stopPropagation()}
+                        >
+                          Ver landing <span aria-hidden="true">↗</span>
+                        </a>
+                      ) : null}
+                    </span>
+                    <span className="services-case-toggle" aria-hidden="true" />
+                  </summary>
+                  <div className="services-case">
+                    <div className="services-case-copy">
+                      <p className="services-case-intro">{caseItem.intro}</p>
+                      <div className="services-case-details">
+                        <div>
+                          <h3>{caseItem.problemTitle}</h3>
+                          <p>{caseItem.problem}</p>
+                        </div>
+                        <div>
+                          <h3>{caseItem.solutionTitle}</h3>
+                          <p>{caseItem.solution}</p>
+                        </div>
+                      </div>
+                      <div className="services-evidence" aria-label="Evidencia de uso">
+                        <strong>{caseItem.usageValue}</strong>
+                        <div>
+                          <p>{caseItem.usageLabel}</p>
+                          <small>{caseItem.usageNote}</small>
+                        </div>
+                      </div>
+                      <p className="services-launch-note">{caseItem.launchNote}</p>
+                      <ul className="services-capability-list">
+                        {caseItem.capabilities.map((capability) => <li key={capability}>{capability}</li>)}
+                      </ul>
+                      {caseItem.url ? (
+                        <a href={caseItem.url} target="_blank" rel="noopener noreferrer" className="btn-secondary services-case-link">
+                          {caseItem.linkLabel} <span aria-hidden="true">↗</span>
+                        </a>
+                      ) : null}
+                    </div>
+                    <div className="services-case-gallery" aria-label={`Demostración de ${caseItem.eyebrow.replace('Caso en uso · ', '')}`}>
+                      {caseItem.images.map((image, index) => (
+                        <figure key={image.src} className={index === 0 ? 'services-case-image services-case-image--primary' : 'services-case-image'}>
+                          <a href={image.src} target="_blank" rel="noopener noreferrer" aria-label={`Abrir imagen completa: ${image.alt}`}>
+                            <img
+                              src={image.src}
+                              alt={image.alt}
+                              width={image.width}
+                              height={image.height}
+                              loading="lazy"
+                            />
+                          </a>
+                          <figcaption>{image.caption}</figcaption>
+                        </figure>
+                      ))}
+                    </div>
+                  </div>
+                </details>
               ))}
             </div>
           </section>
 
           <section id="paquetes" aria-labelledby="paquetes-heading">
             <div className="section-heading"><h2 id="paquetes-heading" className="label-text">{servicesCopy.packagesTitle}</h2></div>
-            <div className="capabilities-grid">
+            <div className="services-packages-grid">
               {packages.map((pkg) => (
                 <article key={pkg.id} className="card-elevated capability-card">
                   <h3>{pkg.name}</h3>
@@ -141,7 +212,7 @@ export default function ServicesPage() {
 
           <section aria-labelledby="para-quien-heading">
             <div className="section-heading"><h2 id="para-quien-heading" className="label-text">{servicesCopy.audienceTitle}</h2></div>
-            <p style={{ color: 'var(--on-surface-variant)', maxWidth: '760px' }}>{servicesCopy.audience}</p>
+            <p className="services-section-intro">{servicesCopy.audience}</p>
           </section>
 
           <section id="metodo" aria-labelledby="metodo-heading">
@@ -163,7 +234,7 @@ export default function ServicesPage() {
                 <li key={line}>{line}</li>
               ))}
             </ul>
-            <p style={{ color: 'var(--on-surface-variant)', maxWidth: '760px' }}>{pricing.note}</p>
+            <p className="services-section-intro">{pricing.note}</p>
           </section>
 
           <section aria-labelledby="necesito-heading">
@@ -177,7 +248,7 @@ export default function ServicesPage() {
 
           <section id="faq" aria-labelledby="faq-heading">
             <div className="section-heading"><h2 id="faq-heading" className="label-text">{servicesCopy.faqTitle}</h2></div>
-            <div style={{ display: 'grid', gap: '1.5rem', maxWidth: '760px' }}>
+            <div className="services-faq-list">
               {faqs.map((faq) => (
                 <div key={faq.q} className="services-faq-item">
                   <h3>{faq.q}</h3>
@@ -189,11 +260,12 @@ export default function ServicesPage() {
 
           <section aria-labelledby="cta-heading">
             <div className="section-heading"><h2 id="cta-heading" className="label-text">{servicesCopy.ctaTitle}</h2></div>
-            <p style={{ color: 'var(--on-surface-variant)', maxWidth: '760px' }}>{servicesCopy.ctaText}</p>
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-              <a href={`mailto:${CONTACT_EMAIL}?subject=Llamada de descubrimiento: agente o copiloto operativo`} className="btn-primary">{CONTACT_EMAIL}</a>
-              <Link to="/#projects" className="btn-secondary">Ver los casos</Link>
+            <p className="services-section-intro">{servicesCopy.ctaText}</p>
+            <div className="services-actions">
+              <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">Agenda una llamada de 30 minutos</a>
+              <a href="#casos" className="btn-secondary">Ver los casos</a>
             </div>
+            <p className="services-email-fallback">¿Prefieres escribir? <a href={`mailto:${CONTACT_EMAIL}?subject=Llamada de descubrimiento: agente o copiloto operativo`}>{CONTACT_EMAIL}</a></p>
           </section>
         </div>
       </main>

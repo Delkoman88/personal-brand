@@ -23,11 +23,11 @@ export const servicesCopy = {
     'O piensa en un músico con cientos de canciones regadas sin orden, que no sabe qué tocar en su próximo set ni por qué una pista suena bien después de otra. Yo construí el agente que le ordena la biblioteca, le recomienda pistas y le explica por qué van juntas, y le deja el set preparado para tocar en vivo.',
   proofTitle: 'Dos sistemas que ya funcionan',
   proofIntro:
-    'Soy doctor en Ciencias en Bioingeniería y biólogo por la UNAM. Me formé revisando hipótesis contra datos, y así trabajo cada proyecto.',
+    'Soy AI builder y construyo productos de principio a fin: convierto procesos reales en agentes y copilotos, los conecto con las herramientas que ya usa cada negocio y valido su funcionamiento antes de ampliar el alcance.',
   packagesTitle: 'Tres formas de empezar, según lo que necesitas',
   audienceTitle: 'Para quién funciona mejor',
   audience:
-    'Si tu negocio atiende clientes todos los días y el tiempo se te va en mensajes, citas y reportes, esto es para ti. Trabajo sobre todo con estudios de belleza, spas y clínicas, comercio electrónico, restaurantes y agro.',
+    'Si todos los días repites tareas, buscas información dispersa o vuelves a reconstruir el contexto, ahí hay trabajo que un agente puede asumir. Construyo agentes para negocios y personas: desde coordinar citas y clientes hasta organizar una biblioteca musical y preparar un set.',
   methodTitle: 'Cómo trabajamos, en cuatro pasos',
   pricingTitle: 'Inversión',
   needsTitle: 'Qué necesito de ti para empezar',
@@ -36,6 +36,118 @@ export const servicesCopy = {
   ctaText:
     'Cuéntame el proceso en una llamada de 30 minutos. Si un agente te sirve, arrancamos con el diagnóstico gratis y te propongo el proyecto con alcance, tiempos y precio fijo.',
 };
+
+export const beautyCase = {
+  id: 'caso-beauty-studio',
+  eyebrow: 'Caso en uso · Beauty Studio Copilot',
+  title: 'De mensajes y hojas sueltas a una operación diaria coordinada',
+  collapsedSummary:
+    'Coordina clientas, citas, WhatsApp, calendario y lealtad desde una sola operación.',
+  badges: ['200+ usuarias activas', 'Uso diario', 'Producto en producción'],
+  intro:
+    'Beauty Studio Copilot reúne clientas, citas, recordatorios, calendario, lealtad e indicadores operativos en un solo sistema para estudios de belleza.',
+  problemTitle: 'El problema',
+  problem:
+    'La atención diaria se reparte entre WhatsApp, calendarios y hojas de cálculo. Confirmar citas, responder cambios y mantener la información al día consume tiempo y deja espacio para errores.',
+  solutionTitle: 'Lo que construí',
+  solution:
+    'Diseñé y construí la aplicación completa: CRM de clientas, agenda, sincronización con Google Calendar, recordatorios, seguimiento, lealtad y paneles operativos.',
+  usageValue: '200+',
+  usageLabel: 'usuarias utilizan activamente la aplicación',
+  usageNote: 'Dato verificado en noviembre de 2026.',
+  launchNote: 'La aplicación está en uso activo.',
+  url: 'https://beauty-studio-copilot--beauty-studio-copilot.us-east4.hosted.app',
+  linkLabel: 'Visitar Beauty Studio Copilot',
+  capabilities: [
+    'Agenda citas y centraliza la información de cada clienta.',
+    'Prepara confirmaciones y seguimientos por WhatsApp.',
+    'Sincroniza la operación con Google Calendar.',
+    'Reúne lealtad, servicios e indicadores en un solo panel.',
+  ],
+  images: [
+    {
+      src: '/services/beauty-studio-dashboard.webp',
+      alt: 'Panel de Beauty Studio Copilot con una cita confirmada y el calendario conectado',
+      caption: 'Una cita confirmada, el aviso por WhatsApp y la conexión con el calendario, reunidos en el panel.',
+      width: 1568,
+      height: 607,
+    },
+    {
+      src: '/services/beauty-studio-agenda.webp',
+      alt: 'Flujo de Beauty Studio Copilot para agendar una cita con servicio, fecha y hora',
+      caption: 'Agenda guiada con servicio, fecha y hora usando datos de demostración.',
+      width: 1568,
+      height: 607,
+    },
+    {
+      src: '/services/beauty-studio-whatsapp.webp',
+      alt: 'Vista previa de una confirmación de cita por WhatsApp en Beauty Studio Copilot',
+      caption: 'Confirmación por WhatsApp preparada desde la misma operación.',
+      width: 1568,
+      height: 607,
+    },
+    {
+      src: '/services/beauty-studio-seguimiento.webp',
+      alt: 'Módulo de seguimiento con plantillas de WhatsApp de Beauty Studio Copilot',
+      caption: 'Seguimientos con plantillas listas para revisar y enviar.',
+      width: 1568,
+      height: 607,
+    },
+  ],
+};
+
+export const aqvarivsCase = {
+  id: 'caso-aqvarivs',
+  eyebrow: 'Caso en uso · AQVARIVS',
+  title: 'Una inteligencia persistente para convertir una biblioteca musical en decisiones',
+  collapsedSummary:
+    'Organiza una biblioteca musical, conecta referencias y prepara sets conservando memoria entre sesiones.',
+  badges: ['489 pistas', 'Usuario real', 'Sistema privado'],
+  intro:
+    'AQVARIVS es un agente coordinador privado que mantiene memoria y contexto para ayudar a un artista de música electrónica a organizar su biblioteca, descubrir relaciones entre pistas y preparar sets y presentaciones.',
+  problemTitle: 'El problema',
+  problem:
+    'Cientos de pistas, referencias y decisiones creativas estaban repartidas entre herramientas y sesiones aisladas. El artista necesitaba conservar el contexto sin perder el control de su proceso.',
+  solutionTitle: 'Lo que construí',
+  solution:
+    'Diseñé la arquitectura, el despliegue y las herramientas de un agente coordinador persistente con biblioteca, sets, mapa musical, chat y descubrimiento verificado en Beatport.',
+  usageValue: '489',
+  usageLabel: 'pistas recibidas y organizadas en la biblioteca',
+  usageNote: 'Biblioteca documentada el 10 de noviembre de 2026.',
+  launchNote:
+    'Es un sistema privado en desarrollo activo para un usuario real.',
+  capabilities: [
+    'Mantiene memoria y contexto entre sesiones de trabajo.',
+    'Organiza pistas con portada, BPM y enlaces verificados.',
+    'Construye un mapa de géneros, relaciones y referencias musicales.',
+    'Coordina composición, práctica y preparación de presentaciones.',
+  ],
+  images: [
+    {
+      src: '/services/aqvarivs-library.webp',
+      alt: 'Biblioteca de AQVARIVS con pistas, portadas, BPM y enlaces de Beatport',
+      caption: 'Biblioteca musical con 489 pistas recibidas, portadas, BPM y enlaces verificados.',
+      width: 1916,
+      height: 922,
+    },
+    {
+      src: '/services/aqvarivs-map.webp',
+      alt: 'Mapa musical de AQVARIVS con grupos de géneros y conexiones entre pistas',
+      caption: 'Mapa musical con 514 pistas agrupadas por género y conectadas por afinidad.',
+      width: 1909,
+      height: 911,
+    },
+    {
+      src: '/services/aqvarivs-detail.webp',
+      alt: 'Detalle de una pista en AQVARIVS con recomendación musical fundamentada',
+      caption: 'Recomendación fundamentada con tempo, sello y pistas de referencia.',
+      width: 1900,
+      height: 911,
+    },
+  ],
+};
+
+export const serviceCases = [aqvarivsCase, beautyCase];
 
 export const packages = [
   {
@@ -61,17 +173,6 @@ export const packages = [
     desc: 'Vive en tu operación diaria: confirma citas, manda recordatorios, reacomoda cancelaciones, lleva la cuenta de lealtad y te muestra qué servicios dejan más, como Beauty Studio Copilot.',
     price: 'Desde MXN $10,000 por proyecto',
     ideal: 'Negocios con operación repetitiva y clientes que atender cada día.',
-  },
-];
-
-export const proofCases = [
-  {
-    name: 'AQVARIVS',
-    desc: 'Un agente coordinador persistente, en producción para un usuario real. Trabaja con una biblioteca musical de cientos de pistas, mantiene memoria y contexto, y coordina tareas de composición, práctica y preparación de presentaciones en vivo.',
-  },
-  {
-    name: 'Beauty Studio Copilot',
-    desc: 'Un copiloto para estudios de belleza, con más de 200 usuarias activas y en preparación para su lanzamiento. En un día normal confirma citas, manda recordatorios por WhatsApp, reacomoda cancelaciones, lleva la cuenta de lealtad y muestra qué servicios dejan más, todo en un solo panel.',
   },
 ];
 

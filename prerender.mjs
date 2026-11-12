@@ -12,10 +12,10 @@ import { readPosts } from './src/utils/markdown.mjs';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST = path.join(__dirname, 'dist');
 const POSTS_DIR = path.join(__dirname, 'src/content/posts');
-import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, HOME_TITLE, HOME_KEYWORDS, CONTACT_EMAIL, LINKEDIN_URL } from './src/config/site.js';
+import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, HOME_TITLE, HOME_KEYWORDS, CONTACT_EMAIL, LINKEDIN_URL, BOOKING_URL } from './src/config/site.js';
 import { experienceGroups } from './src/content/experience.js';
 import { homeCopy, projects, projectFields, capabilities, toolGroups, credibilityHighlights } from './src/content/homeContent.js';
-import { servicesSeo, servicesCopy, packages, proofCases, methodSteps, pricing, clientNeeds, faqs } from './src/content/servicesContent.js';
+import { servicesSeo, servicesCopy, serviceCases, packages, methodSteps, pricing, clientNeeds, faqs } from './src/content/servicesContent.js';
 
 
 
@@ -509,6 +509,11 @@ function buildServicesPage() {
           },
         ],
       },
+      potentialAction: {
+        '@type': 'ReserveAction',
+        name: 'Agenda una llamada de 30 minutos',
+        target: BOOKING_URL,
+      },
     },
     {
       '@context': 'https://schema.org',
@@ -535,37 +540,69 @@ function buildServicesPage() {
   });
 
   const body = `
-    <main lang="es" class="services-page section-spacing bg-lowest grid-blueprint" style="min-height: 100vh; padding-top: 8rem;">
-      <div class="container" style="display: grid; gap: 3rem;">
-        <div style="display: grid; gap: 1rem; max-width: 760px;">
-          <span class="label-text" style="color: var(--primary-container)">${escapeHtml(servicesCopy.eyebrow)}</span>
-          <h1 style="margin: 0;">${escapeHtml(servicesCopy.headline)}</h1>
-          <p style="margin: 0; color: var(--on-surface-variant); font-size: 1.05rem;">
-            ${escapeHtml(servicesCopy.intro)}
-          </p>
-          <p style="margin: 0; color: var(--on-surface-variant); font-size: 1.05rem;">
-            ${escapeHtml(servicesCopy.introSecond)}
-          </p>
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <a href="mailto:${CONTACT_EMAIL}?subject=Llamada de descubrimiento: agente o copiloto operativo" class="btn-primary">Agenda una llamada de descubrimiento</a>
-            <a href="/#projects" class="btn-secondary">Ver los casos</a>
+    <main lang="es" class="services-page bg-lowest grid-blueprint">
+      <div class="container services-layout">
+        <header class="services-hero">
+          <span class="label-text services-eyebrow">${escapeHtml(servicesCopy.eyebrow)}</span>
+          <h1>${escapeHtml(servicesCopy.headline)}</h1>
+          <p class="services-lead">${escapeHtml(servicesCopy.intro)}</p>
+          <p class="services-lead">${escapeHtml(servicesCopy.introSecond)}</p>
+          <div class="services-actions">
+            <a href="${BOOKING_URL}" target="_blank" rel="noopener noreferrer" class="btn-primary">Agenda una llamada de 30 minutos</a>
+            <a href="#casos" class="btn-secondary">Ver los casos</a>
           </div>
-        </div>
+        </header>
 
-        <section aria-labelledby="prueba-heading">
+        <section id="casos" aria-labelledby="prueba-heading">
           <div class="section-heading"><h2 id="prueba-heading" class="label-text">${escapeHtml(servicesCopy.proofTitle)}</h2></div>
-          <p style="color: var(--on-surface-variant); max-width: 760px;">${escapeHtml(servicesCopy.proofIntro)}</p>
-          <div class="capabilities-grid">${proofCases.map((proof) => `
-            <div class="card-elevated capability-card">
-              <h3>${escapeHtml(proof.name)}</h3>
-              <p>${escapeHtml(proof.desc)}</p>
-            </div>`).join('')}
+          <p class="services-section-intro">${escapeHtml(servicesCopy.proofIntro)}</p>
+          <div class="services-cases-list">
+            ${serviceCases.map((caseItem) => `
+              <details id="${caseItem.id}" class="services-case-disclosure">
+                <summary>
+                  <span>
+                    <span class="label-text services-eyebrow">${escapeHtml(caseItem.eyebrow)}</span>
+                    <span class="services-case-summary-title" role="heading" aria-level="3">${escapeHtml(caseItem.title)}</span>
+                    <span class="services-case-summary-description">${escapeHtml(caseItem.collapsedSummary)}</span>
+                    <span class="services-case-badges" aria-label="Indicadores del caso">
+                      ${caseItem.badges.map((badge) => `<span>${escapeHtml(badge)}</span>`).join('')}
+                    </span>
+                    ${caseItem.url ? `<a href="${caseItem.url}" target="_blank" rel="noopener noreferrer" class="services-case-summary-link">Ver landing <span aria-hidden="true">↗</span></a>` : ''}
+                  </span>
+                  <span class="services-case-toggle" aria-hidden="true"></span>
+                </summary>
+                <div class="services-case">
+                  <div class="services-case-copy">
+                    <p class="services-case-intro">${escapeHtml(caseItem.intro)}</p>
+                    <div class="services-case-details">
+                      <div><h3>${escapeHtml(caseItem.problemTitle)}</h3><p>${escapeHtml(caseItem.problem)}</p></div>
+                      <div><h3>${escapeHtml(caseItem.solutionTitle)}</h3><p>${escapeHtml(caseItem.solution)}</p></div>
+                    </div>
+                    <div class="services-evidence" aria-label="Evidencia de uso">
+                      <strong>${escapeHtml(caseItem.usageValue)}</strong>
+                      <div><p>${escapeHtml(caseItem.usageLabel)}</p><small>${escapeHtml(caseItem.usageNote)}</small></div>
+                    </div>
+                    <p class="services-launch-note">${escapeHtml(caseItem.launchNote)}</p>
+                    <ul class="services-capability-list">${caseItem.capabilities.map((capability) => `<li>${escapeHtml(capability)}</li>`).join('')}</ul>
+                    ${caseItem.url ? `<a href="${caseItem.url}" target="_blank" rel="noopener noreferrer" class="btn-secondary services-case-link">${escapeHtml(caseItem.linkLabel)} <span aria-hidden="true">↗</span></a>` : ''}
+                  </div>
+                  <div class="services-case-gallery" aria-label="Demostración de ${escapeHtml(caseItem.eyebrow.replace('Caso en uso · ', ''))}">
+                    ${caseItem.images.map((image, index) => `
+                      <figure class="services-case-image${index === 0 ? ' services-case-image--primary' : ''}">
+                        <a href="${image.src}" target="_blank" rel="noopener noreferrer" aria-label="Abrir imagen completa: ${escapeHtml(image.alt)}">
+                          <img src="${image.src}" alt="${escapeHtml(image.alt)}" width="${image.width}" height="${image.height}" loading="lazy">
+                        </a>
+                        <figcaption>${escapeHtml(image.caption)}</figcaption>
+                      </figure>`).join('')}
+                  </div>
+                </div>
+              </details>`).join('')}
           </div>
         </section>
 
         <section id="paquetes" aria-labelledby="paquetes-heading">
           <div class="section-heading"><h2 id="paquetes-heading" class="label-text">${escapeHtml(servicesCopy.packagesTitle)}</h2></div>
-          <div class="capabilities-grid">${packages.map((pkg) => `
+          <div class="services-packages-grid">${packages.map((pkg) => `
             <article class="card-elevated capability-card">
               <h3>${escapeHtml(pkg.name)}</h3>
               <p><strong>${escapeHtml(pkg.tagline)}</strong></p>
@@ -578,7 +615,7 @@ function buildServicesPage() {
 
         <section aria-labelledby="para-quien-heading">
           <div class="section-heading"><h2 id="para-quien-heading" class="label-text">${escapeHtml(servicesCopy.audienceTitle)}</h2></div>
-          <p style="color: var(--on-surface-variant); max-width: 760px;">${escapeHtml(servicesCopy.audience)}</p>
+          <p class="services-section-intro">${escapeHtml(servicesCopy.audience)}</p>
         </section>
 
         <section id="metodo" aria-labelledby="metodo-heading">
@@ -595,7 +632,7 @@ function buildServicesPage() {
           <div class="section-heading"><h2 id="inversion-heading" class="label-text">${escapeHtml(servicesCopy.pricingTitle)}</h2></div>
           <ul>${pricing.lines.map((line) => `<li>${escapeHtml(line)}</li>`).join('')}
           </ul>
-          <p style="color: var(--on-surface-variant); max-width: 760px;">${escapeHtml(pricing.note)}</p>
+          <p class="services-section-intro">${escapeHtml(pricing.note)}</p>
         </section>
 
         <section aria-labelledby="necesito-heading">
@@ -606,7 +643,7 @@ function buildServicesPage() {
 
         <section id="faq" aria-labelledby="faq-heading">
           <div class="section-heading"><h2 id="faq-heading" class="label-text">${escapeHtml(servicesCopy.faqTitle)}</h2></div>
-          <div style="display: grid; gap: 1.5rem; max-width: 760px;">${faqs.map((faq) => `
+          <div class="services-faq-list">${faqs.map((faq) => `
             <div class="services-faq-item">
               <h3>${escapeHtml(faq.q)}</h3>
               <p>${escapeHtml(faq.a)}</p>
@@ -616,11 +653,12 @@ function buildServicesPage() {
 
         <section aria-labelledby="cta-heading">
           <div class="section-heading"><h2 id="cta-heading" class="label-text">${escapeHtml(servicesCopy.ctaTitle)}</h2></div>
-          <p style="color: var(--on-surface-variant); max-width: 760px;">${escapeHtml(servicesCopy.ctaText)}</p>
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <a href="mailto:${CONTACT_EMAIL}?subject=Llamada de descubrimiento: agente o copiloto operativo" class="btn-primary">${CONTACT_EMAIL}</a>
-            <a href="/#projects" class="btn-secondary">Ver los casos</a>
+          <p class="services-section-intro">${escapeHtml(servicesCopy.ctaText)}</p>
+          <div class="services-actions">
+            <a href="${BOOKING_URL}" target="_blank" rel="noopener noreferrer" class="btn-primary">Agenda una llamada de 30 minutos</a>
+            <a href="#casos" class="btn-secondary">Ver los casos</a>
           </div>
+          <p class="services-email-fallback">¿Prefieres escribir? <a href="mailto:${CONTACT_EMAIL}?subject=Llamada de descubrimiento: agente o copiloto operativo">${CONTACT_EMAIL}</a></p>
         </section>
       </div>
     </main>`;

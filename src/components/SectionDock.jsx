@@ -16,16 +16,15 @@ const sections = [
 export default function SectionDock() {
   const location = useLocation();
   const isHome = location.pathname === '/';
-  const isCvPage = location.pathname.startsWith('/cv/');
 
-  if (isCvPage) {
+  if (!isHome) {
     return null;
   }
 
   return (
     <div className="section-dock" aria-label="Quick section navigation">
       {sections.map((section) => {
-        const href = section.id ? (isHome ? `#${section.id}` : `/#${section.id}`) : '/';
+        const href = section.id ? `#${section.id}` : '/';
 
         return (
           <a key={section.label} href={href} className="section-dock-link">
