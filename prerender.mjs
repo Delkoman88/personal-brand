@@ -535,7 +535,7 @@ function buildServicesPage() {
   });
 
   const body = `
-    <main lang="es" class="section-spacing bg-lowest grid-blueprint" style="min-height: 100vh; padding-top: 8rem;">
+    <main lang="es" class="services-page section-spacing bg-lowest grid-blueprint" style="min-height: 100vh; padding-top: 8rem;">
       <div class="container" style="display: grid; gap: 3rem;">
         <div style="display: grid; gap: 1rem; max-width: 760px;">
           <span class="label-text" style="color: var(--primary-container)">${escapeHtml(servicesCopy.eyebrow)}</span>

@@ -1264,6 +1264,20 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 
 /* Services page (/servicios) */
+/* Constrain the services grid container: without an explicit track, the
+   mobile capabilities carousel (columns minmax(260px, 82vw)) forces the
+   container's implicit track to its min-content width (~828px), so the
+   whole page overflows and gets clipped by overflow-x: hidden on
+   html/body. The explicit minmax(0, 1fr) track plus min-width: 0 on the
+   children keeps the page at viewport width and lets the carousel scroll
+   internally as designed. */
+.services-page .container {
+  grid-template-columns: minmax(0, 1fr);
+}
+.services-page .container > * {
+  min-width: 0;
+}
+
 .services-price {
   font-size: 1.15rem;
   font-weight: 700;

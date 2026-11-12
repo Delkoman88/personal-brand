@@ -94,7 +94,7 @@ export default function ServicesPage() {
         htmlLang="es"
       />
 
-      <main lang="es" className="section-spacing bg-lowest grid-blueprint" style={{ minHeight: '100vh', paddingTop: '8rem' }}>
+      <main lang="es" className="services-page section-spacing bg-lowest grid-blueprint" style={{ minHeight: '100vh', paddingTop: '8rem' }}>
         <div className="container" style={{ display: 'grid', gap: '3rem' }}>
           <div style={{ display: 'grid', gap: '1rem', maxWidth: '760px' }}>
             <span className="label-text" style={{ color: 'var(--primary-container)' }}>{servicesCopy.eyebrow}</span>
