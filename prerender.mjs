@@ -480,7 +480,7 @@ function buildServicesPage() {
           {
             '@type': 'Offer',
             name: 'Diagnóstico',
-            description: 'Reviso un proceso y te digo con franqueza si un agente te sirve.',
+            description: 'Reviso un proceso contigo y te digo si un agente puede hacerse cargo de una parte.',
             priceSpecification: {
               '@type': 'PriceSpecification',
               priceCurrency: 'MXN',
@@ -490,7 +490,7 @@ function buildServicesPage() {
           {
             '@type': 'Offer',
             name: 'Agente a la medida',
-            description: 'Agente con sus propias fuentes, memoria y documentos de control. Precio desde, según alcance.',
+            description: 'Un solo proceso, a fondo: un sistema con sus propias fuentes, memoria y documentos de control. Precio desde, según alcance.',
             priceSpecification: {
               '@type': 'PriceSpecification',
               priceCurrency: 'MXN',
@@ -500,7 +500,7 @@ function buildServicesPage() {
           {
             '@type': 'Offer',
             name: 'Copiloto operativo',
-            description: 'Un asistente diario para tu operación. Precio desde, según alcance.',
+            description: 'Vive en tu operación diaria: confirma citas, manda recordatorios, reacomoda cancelaciones y lleva la cuenta de lealtad. Precio desde, según alcance.',
             priceSpecification: {
               '@type': 'PriceSpecification',
               priceCurrency: 'MXN',
