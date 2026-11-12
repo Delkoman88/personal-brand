@@ -102,6 +102,9 @@ export default function ServicesPage() {
             <p style={{ margin: 0, color: 'var(--on-surface-variant)', fontSize: '1.05rem' }}>
               {servicesCopy.intro}
             </p>
+            <p style={{ margin: 0, color: 'var(--on-surface-variant)', fontSize: '1.05rem' }}>
+              {servicesCopy.introSecond}
+            </p>
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               <a href={`mailto:${CONTACT_EMAIL}?subject=Llamada de descubrimiento: agente o copiloto operativo`} className="btn-primary">Agenda una llamada de descubrimiento</a>
               <Link to="/#projects" className="btn-secondary">Ver los casos</Link>

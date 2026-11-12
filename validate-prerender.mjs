@@ -204,6 +204,7 @@ function validateServicesPage(failures) {
   validateSharedSeo(html, '/servicios', failures);
   expectRegex(html, /<html[^>]*lang="es"[^>]*>/, '/servicios: html lang mismatch', failures);
   expectIncludes(text, servicesCopy.headline, '/servicios: missing H1 in initial HTML', failures);
+  expectIncludes(text, servicesCopy.introSecond, '/servicios: missing second hero example in initial HTML', failures);
   expectIncludes(html, servicesSeo.description, '/servicios: SEO description mismatch', failures);
   expectIncludes(html, '"@type":"Service"', '/servicios: missing Service structured data', failures);
   expectIncludes(html, '"@type":"FAQPage"', '/servicios: missing FAQPage structured data', failures);

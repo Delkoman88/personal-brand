@@ -19,6 +19,8 @@ export const servicesCopy = {
   headline: 'Un agente que trabaja en tu negocio todos los días',
   intro:
     'Son las nueve de la mañana. Anoche llegaron cuatro mensajes por WhatsApp, una clienta canceló y hoy tienes tres citas por confirmar. Yo construyo el agente que se encarga de eso mientras tú trabajas: confirma las citas, reacomoda las cancelaciones, contesta los mensajes y te deja la agenda del día lista. Lo conecto con las herramientas que ya usas.',
+  introSecond:
+    'O piensa en un músico con cientos de canciones regadas sin orden, que no sabe qué tocar en su próximo set ni por qué una pista suena bien después de otra. Yo construí el agente que le ordena la biblioteca, le recomienda pistas y le explica por qué van juntas, y le deja el set preparado para tocar en vivo.',
   proofTitle: 'Dos sistemas que ya funcionan',
   proofIntro:
     'Soy doctor en Ciencias en Bioingeniería y biólogo por la UNAM. Me formé revisando hipótesis contra datos, y así trabajo cada proyecto.',
