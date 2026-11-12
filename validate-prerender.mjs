@@ -222,9 +222,11 @@ function validateServicesPage(failures) {
     caseItem.badges.forEach((badge) => expectIncludes(text, badge, `/servicios: missing badge ${badge}`, failures));
     expectIncludes(text, caseItem.usageLabel, `/servicios: missing usage statement for ${caseItem.id}`, failures);
     expectIncludes(text, caseItem.usageNote, `/servicios: missing usage verification date for ${caseItem.id}`, failures);
+    expectIncludes(html, `aria-label="${caseItem.evidenceLabel ?? 'Evidencia de uso'}"`, `/servicios: missing evidence label for ${caseItem.id}`, failures);
     if (caseItem.url) {
       expectIncludes(html, `href="${caseItem.url}"`, `/servicios: missing public link for ${caseItem.id}`, failures);
       expectIncludes(text, caseItem.linkLabel, `/servicios: missing public link label for ${caseItem.id}`, failures);
+      expectIncludes(html, `class="services-case-summary-link">${caseItem.summaryLinkLabel ?? 'Ver landing'} <span`, `/servicios: missing summary link label for ${caseItem.id}`, failures);
     }
     caseItem.images.forEach((image) => {
       expectIncludes(html, `src="${image.src}"`, `/servicios: missing case image ${image.src}`, failures);
@@ -252,6 +254,8 @@ function validateCvPages(failures) {
     validateAlternates(html, page.path, getCvAlternateLinks(), failures);
     expectRegex(html, new RegExp(`<html[^>]*lang="${page.lang}"[^>]*>`), `${page.path}: html lang mismatch`, failures);
     expectIncludes(html, 'Edgar <span>Mancilla</span>', `${page.path}: missing visible H1/header in initial HTML`, failures);
+    expectIncludes(html, '<div class="proj-name">VideoVibe</div>', `${page.path}: missing VideoVibe project`, failures);
+    expectIncludes(html, 'href="https://github.com/Delkoman88/videovibe"', `${page.path}: missing VideoVibe repository link`, failures);
     page.headingChecks.forEach((heading) => {
       expectIncludes(html, heading, `${page.path}: missing ${heading} in initial HTML`, failures);
     });

@@ -1509,6 +1509,14 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   margin: 0;
 }
 
+#caso-videovibe .services-evidence {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+#caso-videovibe .services-evidence strong {
+  font-size: clamp(1.6rem, 3vw, 2rem);
+}
+
 .services-evidence small {
   color: var(--outline);
 }

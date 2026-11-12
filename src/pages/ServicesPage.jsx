@@ -137,7 +137,7 @@ export default function ServicesPage() {
                           className="services-case-summary-link"
                           onClick={(event) => event.stopPropagation()}
                         >
-                          Ver landing <span aria-hidden="true">↗</span>
+                          {caseItem.summaryLinkLabel ?? 'Ver landing'} <span aria-hidden="true">↗</span>
                         </a>
                       ) : null}
                     </span>
@@ -156,7 +156,7 @@ export default function ServicesPage() {
                           <p>{caseItem.solution}</p>
                         </div>
                       </div>
-                      <div className="services-evidence" aria-label="Evidencia de uso">
+                      <div className="services-evidence" aria-label={caseItem.evidenceLabel ?? 'Evidencia de uso'}>
                         <strong>{caseItem.usageValue}</strong>
                         <div>
                           <p>{caseItem.usageLabel}</p>

@@ -21,13 +21,13 @@ export const servicesCopy = {
     'Son las nueve de la mañana. Anoche llegaron cuatro mensajes por WhatsApp, una clienta canceló y hoy tienes tres citas por confirmar. Yo construyo el agente que se encarga de eso mientras tú trabajas: confirma las citas, reacomoda las cancelaciones, contesta los mensajes y te deja la agenda del día lista. Lo conecto con las herramientas que ya usas.',
   introSecond:
     'O piensa en un músico con cientos de canciones regadas sin orden, que no sabe qué tocar en su próximo set ni por qué una pista suena bien después de otra. Yo construí el agente que le ordena la biblioteca, le recomienda pistas y le explica por qué van juntas, y le deja el set preparado para tocar en vivo.',
-  proofTitle: 'Dos sistemas que ya funcionan',
+  proofTitle: 'Sistemas que he construido',
   proofIntro:
     'Soy AI builder y construyo productos de principio a fin: convierto procesos reales en agentes y copilotos, los conecto con las herramientas que ya usa cada negocio y valido su funcionamiento antes de ampliar el alcance.',
   packagesTitle: 'Tres formas de empezar, según lo que necesitas',
   audienceTitle: 'Para quién funciona mejor',
   audience:
-    'Si todos los días repites tareas, buscas información dispersa o vuelves a reconstruir el contexto, ahí hay trabajo que un agente puede asumir. Construyo agentes para negocios y personas: desde coordinar citas y clientes hasta organizar una biblioteca musical y preparar un set.',
+    'Si todos los días repites tareas, buscas información dispersa o vuelves a reconstruir el contexto, ahí hay trabajo que un agente puede asumir. Construyo agentes para negocios, personas y equipos de contenido: desde coordinar citas y clientes hasta organizar una biblioteca musical o estructurar un proceso de edición de video.',
   methodTitle: 'Cómo trabajamos, en cuatro pasos',
   pricingTitle: 'Inversión',
   needsTitle: 'Qué necesito de ti para empezar',
@@ -147,7 +147,48 @@ export const aqvarivsCase = {
   ],
 };
 
-export const serviceCases = [aqvarivsCase, beautyCase];
+export const videovibeCase = {
+  id: 'caso-videovibe',
+  eyebrow: 'Proyecto open source · VideoVibe',
+  title: 'Un sistema de edición de video agéntico con control editorial humano',
+  collapsedSummary:
+    'Coordina cortes, subtítulos, animaciones y audio, con revisión humana del corte y del plan visual.',
+  badges: ['Publicado', 'Open source', 'Apache-2.0'],
+  intro:
+    'VideoVibe es un sistema de edición de video agéntico que utiliza agentes de IA para coordinar un proceso de producción local, desde la transcripción hasta las entregas por plataforma.',
+  problemTitle: 'El problema',
+  problem:
+    'La edición de video requiere coordinar cortes, subtítulos, recursos visuales y sonido. Repetir ese trabajo para cada pieza dificulta mantener un proceso consistente y conservar el control editorial.',
+  solutionTitle: 'Lo que construí',
+  solution:
+    'Diseñé y construí la orquestación del proceso, las instrucciones para agentes, los estilos por canal y las verificaciones técnicas de las entregas. El sistema se detiene para que revises el corte y el plan visual antes de producir los archivos finales.',
+  evidenceLabel: 'Disponibilidad del proyecto',
+  usageValue: 'Open source',
+  usageLabel: 'Código y documentación disponibles en GitHub.',
+  usageNote: 'Publicado bajo licencia Apache-2.0.',
+  launchNote:
+    'Clona el repositorio en tu máquina, sigue la guía de instalación y comienza a editar tus videos con VideoVibe.',
+  url: 'https://github.com/Delkoman88/videovibe',
+  summaryLinkLabel: 'Ver repositorio',
+  linkLabel: 'Ver repositorio y comenzar',
+  capabilities: [
+    'Coordina transcripción local, cortes y subtítulos palabra por palabra.',
+    'Integra animaciones, procesamiento de audio y estilos por canal.',
+    'Solicita aprobación humana del corte y del plan visual.',
+    'Prepara videos, portadas y textos por plataforma, con verificaciones técnicas.',
+  ],
+  images: [
+    {
+      src: '/project-videovibe.webp',
+      alt: 'Fotogramas de ejemplo de un video editado con VideoVibe',
+      caption: 'Fotogramas de la demo de VideoVibe',
+      width: 1100,
+      height: 665,
+    },
+  ],
+};
+
+export const serviceCases = [videovibeCase, aqvarivsCase, beautyCase];
 
 export const packages = [
   {
@@ -234,5 +275,9 @@ export const faqs = [
   {
     q: '¿Quién construye el agente?',
     a: 'Yo. Hablas conmigo desde el diagnóstico hasta la validación, y soy yo quien construye y revisa cada entrega.',
+  },
+  {
+    q: '¿Puedo usar VideoVibe por mi cuenta?',
+    a: 'Sí. VideoVibe está publicado como open source. Puedes clonar el repositorio en tu máquina y seguir la guía de instalación para comenzar a utilizarlo. Si necesitas adaptarlo al proceso de tu equipo, podemos revisar el alcance en el diagnóstico y cotizar esa implementación por separado.',
   },
 ];

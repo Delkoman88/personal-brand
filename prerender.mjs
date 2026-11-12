@@ -282,7 +282,7 @@ function buildHomePage(posts) {
                 </div>
                 <figure class="project-evidence">
                   <a href="${escapeHtml(project.image)}" target="_blank" rel="noopener noreferrer" class="project-visual" aria-label="Open full image: ${escapeHtml(project.imageAlt)}">
-                    <img src="${escapeHtml(project.image)}" alt="${escapeHtml(project.imageAlt)}" width="1280" height="800" loading="lazy" />
+                    <img src="${escapeHtml(project.image)}" alt="${escapeHtml(project.imageAlt)}" width="${escapeHtml(project.imageWidth ?? 1280)}" height="${escapeHtml(project.imageHeight ?? 800)}" loading="lazy" />
                   </a>
                   <figcaption>${escapeHtml(project.caption)}</figcaption>
                   ${project.gallery ? `<div class="project-gallery">${project.gallery.map(item => `
@@ -571,7 +571,7 @@ function buildServicesPage() {
                     <span class="services-case-badges" aria-label="Indicadores del caso">
                       ${caseItem.badges.map((badge) => `<span>${escapeHtml(badge)}</span>`).join('')}
                     </span>
-                    ${caseItem.url ? `<a href="${caseItem.url}" target="_blank" rel="noopener noreferrer" class="services-case-summary-link">Ver landing <span aria-hidden="true">↗</span></a>` : ''}
+                    ${caseItem.url ? `<a href="${caseItem.url}" target="_blank" rel="noopener noreferrer" class="services-case-summary-link">${escapeHtml(caseItem.summaryLinkLabel ?? 'Ver landing')} <span aria-hidden="true">↗</span></a>` : ''}
                   </span>
                   <span class="services-case-toggle" aria-hidden="true"></span>
                 </summary>
@@ -582,7 +582,7 @@ function buildServicesPage() {
                       <div><h3>${escapeHtml(caseItem.problemTitle)}</h3><p>${escapeHtml(caseItem.problem)}</p></div>
                       <div><h3>${escapeHtml(caseItem.solutionTitle)}</h3><p>${escapeHtml(caseItem.solution)}</p></div>
                     </div>
-                    <div class="services-evidence" aria-label="Evidencia de uso">
+                    <div class="services-evidence" aria-label="${escapeHtml(caseItem.evidenceLabel ?? 'Evidencia de uso')}">
                       <strong>${escapeHtml(caseItem.usageValue)}</strong>
                       <div><p>${escapeHtml(caseItem.usageLabel)}</p><small>${escapeHtml(caseItem.usageNote)}</small></div>
                     </div>

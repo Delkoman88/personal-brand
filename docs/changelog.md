@@ -1,5 +1,35 @@
 # Feature Changelog
 
+## 2026-11-12 - VideoVibe in CVs and Services
+
+### Added
+- VideoVibe first in both bilingual CV project lists, with equivalent descriptions, contribution bullets, technologies, and public repository links. Both professional summaries now include the project.
+- VideoVibe as the first expandable services case, presenting the open-source agentic video editing system and reusing the homepage demo image. Added a self-service FAQ and included creators and content teams in the audience copy; packages and pricing are unchanged.
+
+### Changed
+- Services cases support optional `summaryLinkLabel` and `evidenceLabel` in React and prerendered HTML, preserving existing defaults. VideoVibe uses repository and availability labels, with a stacked evidence block sized for text rather than a numeric metric.
+- Prerender validation checks the VideoVibe project and repository in both CVs and the services summary/evidence labels.
+
+### Validation
+- Lint, build with SEO validation, and diff whitespace checks passed. The existing large-JavaScript-chunk warning remains.
+- Browser checks cover 320, 390, 768, and 1280 px, five CV projects, mobile project scrolling, three services disclosures, keyboard toggling, correct repository destinations, and visible FAQ/JSON-LD consistency. Print-media captures of the CV cards and A4 PDF exports were generated.
+- Initially delivered locally; publication through the existing GitHub Actions/Firebase workflow was subsequently authorized on 2026-11-12.
+
+## 2026-11-12 - VideoVibe Portfolio Project
+
+### Added
+- VideoVibe as the first selected project, using the existing English case-study fields, cyan accent, technology badges, and GitHub action. At Edgar's direction, copy presents an agentic video editing system released as open source and invites visitors to clone the repository, follow the setup guide, and start editing locally.
+- Local demo image at `public/project-videovibe.webp` (1100 × 665, 23,372 bytes), converted from the public VideoVibe repository's `docs/img/demo.jpg` without cropping or enlargement. README status and capabilities verified on 2026-11-12.
+
+### Changed
+- Project images support optional `imageWidth` and `imageHeight` in both React and prerendered HTML, retaining the 1280 × 800 defaults for existing projects.
+
+### Validation
+- `npm run lint`, `npm run build` (including all prerender checks), and `git diff --check` passed. Existing Vite warning about the main JavaScript chunk exceeding 500 kB remains.
+- Browser checks at 320, 390, 768, and 1280 px confirmed first-project ordering, all four project cards, no page/card horizontal overflow, and correct image dimensions. Desktop and mobile captures visually inspected.
+- Verified GitHub destination attributes, visible keyboard focus, image opening in a new tab, CV/blog navigation, and project content with JavaScript disabled. No page errors during the browser checks.
+- Initially delivered locally; publication was subsequently authorized on 2026-11-12. Existing unrelated untracked files were left untouched.
+
 ## 2026-04-23 - Bilingual CV Routes, SEO Integration & Sitemap Coverage
 
 ### Added

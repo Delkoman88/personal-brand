@@ -15,6 +15,24 @@ export const homeCopy = {
 
 export const projects = [
   {
+    id: 'videovibe',
+    name: 'VideoVibe',
+    meta: 'Creator · Open-source project · 2026 — Present',
+    url: 'https://github.com/Delkoman88/videovibe',
+    problem: 'Video editing requires coordinating cuts, captions, visuals, and sound. Creators need a repeatable process that automates production tasks while preserving editorial control.',
+    solution: 'An agentic video editing system that uses AI agents to coordinate local transcription, cuts, word-by-word captions, motion graphics, and audio processing. It pauses for human approval of the cut and visual plan, then produces platform-specific videos, covers, and captions.',
+    contribution: 'I built VideoVibe around a repeatable production workflow: agent instructions, pipeline orchestration, channel-specific styles, and technical checks for the final deliveries.',
+    usage: 'Released as an open-source project. Clone the repository on your machine, follow the setup guide, and start editing your videos with VideoVibe.',
+    stack: ['Python', 'Node.js', 'FFmpeg', 'whisper.cpp', 'HyperFrames'],
+    image: '/project-videovibe.webp',
+    imageWidth: 1100,
+    imageHeight: 665,
+    imageAlt: 'Example frames from a vertical video edited with VideoVibe',
+    caption: 'Example frames from the VideoVibe demo.',
+    linkLabel: 'Explore on GitHub',
+    accessNote: 'Open source · Apache-2.0 · Released',
+  },
+  {
     id: 'aqvarivs',
     name: 'AQVARIVS / AQUARIUS',
     meta: 'Agent developer · Private project · 2026 — Present',

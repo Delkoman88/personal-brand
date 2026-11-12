@@ -32,7 +32,7 @@ export default function Projects() {
               </div>
               <figure className="project-evidence">
                 <a href={project.image} target="_blank" rel="noopener noreferrer" className="project-visual" aria-label={`Open full image: ${project.imageAlt}`}>
-                  <img src={project.image} alt={project.imageAlt} width="1280" height="800" loading="lazy" />
+                  <img src={project.image} alt={project.imageAlt} width={project.imageWidth ?? 1280} height={project.imageHeight ?? 800} loading="lazy" />
                 </a>
                 <figcaption>{project.caption}</figcaption>
                 {project.gallery ? (
