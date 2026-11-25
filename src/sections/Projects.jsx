@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { projects, projectFields } from '../content/homeContent';
 
 export default function Projects() {
@@ -24,7 +25,9 @@ export default function Projects() {
                   {project.stack.map(item => <li key={item} className="project-stack-badge">{item}</li>)}
                 </ul>
                 <div className="project-actions">
-                  {project.url ? (
+                  {project.url && project.internalLink ? (
+                    <Link to={project.url} className="btn-secondary">{project.linkLabel} <span aria-hidden="true">→</span></Link>
+                  ) : project.url ? (
                     <a href={project.url} target="_blank" rel="noopener noreferrer" className="btn-secondary">{project.linkLabel} <span aria-hidden="true">↗</span></a>
                   ) : null}
                   <span className="project-access">{project.accessNote}</span>

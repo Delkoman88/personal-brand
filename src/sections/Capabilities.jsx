@@ -17,7 +17,8 @@ export default function Capabilities() {
           </div>
         </div>
         <div className="tools-summary">
-          <h3>How I build</h3><p>{homeCopy.workflow}</p>
+          <h3>How I build</h3>
+          {homeCopy.workflow.map(paragraph => <p key={paragraph}>{paragraph}</p>)}
           <dl className="tools-list">
             {toolGroups.map(group => <div key={group.label}><dt>{group.label}</dt><dd>{group.tools}</dd></div>)}
           </dl>

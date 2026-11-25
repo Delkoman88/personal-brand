@@ -16,7 +16,7 @@ export const servicesSeo = {
 
 export const servicesCopy = {
   eyebrow: 'Agentes de IA a la medida · Edgar Mancilla Sánchez',
-  headline: 'Un agente que trabaja en tu negocio todos los días',
+  headline: 'Un agente de IA que trabaja contigo todos los días',
   intro:
     'Son las nueve de la mañana. Anoche llegaron cuatro mensajes por WhatsApp, una clienta canceló y hoy tienes tres citas por confirmar. Yo construyo el agente que se encarga de eso mientras tú trabajas: confirma las citas, reacomoda las cancelaciones, contesta los mensajes y te deja la agenda del día lista. Lo conecto con las herramientas que ya usas.',
   introSecond:
@@ -99,41 +99,42 @@ export const beautyCase = {
 export const aqvarivsCase = {
   id: 'caso-aqvarivs',
   eyebrow: 'Caso en uso · AQVARIVS',
-  title: 'Una inteligencia persistente para convertir una biblioteca musical en decisiones',
+  title: 'Un copiloto musical que aprende del criterio del DJ',
   collapsedSummary:
-    'Organiza una biblioteca musical, conecta referencias y prepara sets conservando memoria entre sesiones.',
-  badges: ['489 pistas', 'Usuario real', 'Sistema privado'],
+    'Descubre música según el criterio del DJ, organiza su biblioteca y convierte playlists en sets editables desde una interfaz propia.',
+  badges: ['Descubrimiento personalizado', 'Sets editables', 'Interfaz propia'],
   intro:
-    'AQVARIVS es un agente coordinador privado que mantiene memoria y contexto para ayudar a un artista de música electrónica a organizar su biblioteca, descubrir relaciones entre pistas y preparar sets y presentaciones.',
+    'AQVARIVS es un copiloto privado para DJs que conecta la biblioteca musical, el descubrimiento de nuevas pistas y la preparación de sets. Mantiene memoria y contexto para adaptar sus recomendaciones a la forma de trabajar de cada artista.',
   problemTitle: 'El problema',
   problem:
     'Cientos de pistas, referencias y decisiones creativas estaban repartidas entre herramientas y sesiones aisladas. El artista necesitaba conservar el contexto sin perder el control de su proceso.',
   solutionTitle: 'Lo que construí',
   solution:
-    'Diseñé la arquitectura, el despliegue y las herramientas de un agente coordinador persistente con biblioteca, sets, mapa musical, chat y descubrimiento verificado en Beatport.',
-  usageValue: '489',
-  usageLabel: 'pistas recibidas y organizadas en la biblioteca',
-  usageNote: 'Biblioteca documentada el 10 de noviembre de 2026.',
+    'Diseñé y construí un copiloto conectado con la biblioteca y la actividad real del DJ. AQVARIVS descubre música, organiza cada pista con sus datos técnicos, sincroniza playlists de Beatport y las convierte en sets editables. También propone transiciones, mashups, cambios de BPM y rutas de mezcla completas, explicando el criterio detrás de cada combinación.',
+  usageValue: 'Del descubrimiento al set',
+  usageLabel: 'Un copiloto que conecta biblioteca, recomendaciones y preparación musical.',
+  usageNote: 'Disponible desde una interfaz propia para celular y computadora, además de control conversacional.',
   launchNote:
-    'Es un sistema privado en desarrollo activo para un usuario real.',
+    'El DJ puede escribir el nombre de una canción, enviar un enlace o compartir una captura para encontrarla, organizarla, agregarla a una playlist o utilizarla en un set. AQVARIVS adapta sus recomendaciones a las canciones favoritas, descartadas, compradas y utilizadas.',
   capabilities: [
-    'Mantiene memoria y contexto entre sesiones de trabajo.',
-    'Organiza pistas con portada, BPM y enlaces verificados.',
-    'Construye un mapa de géneros, relaciones y referencias musicales.',
-    'Coordina composición, práctica y preparación de presentaciones.',
+    'Descubre música de forma automática y entrega recomendaciones programadas.',
+    'Organiza cada pista con portada, género, BPM, tonalidad Camelot, fecha y enlace verificado de Beatport.',
+    'Sincroniza playlists de Beatport y las convierte en sets editables.',
+    'Propone transiciones, mashups, cambios de BPM, ajustes de semitono y rutas de mezcla completas.',
+    'Explica el criterio detrás de cada recomendación y conserva el contexto entre sesiones.',
   ],
   images: [
     {
       src: '/services/aqvarivs-library.webp',
       alt: 'Biblioteca de AQVARIVS con pistas, portadas, BPM y enlaces de Beatport',
-      caption: 'Biblioteca musical con 489 pistas recibidas, portadas, BPM y enlaces verificados.',
+      caption: 'Biblioteca musical con portadas, datos técnicos y enlaces verificados.',
       width: 1916,
       height: 922,
     },
     {
       src: '/services/aqvarivs-map.webp',
       alt: 'Mapa musical de AQVARIVS con grupos de géneros y conexiones entre pistas',
-      caption: 'Mapa musical con 514 pistas agrupadas por género y conectadas por afinidad.',
+      caption: 'Mapa musical que agrupa pistas por género y las conecta por afinidad.',
       width: 1909,
       height: 911,
     },
@@ -194,7 +195,7 @@ export const packages = [
   {
     id: 'diagnostico',
     name: 'Diagnóstico',
-    tagline: 'Antes de construir nada, miramos el proceso.',
+    tagline: 'Antes de construir nada, revisamos el proceso.',
     desc: 'Reviso un proceso contigo y te digo si un agente puede hacerse cargo de una parte.',
     price: 'Gratis',
     ideal: 'Decidir si vale la pena construir algo, antes de invertir.',

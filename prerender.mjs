@@ -276,7 +276,10 @@ function buildHomePage(posts) {
                   <dl class="project-details">${projectFields.map(([field, label]) => `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(project[field])}</dd></div>`).join('')}</dl>
                   <ul class="project-stack" aria-label="${escapeHtml(project.name)} technologies">${project.stack.map(item => `<li class="project-stack-badge">${escapeHtml(item)}</li>`).join('')}</ul>
                   <div class="project-actions">
-                    ${project.url ? `<a href="${escapeHtml(project.url)}" target="_blank" rel="noopener noreferrer" class="btn-secondary">${escapeHtml(project.linkLabel)} <span aria-hidden="true">↗</span></a>` : ''}
+                    ${project.url ? project.internalLink
+                      ? `<a href="${escapeHtml(project.url)}" class="btn-secondary">${escapeHtml(project.linkLabel)} <span aria-hidden="true">→</span></a>`
+                      : `<a href="${escapeHtml(project.url)}" target="_blank" rel="noopener noreferrer" class="btn-secondary">${escapeHtml(project.linkLabel)} <span aria-hidden="true">↗</span></a>`
+                    : ''}
                     <span class="project-access">${escapeHtml(project.accessNote)}</span>
                   </div>
                 </div>
@@ -310,7 +313,7 @@ function buildHomePage(posts) {
             <div class="mobile-scroll-indicator"><span class="label-text">Swipe to explore more cards</span></div>
             <div class="capabilities-grid">${capabilities.map(cap => `<div class="card-elevated capability-card"><h3>${escapeHtml(cap.title)}</h3><p>${escapeHtml(cap.desc)}</p></div>`).join('')}</div>
           </div>
-          <div class="tools-summary"><h3>How I build</h3><p>${escapeHtml(homeCopy.workflow)}</p>
+          <div class="tools-summary"><h3>How I build</h3>${homeCopy.workflow.map(paragraph => `<p>${escapeHtml(paragraph)}</p>`).join('')}
             <dl class="tools-list">${toolGroups.map(group => `<div><dt>${escapeHtml(group.label)}</dt><dd>${escapeHtml(group.tools)}</dd></div>`).join('')}</dl>
           </div>
           <div class="services-promo">

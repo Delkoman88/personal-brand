@@ -10,7 +10,10 @@ export const homeCopy = {
   ],
   contactTitle: 'Let’s build useful tools.',
   contact: 'Interested in working together? I welcome conversations about roles in applied AI, automation, biotechnology, AgTech, and innovation, as well as consulting projects that connect science, software, and operational needs.',
-  workflow: 'I start with clear requirements and context in Obsidian and Notion, build with AI-assisted tools, and verify each increment against the requirements — with tests, evidence, and documentation — so the result is a working system, not just a demo.',
+  workflow: [
+    'I turn real problems into working AI products. I start by understanding the workflow, then prototype quickly, test with real users, and keep iterating until the solution becomes genuinely useful.',
+    'Depending on the problem, I combine AI agents, automations, custom scripts, APIs, and integrations. I work across product and implementation — from the first conversation to a system running in production.',
+  ],
 };
 
 export const projects = [
@@ -34,27 +37,30 @@ export const projects = [
   },
   {
     id: 'aqvarivs',
-    name: 'AQVARIVS / AQUARIUS',
-    meta: 'Agent developer · Private project · 2026 — Present',
-    problem: 'MRLN, an electronic music artist, needs a persistent personal intelligence system to think, create, and finish more, without losing control of his attention.',
-    solution: 'AQVAR1VS, a coordinating agent built on OpenClaw and self-hosted on an Ubuntu server. It includes a music feed with verified Beatport discovery, a library, sets, a musical map, and integrated chat, with documented control, handoffs, and evidence for each task.',
-    contribution: 'I was hired by MRLN to develop the system: architecture, deployment, a Python toolkit, testing, and ongoing operation with Codex from the server.',
-    usage: 'In active development. Music feed at v58 (1 November 2026); library, sets, map, and chat published and pending the artist’s confirmation on mobile.',
+    name: 'AQVARIVS',
+    meta: 'AI product builder · Private DJ copilot · 2026 — Present',
+    url: '/servicios#caso-aqvarivs',
+    internalLink: true,
+    problem: 'DJs make decisions across music discovery, playlists, purchases, and live sets, but their preferences and creative context are usually fragmented across different tools.',
+    solution: 'A personalized DJ copilot connected to the artist’s music library and Beatport workflow. AQVARIVS discovers and organizes music, adapts recommendations to favorites, discards, purchases, and previous sets, and turns playlists into editable set plans. It can also suggest transitions, mashups, BPM changes, and complete mixing routes, explaining the reasoning behind each combination.',
+    contribution: 'I designed and built the product end to end: product definition, architecture, self-hosted deployment, custom Python tools, music integrations, interface, testing, and ongoing operation.',
+    usage: 'Used by an electronic music artist to discover new music, organize a growing library, and prepare sets through a dedicated desktop and mobile interface or conversational commands.',
     stack: ['OpenClaw', 'Codex', 'Python', 'SQLite', 'Tailscale', 'Ubuntu', 'Beatport MCP'],
     image: '/project-aqvarivs-library.png',
-    imageAlt: 'MRLN Music Space library with 489 received tracks',
-    caption: 'Music library, 10 November 2026: 489 received tracks with covers, BPM, and Beatport links.',
-    accessNote: 'Private project · In development · No public link',
+    imageAlt: 'AQVARIVS personalized music library with artwork and technical track data',
+    caption: 'Personalized music library with artwork, BPM, Camelot key, and verified Beatport links.',
+    linkLabel: 'View full case',
+    accessNote: 'Private product · In active use',
     gallery: [
       {
         image: '/project-aqvarivs-map.png',
-        imageAlt: 'Musical map with 514 tracks in 20 genre groups',
-        caption: 'Musical map: 514 tracks in 20 genre groups and 500 connections.',
+        imageAlt: 'AQVARIVS musical map with genre groups and connections between tracks',
+        caption: 'Musical map that groups tracks by genre and connects them by affinity.',
       },
       {
         image: '/project-aqvarivs-detail.png',
-        imageAlt: 'Track detail for Cristalis by TroniKol with a grounded recommendation',
-        caption: 'Track detail: grounded recommendation with tempo, label, and reference tracks.',
+        imageAlt: 'AQVARIVS track detail with an explained transition recommendation',
+        caption: 'Track detail with an explained recommendation for transitions and reference tracks.',
       },
     ],
   },
@@ -66,7 +72,7 @@ export const projects = [
     problem: 'Beauty studios need to coordinate clients, appointments, and daily operations across fragmented WhatsApp and spreadsheet workflows.',
     solution: 'A management platform with client CRM, scheduling, Google Calendar integration, automated reminders, and operational dashboards.',
     contribution: 'I built the product solo, from problem definition and UX through implementation, production release, debugging, and ongoing iteration.',
-    usage: 'Over 200 active users; preparing for market launch.',
+    usage: 'Over 200 active users.',
     stack: ['Next.js', 'TypeScript', 'Firebase Auth', 'Firestore', 'Cloud Functions', 'Google Calendar API'],
     image: '/project-beauty.png',
     imageAlt: 'Beauty Studio Copilot sign-in page',
@@ -98,9 +104,9 @@ export const projectFields = [
 ];
 
 export const toolGroups = [
-  { label: 'Development & review', tools: 'OpenClaw, Codex, Claude Code, Google Antigravity, Gemini' },
-  { label: 'Research & design', tools: 'ChatGPT, NotebookLM, Stitch' },
-  { label: 'Project context', tools: 'Obsidian, Notion' },
+  { label: 'Understand the problem', tools: 'Map the workflow, constraints, and real opportunity.' },
+  { label: 'Build the right solution', tools: 'Combine AI agents, automations, custom scripts, APIs, and interfaces around the way people actually work.' },
+  { label: 'Ship and improve', tools: 'Launch early, observe real usage, and iterate with evidence.' },
 ];
 
 export const capabilities = [
