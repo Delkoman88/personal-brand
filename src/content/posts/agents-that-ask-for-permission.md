@@ -10,6 +10,7 @@ excerpt: 'Full autonomy looks impressive in a demo. In production, the AI agents
 seoTitle: 'Agents That Ask for Permission | Edgar Mancilla Sanchez'
 seoDescription: 'Why human-in-the-loop is not bureaucracy but operational design: approval gates, reversibility, and versioned outputs across real AI agent systems.'
 coverImage: '/blog/cover-agents-permission.svg'
+ogImage: '/blog/og-agents-permission.png'
 coverAlt: 'Architectural blueprint diagram showing an AI agent pipeline pausing at a human approval gate before irreversible production outputs'
 keywords:
   - 'AI agents'
@@ -49,7 +50,7 @@ Second, separate reversible actions from irreversible ones. A draft, a proposed 
 
 Third, version every output. Each delivery carries its own version and state. When something looks off, you do not have to guess what happened or rebuild from scratch, you can trace what changed and step back cleanly.
 
-None of this is bureaucracy. These are the same operational controls any serious team relies on: someone reviews the work before it walks out the door.
+None of this is bureaucracy. These are the same [operational controls](/blog/operating-systems-for-fast-moving-teams) any serious team relies on: someone reviews the work before it walks out the door.
 
 ## The rule for deciding where a gate belongs
 
@@ -69,7 +70,7 @@ In AQVARIVS, a private copilot I built for a DJ, the agent turns music discovery
 
 In Beauty Studio Copilot, which centralizes CRM, appointments, calendar sync, and follow-ups for a real beauty studio with more than 200 active users, WhatsApp outreach is intentionally assisted rather than fully autonomous. The system prepares the confirmation or follow-up message in context, and a person reviews it before it goes out. An automated message with the wrong timing or an awkward tone can cost a real client relationship. A reviewed message takes two seconds and protects the business.
 
-None of these design choices came from a textbook on AI agents. They came from operations. Running operations at Tryp — a regulated marketplace with over 300,000 users, roughly a thousand products, and 180 sellers — taught me that controls and traceability are what allow a system to scale without quietly breaking. A process without review points is not an efficient process. It is a process relying on luck.
+None of these design choices came from a textbook on AI agents. They came from operations. Running operations at Tryp — a regulated marketplace with over 300,000 users, roughly a thousand products, and 180 sellers — taught me that controls and [traceability](/blog/traceability-for-small-scale-cultivation-systems) are what allow a system to scale without quietly breaking. A process without review points is not an efficient process. It is a process relying on luck.
 
 ## Why asking permission makes an agent get used more
 

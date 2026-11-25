@@ -40,7 +40,7 @@ function inlineMd(text) {
   html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
   html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
   html = html.replace(/`(.+?)`/g, '<code>$1</code>');
-  html = html.replace(/\[(.+?)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2">$1</a>');
+  html = html.replace(/\[(.+?)\]\(((?:https?:\/\/|\/)[^\s)]+)\)/g, '<a href="$2">$1</a>');
   html = wrapNoTranslateStatic(html);
   return html;
 }
@@ -77,6 +77,13 @@ function mdToHtml(markdown) {
     if (!trimmed) {
       flushParagraph();
       flushList();
+      return;
+    }
+
+    if (/^(-{3,}|\*{3,}|_{3,})$/.test(trimmed)) {
+      flushParagraph();
+      flushList();
+      output.push('<hr />');
       return;
     }
 
@@ -664,6 +671,7 @@ function buildBlogPostPages(posts) {
   posts.forEach((post) => {
     const relatedPosts = posts.filter((item) => item.slug !== post.slug).slice(0, 2);
     const canonicalUrl = `${SITE_URL}/blog/${post.slug}`;
+    const socialImage = post.ogImage || post.coverImage;
     const structuredData = {
       '@context': 'https://schema.org',
       '@type': 'BlogPosting',
@@ -673,7 +681,7 @@ function buildBlogPostPages(posts) {
       dateModified: post.publishedAt,
       articleSection: post.category,
       keywords: post.keywords,
-      image: `${SITE_URL}${post.coverImage}`,
+      image: `${SITE_URL}${socialImage}`,
       author: {
         '@type': 'Person',
         name: SITE_NAME
@@ -691,7 +699,7 @@ function buildBlogPostPages(posts) {
       pathName: `/blog/${post.slug}`,
       keywords: post.keywords,
       type: 'article',
-      image: post.coverImage,
+      image: socialImage,
       structuredData
     });
 

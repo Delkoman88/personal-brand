@@ -43,6 +43,7 @@ export default function BlogPostPage() {
   }
 
   const relatedPosts = blogPosts.filter((item) => item.slug !== post.slug).slice(0, 2);
+  const socialImage = post.ogImage || post.coverImage;
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -52,7 +53,7 @@ export default function BlogPostPage() {
     dateModified: post.publishedAt,
     articleSection: post.category,
     keywords: post.keywords,
-    image: `${SITE_URL}${post.coverImage}`,
+    image: `${SITE_URL}${socialImage}`,
     author: {
       '@type': 'Person',
       name: SITE_NAME,
@@ -72,7 +73,7 @@ export default function BlogPostPage() {
         path={`/blog/${post.slug}`}
         keywords={post.keywords}
         type="article"
-        image={post.coverImage}
+        image={socialImage}
         structuredData={structuredData}
       />
 
