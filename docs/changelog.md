@@ -1,5 +1,27 @@
 # Feature Changelog
 
+## 2026-11-25 - Visual Redesign, Brand Unification, WebP/Code-Splitting & Motion System
+
+### Added
+- **GSAP ScrollTrigger Pinned Showcase (`Projects.jsx`):** Desktop-only (`>= 1024px`, `prefers-reduced-motion: no-preference`) pinned evidence stage with vertical scroll-scrub progress rail, dynamic accent indicators, and clickable AQVARIVS gallery thumbnails via `useGSAP()` and `gsap.matchMedia()`.
+- **Native CSS Motion System:** Choreographed Hero entrance (`clip-path` portrait reveal + non-uniform stagger), smooth `<details>` disclosure with animated geometric `+`/`−` toggle in `/servicios`, blur-softened preview swap in `Blog.jsx`, CSS scroll-driven reading progress bar (`animation-timeline: scroll()`) in `BlogPostPage.jsx`, and progressive View Transitions for blog covers.
+- **Native `<dialog>` Lightbox (`ImageLightbox.jsx`):** In-page full-image viewer with `scale(0.96)` entry, `Esc`/backdrop dismiss, and `←`/`→` keyboard gallery navigation for `Selected Projects` and `/servicios`.
+- **Copy Email Micro-Interaction (`CopyEmailButton.jsx`):** Clipboard copy buttons in `Contact.jsx` and `ServicesPage.jsx` with `Copy → Copied ✓` blur/opacity confirmation.
+- **Architectural 404 Page (`NotFoundPage.jsx`):** Catch-all `*` route matching the dark blueprint design system.
+- **Bilingual CV Toolbar (`CvPage.jsx`):** Contextual top bar on `/cv/en` and `/cv/es` with portfolio return link, EN ↔ ES switcher, and Print/Save PDF button (hidden in `@media print`).
+
+### Changed
+- **Unified Brand Across `/cv/*` (`cv-page.css`):** Aligned bilingual CV routes to the main site's `#131313` surfaces, `#00F5FF` cyan accent, strict `0px` architectural borders, `Space Grotesk` + `Inter` + `JetBrains Mono`, and high-contrast `#006B73` print theme.
+- **Design System Cleanup (`design-system.css` & `index.html`):** Moved Google Fonts to `<link rel="preconnect">` (dropping redundant `Manrope`), consolidated `:root` with custom easing tokens (`--ease-out`, `--ease-in-out`), replaced all `transition: all` and `box-shadow` hover animations, added `:active { scale(0.97) }`, gated `:hover` with `@media (hover: hover) and (pointer: fine)`, refined `prefers-reduced-motion`, fixed accessible contrast (`--secondary-on-dark: #cbaeff`), removed decorative `01 //`–`06 //` numbering (including duplicated `06`), and migrated section inline styles to CSS classes.
+- **Navigation & Mobile UX:** Added `IntersectionObserver` scroll-spy and active route indicators to `Navigation.jsx`, hid redundant `SectionDock` below `960px` (revealing it after the Hero on desktop), and removed non-interactive mobile scroll arrows.
+- **Performance (WebP & Code-Splitting):** Converted `profile.jpg` (1.8 MB) → upright `profile.webp` (115 KB), project/experience PNGs → WebP (~4 MB saved, duplicate PNGs removed), and added `React.lazy` routes + Rolldown vendor splitting (`vite.config.js`), reducing the main entry chunk from `695 kB` to `73 kB` and clearing the Vite chunk-size warning.
+- **AQVARIVS & Workflow Copy (`d2e4689`):** Refined AQVARIVS case study copy across Home and `/servicios`, added internal link `View full case →` (`/servicios#caso-aqvarivs`), and expanded the "How I build" workflow summary.
+
+### Validation
+- `npm run lint`, `npm run build`, `prerender.mjs`, `generate-feeds.mjs`, and `validate-prerender.mjs` passed across all 9 routes with zero warnings.
+- Visually inspected `profile.webp` (confirmed EXIF upright orientation) and all converted `.webp` project/experience assets.
+- Published to `main` (`acf75b1`) and deployed via GitHub Actions to Firebase Hosting.
+
 ## 2026-11-12 - VideoVibe in CVs and Services
 
 ### Added
