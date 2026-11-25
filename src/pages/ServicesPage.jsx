@@ -1,4 +1,6 @@
-import React from 'react';
+import { useState } from 'react';
+import CopyEmailButton from '../components/CopyEmailButton';
+import ImageLightbox from '../components/ImageLightbox';
 import Seo from '../components/Seo';
 import {
   servicesSeo,
@@ -13,6 +15,17 @@ import {
 import { BOOKING_URL, CONTACT_EMAIL, SITE_NAME, SITE_URL } from '../config/site';
 
 export default function ServicesPage() {
+  const [lightboxState, setLightboxState] = useState({ items: [], index: null });
+
+  const openCaseLightbox = (images, initialIndex) => (event) => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.button !== 0) return;
+    event.preventDefault();
+    setLightboxState({
+      items: images.map((img) => ({ src: img.src, alt: img.alt, caption: img.caption })),
+      index: initialIndex,
+    });
+  };
+
   const structuredData = [
     {
       '@context': 'https://schema.org',
@@ -176,13 +189,20 @@ export default function ServicesPage() {
                     <div className="services-case-gallery" aria-label={`Demostración de ${caseItem.eyebrow.replace('Caso en uso · ', '')}`}>
                       {caseItem.images.map((image, index) => (
                         <figure key={image.src} className={index === 0 ? 'services-case-image services-case-image--primary' : 'services-case-image'}>
-                          <a href={image.src} target="_blank" rel="noopener noreferrer" aria-label={`Abrir imagen completa: ${image.alt}`}>
+                          <a
+                            href={image.src}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={openCaseLightbox(caseItem.images, index)}
+                            aria-label={`Abrir imagen completa: ${image.alt}`}
+                          >
                             <img
                               src={image.src}
                               alt={image.alt}
                               width={image.width}
                               height={image.height}
                               loading="lazy"
+                              decoding="async"
                             />
                           </a>
                           <figcaption>{image.caption}</figcaption>
@@ -229,7 +249,7 @@ export default function ServicesPage() {
 
           <section id="inversion" aria-labelledby="inversion-heading">
             <div className="section-heading"><h2 id="inversion-heading" className="label-text">{servicesCopy.pricingTitle}</h2></div>
-            <ul>
+            <ul className="services-bullet-list">
               {pricing.lines.map((line) => (
                 <li key={line}>{line}</li>
               ))}
@@ -239,7 +259,7 @@ export default function ServicesPage() {
 
           <section aria-labelledby="necesito-heading">
             <div className="section-heading"><h2 id="necesito-heading" className="label-text">{servicesCopy.needsTitle}</h2></div>
-            <ul>
+            <ul className="services-bullet-list">
               {clientNeeds.map((need) => (
                 <li key={need}>{need}</li>
               ))}
@@ -265,9 +285,26 @@ export default function ServicesPage() {
               <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">Agenda una llamada de 30 minutos</a>
               <a href="#casos" className="btn-secondary">Ver los casos</a>
             </div>
-            <p className="services-email-fallback">¿Prefieres escribir? <a href={`mailto:${CONTACT_EMAIL}?subject=Llamada de descubrimiento: agente o copiloto operativo`}>{CONTACT_EMAIL}</a></p>
+            <div className="services-email-fallback">
+              <span>¿Prefieres escribir? <a href={`mailto:${CONTACT_EMAIL}?subject=Llamada de descubrimiento: agente o copiloto operativo`}>{CONTACT_EMAIL}</a></span>
+              <CopyEmailButton
+                email={CONTACT_EMAIL}
+                label="Copiar correo"
+                copiedLabel="Copiado"
+                className="copy-email-inline"
+              />
+            </div>
           </section>
         </div>
+
+        <ImageLightbox
+          items={lightboxState.items}
+          activeIndex={lightboxState.index}
+          onClose={() => setLightboxState({ items: [], index: null })}
+          onNavigate={(nextIndex) => setLightboxState((prev) => ({ ...prev, index: nextIndex }))}
+          closeLabel="Cerrar vista previa"
+          openRawLabel="Abrir original"
+        />
       </main>
     </>
   );

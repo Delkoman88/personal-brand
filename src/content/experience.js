@@ -8,7 +8,7 @@ export const experiences = [
       'Led a logistics initiative to collect inventory from suppliers and distribute it across the three cities, improving product availability. Participating vendors increased sales by 35%.'
     ],
     tags: ['Marketplace Operations', 'Vendor Performance', 'B2B', 'Logistics'],
-    image: '/tryp.png'
+    image: '/tryp.webp'
   },
   {
     id: 'TRC',
@@ -24,7 +24,7 @@ export const experiences = [
       { label: 'Growth consulting cases', url: 'https://tracelabconsulting.com.mx/services/growth' }
     ],
     tags: ['Growth Strategy', 'SEO & Content', 'Commercial Strategy', 'Measurement'],
-    image: '/tracelab.png'
+    image: '/tracelab.webp'
   },
   {
     id: 'URL',
@@ -36,7 +36,7 @@ export const experiences = [
       'Selected by Entrepreneur magazine (2019) as one of the "60 rockstars de los emprendedores"',
       'Invited to Shark Tank (2020)'
     ],
-    image: '/urbn.png'
+    image: '/urbn.webp'
   },
   {
     id: 'BJB',
@@ -53,11 +53,11 @@ export const experiences = [
     role: 'Experimental Urban Agriculture',
     description: 'A living, experimental project combining urban agriculture, practical cultivation, and content creation. I am exploring how to integrate 3D printing into localized food systems through the design and testing of tools and growing solutions for small spaces. The long-term ambition is to establish a restaurant chain centered entirely on locally cultivated ingredients.',
     tags: ['3D Printing', 'Maker Culture', 'Localized Food Systems', '@urbanbeautygarden'],
-    image: '/ubg.png'
+    image: '/ubg.webp'
   }
 ];
 
 export const experienceGroups = [
-  { id: 'experience', title: '04 // Operations & Consulting', items: experiences.slice(0, 2) },
+  { id: 'experience', title: 'Operations & Consulting', items: experiences.slice(0, 2) },
   { id: 'biotech-agtech', title: 'Biotechnology & AgTech', items: [experiences[3], experiences[2], experiences[4]] },
 ];

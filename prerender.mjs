@@ -242,37 +242,37 @@ function buildHomePage(posts) {
   const body = `
     <nav class="site-navigation" aria-label="Main navigation">
       <div class="site-navigation-inner">
-        <a href="/" class="site-brand"><span>EDGAR MANCILLA SANCHEZ</span><span class="label-text">Applications · Automation · Operations</span></a>
+        <a href="/" class="site-brand"><span class="site-brand-name">EDGAR MANCILLA SANCHEZ</span><span class="label-text">Applied AI · Operations · Biotech</span></a>
         <div class="site-nav-links">
-          <a href="#projects" class="nav-projects">Projects</a><a href="#biotech-agtech">Biotech &amp; AgTech</a><a href="#about">Profile</a>
-          <a href="#experience">Experience</a><a href="/blog">Blog</a><a href="/servicios">Servicios</a><a href="#contact">Contact</a>
+          <a href="#projects" class="site-nav-link">Projects</a><a href="#biotech-agtech" class="site-nav-link">Biotech &amp; AgTech</a><a href="#about" class="site-nav-link">Profile</a>
+          <a href="#experience" class="site-nav-link">Experience</a><a href="/blog" class="site-nav-link">Blog</a><a href="/servicios" class="site-nav-link">Servicios</a><a href="#contact" class="site-nav-link">Contact</a>
         </div>
       </div>
     </nav>
     <main>
-      <section class="bg-lowest grid-blueprint hero-section">
+      <section id="top" class="bg-lowest grid-blueprint hero-section">
         <div class="container hero-layout">
           <div class="hero-copy">
-            <p class="label-text hero-eyebrow">${escapeHtml(homeCopy.eyebrow)}</p>
-            <h1>I turn business challenges into <span class="text-accent-cyan">growth strategies and useful tools</span> with AI.</h1>
-            <p class="hero-intro">${escapeHtml(homeCopy.intro)}</p>
-            <div class="hero-actions">
+            <p class="label-text hero-eyebrow hero-stagger-1">${escapeHtml(homeCopy.eyebrow)}</p>
+            <h1 class="hero-stagger-2">${escapeHtml(homeCopy.headline)}</h1>
+            <p class="hero-intro hero-stagger-3">${escapeHtml(homeCopy.intro)}</p>
+            <div class="hero-actions hero-stagger-4">
               <a href="#projects" class="btn-primary">View projects <span aria-hidden="true">↗</span></a>
               <a href="/cv/en" class="btn-secondary">Read CV in English</a>
               <a href="/cv/es" class="hero-cv-link" lang="es">Ver CV en español</a>
             </div>
           </div>
-          <div class="hero-visual"><div class="hero-portrait"><img src="/profile.jpg" alt="Edgar Mancilla Sánchez" width="400" height="533" /></div></div>
+          <div class="hero-visual"><div class="hero-portrait"><div class="hero-portrait-frame"><picture><source srcset="/profile.webp" type="image/webp" /><img src="/profile.jpg" alt="Edgar Mancilla Sánchez" width="400" height="533" fetchpriority="high" decoding="async" /></picture></div></div></div>
         </div>
       </section>
       <section id="projects" class="section-spacing bg-low" aria-labelledby="projects-heading">
         <div class="container">
-          <div class="section-heading"><h2 id="projects-heading" class="label-text">01 // Selected projects</h2></div>
+          <div class="section-heading"><h2 id="projects-heading" class="label-text">Selected projects</h2></div>
           <div class="projects-list">
-            ${projects.map(project => `
+            ${projects.map((project, index) => `
               <article class="project-item project-case project-case--${escapeHtml(project.id)}">
                 <div class="project-copy">
-                  <div><p class="label-text project-meta">${escapeHtml(project.meta)}</p><h3>${escapeHtml(project.name)}</h3></div>
+                  <div><span class="project-case-index">${String(index + 1).padStart(2, '0')} / ${String(projects.length).padStart(2, '0')}</span><p class="label-text project-meta">${escapeHtml(project.meta)}</p><h3>${escapeHtml(project.name)}</h3></div>
                   <dl class="project-details">${projectFields.map(([field, label]) => `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(project[field])}</dd></div>`).join('')}</dl>
                   <ul class="project-stack" aria-label="${escapeHtml(project.name)} technologies">${project.stack.map(item => `<li class="project-stack-badge">${escapeHtml(item)}</li>`).join('')}</ul>
                   <div class="project-actions">
@@ -285,13 +285,13 @@ function buildHomePage(posts) {
                 </div>
                 <figure class="project-evidence">
                   <a href="${escapeHtml(project.image)}" target="_blank" rel="noopener noreferrer" class="project-visual" aria-label="Open full image: ${escapeHtml(project.imageAlt)}">
-                    <img src="${escapeHtml(project.image)}" alt="${escapeHtml(project.imageAlt)}" width="${escapeHtml(project.imageWidth ?? 1280)}" height="${escapeHtml(project.imageHeight ?? 800)}" loading="lazy" />
+                    <img src="${escapeHtml(project.image)}" alt="${escapeHtml(project.imageAlt)}" width="${escapeHtml(project.imageWidth ?? 1280)}" height="${escapeHtml(project.imageHeight ?? 800)}" loading="lazy" decoding="async" />
                   </a>
                   <figcaption>${escapeHtml(project.caption)}</figcaption>
                   ${project.gallery ? `<div class="project-gallery">${project.gallery.map(item => `
                       <figure class="project-gallery-item">
                         <a href="${escapeHtml(item.image)}" target="_blank" rel="noopener noreferrer" class="project-visual" aria-label="Open full image: ${escapeHtml(item.imageAlt)}">
-                          <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.imageAlt)}" width="1280" height="800" loading="lazy" />
+                          <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.imageAlt)}" width="${escapeHtml(item.imageWidth ?? 1280)}" height="${escapeHtml(item.imageHeight ?? 800)}" loading="lazy" decoding="async" />
                         </a>
                         <figcaption>${escapeHtml(item.caption)}</figcaption>
                       </figure>`).join('')}</div>` : ''}
@@ -300,24 +300,21 @@ function buildHomePage(posts) {
           </div>
         </div>
       </section>
-      <section id="about" class="section-spacing bg-surface">
+      <section id="about" class="section-spacing bg-surface" aria-labelledby="about-heading">
         <div class="container">
-          <div class="section-heading"><span class="label-text">02 // Profile</span></div>
+          <div class="section-heading"><h2 id="about-heading" class="label-text">Profile</h2></div>
           <div class="profile-copy"><h2>${escapeHtml(homeCopy.profileTitle)}</h2>${homeCopy.profile.map(text => `<p>${escapeHtml(text)}</p>`).join('')}</div>
         </div>
       </section>
       <section id="capabilities" class="section-spacing bg-low" aria-labelledby="capabilities-heading">
         <div class="container">
-          <div class="section-heading"><h2 id="capabilities-heading" class="label-text">03 // Capabilities &amp; tools</h2></div>
-          <div class="mobile-scroll-shell">
-            <div class="mobile-scroll-indicator"><span class="label-text">Swipe to explore more cards</span></div>
-            <div class="capabilities-grid">${capabilities.map(cap => `<div class="card-elevated capability-card"><h3>${escapeHtml(cap.title)}</h3><p>${escapeHtml(cap.desc)}</p></div>`).join('')}</div>
-          </div>
+          <div class="section-heading"><h2 id="capabilities-heading" class="label-text">Capabilities &amp; tools</h2></div>
+          <div class="capabilities-grid">${capabilities.map(cap => `<div class="card-elevated capability-card"><h3>${escapeHtml(cap.title)}</h3><p>${escapeHtml(cap.desc)}</p></div>`).join('')}</div>
           <div class="tools-summary"><h3>How I build</h3>${homeCopy.workflow.map(paragraph => `<p>${escapeHtml(paragraph)}</p>`).join('')}
             <dl class="tools-list">${toolGroups.map(group => `<div><dt>${escapeHtml(group.label)}</dt><dd>${escapeHtml(group.tools)}</dd></div>`).join('')}</dl>
           </div>
-          <div class="services-promo">
-            <p>¿Necesitas un agente para un proceso concreto?</p>
+          <div class="services-promo" lang="es">
+            <div class="services-promo-copy"><span class="services-promo-badge">ES · México</span><p>¿Necesitas un agente para un proceso concreto?</p></div>
             <a href="/servicios">Ver servicios de agentes de IA <span aria-hidden="true">→</span></a>
           </div>
         </div>
@@ -326,53 +323,42 @@ function buildHomePage(posts) {
         <section id="${group.id}" class="section-spacing bg-surface" aria-labelledby="${group.id}-heading">
           <div class="container">
             <div class="section-heading"><h2 id="${group.id}-heading" class="label-text">${escapeHtml(group.title)}</h2></div>
-            <div class="mobile-scroll-shell">
-              <div class="mobile-scroll-indicator"><span class="label-text">Swipe to see more work</span></div>
-              <div class="experience-list" style="display:flex;flex-direction:column;gap:5rem;">
-                ${group.items.map(exp => `<article class="experience-item" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:3rem;align-items:start;padding-left:2rem;border-left:2px solid var(--outline-variant);">
-                  <div class="experience-copy">
-                    <p class="label-text">${escapeHtml(exp.role)}</p><h3>${escapeHtml(exp.company)}</h3>
-                    <p>${escapeHtml(exp.description)}</p>
-                    ${exp.highlights ? `<ul>${exp.highlights.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : ''}
-                    ${exp.links ? `<div class="experience-links">${exp.links.map(link => `<a href="${escapeHtml(link.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(link.label)} ↗</a>`).join('')}</div>` : ''}
-                    <div class="experience-tag-list">${exp.tags.map(tag => `<span class="experience-tag">${escapeHtml(tag)}</span>`).join(' · ')}</div>
-                  </div>
-                  <div class="experience-visual"><img src="${escapeHtml(exp.image)}" alt="${escapeHtml(exp.company)} visualization" loading="lazy" /></div>
-                </article>`).join('')}
-              </div>
+            <div class="experience-list">
+              ${group.items.map(exp => `<article class="experience-item">
+                <div class="experience-marker" aria-hidden="true"></div>
+                <div class="experience-copy">
+                  <div><p class="label-text experience-meta">${escapeHtml(exp.role)}</p><h3 class="experience-title">${escapeHtml(exp.company)}</h3></div>
+                  <p class="experience-desc">${escapeHtml(exp.description)}</p>
+                  ${exp.highlights ? `<ul class="experience-highlights">${exp.highlights.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : ''}
+                  ${exp.links ? `<div class="experience-links">${exp.links.map(link => `<a href="${escapeHtml(link.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(link.label)} ↗</a>`).join('')}</div>` : ''}
+                  <div class="experience-tag-list">${exp.tags.map(tag => `<span class="experience-tag">${escapeHtml(tag)}</span>`).join('')}</div>
+                </div>
+                <div class="experience-visual"><img src="${escapeHtml(exp.image)}" alt="${escapeHtml(exp.company)} visualization" loading="lazy" decoding="async" /></div>
+              </article>`).join('')}
             </div>
           </div>
         </section>`).join('')}
 
-      <section id="timeline" class="section-spacing bg-low">
-        <div class="container" style="display: grid; gap: 2rem;">
-          <div style="display: flex; align-items: center; gap: 1rem;">
-            <span class="label-text" style="color: var(--primary-container);">05 // Historical Timeline</span>
-            <div style="flex: 1; height: 1px; background-color: var(--outline-variant);"></div>
-          </div>
-          <p style="max-width: 820px; margin: 0; color: var(--on-surface-variant);">Recent timeline highlights include TraceLab Consulting, Tryp Mexico, Urbn Leaves, Baja Biotech, academic research, and INC Research / Syneos Health.</p>
+      <section id="timeline" class="section-spacing bg-low" aria-labelledby="timeline-heading">
+        <div class="container">
+          <div class="section-heading"><h2 id="timeline-heading" class="label-text">Historical Timeline</h2></div>
+          <p class="services-section-intro">Recent timeline highlights include TraceLab Consulting, Tryp Mexico, Urbn Leaves, Baja Biotech, academic research, and INC Research / Syneos Health.</p>
         </div>
       </section>
 
-      <section id="credibility" class="section-spacing bg-surface grid-blueprint">
-        <div class="container" style="display: grid; gap: 2rem;">
-          <div style="display: flex; align-items: center; gap: 1rem;">
-            <span class="label-text" style="color: var(--primary-container);">06 // Credibility & Substance</span>
-            <div style="flex: 1; height: 1px; background-color: var(--outline-variant);"></div>
-          </div>
-          <p style="max-width: 860px; margin: 0; color: var(--on-surface-variant);">${escapeHtml(credibilityHighlights.join('; '))}.</p>
+      <section id="credibility" class="section-spacing bg-surface grid-blueprint" aria-labelledby="credibility-heading">
+        <div class="container">
+          <div class="section-heading"><h2 id="credibility-heading" class="label-text">Credibility &amp; Substance</h2></div>
+          <p class="services-section-intro">${escapeHtml(credibilityHighlights.join('; '))}.</p>
         </div>
       </section>
 
-      <section id="blog" class="section-spacing bg-lowest grid-blueprint">
-        <div class="container" style="display: grid; gap: 3rem;">
-          <div style="display: flex; align-items: center; gap: 1rem;">
-            <span class="label-text" style="color: var(--primary-container);">06 // Field Notes</span>
-            <div style="flex: 1; height: 1px; background-color: var(--outline-variant);"></div>
-          </div>
-          <div style="display: grid; gap: 1rem; max-width: 760px;">
-            <h2 style="margin: 0;">A space to publish ideas, curiosities, and things I genuinely like.</h2>
-            <p style="margin: 0; color: var(--on-surface-variant); font-size: 1.05rem;">This section is more open: essays, notes, references, personal interests, work reflections, and whatever feels worth sharing at the moment.</p>
+      <section id="blog" class="section-spacing bg-lowest grid-blueprint" aria-labelledby="blog-heading">
+        <div class="container blog-page-stack">
+          <div class="section-heading"><h2 id="blog-heading" class="label-text">Field Notes</h2></div>
+          <div class="blog-page-header">
+            <h2>A space to publish ideas, curiosities, and things I genuinely like.</h2>
+            <p>This section is more open: essays, notes, references, personal interests, work reflections, and whatever feels worth sharing at the moment.</p>
           </div>
           <section class="blog-index-grid" aria-label="Latest blog posts">${latestPosts}</section>
         </div>
@@ -386,7 +372,7 @@ function buildHomePage(posts) {
             <a href="${LINKEDIN_URL}" target="_blank" rel="noopener noreferrer" class="btn-secondary">LinkedIn <span aria-hidden="true">↗</span></a>
           </div>
           <div class="contact-links"><a href="/cv/en">Read CV in English</a><a href="/cv/es" lang="es">Ver CV en español</a><a href="https://linktr.ee/delkoman" target="_blank" rel="noopener noreferrer">More links</a></div>
-          <div class="contact-footer">© ${new Date().getFullYear()} EDGAR MANCILLA SÁNCHEZ // APPLICATIONS · AUTOMATION · OPERATIONS</div>
+          <div class="contact-footer">© ${new Date().getFullYear()} EDGAR MANCILLA SÁNCHEZ // APPLIED AI · OPERATIONS · BIOTECH</div>
         </div>
       </section>
     </main>`;
@@ -637,14 +623,14 @@ function buildServicesPage() {
 
         <section id="inversion" aria-labelledby="inversion-heading">
           <div class="section-heading"><h2 id="inversion-heading" class="label-text">${escapeHtml(servicesCopy.pricingTitle)}</h2></div>
-          <ul>${pricing.lines.map((line) => `<li>${escapeHtml(line)}</li>`).join('')}
+          <ul class="services-bullet-list">${pricing.lines.map((line) => `<li>${escapeHtml(line)}</li>`).join('')}
           </ul>
           <p class="services-section-intro">${escapeHtml(pricing.note)}</p>
         </section>
 
         <section aria-labelledby="necesito-heading">
           <div class="section-heading"><h2 id="necesito-heading" class="label-text">${escapeHtml(servicesCopy.needsTitle)}</h2></div>
-          <ul>${clientNeeds.map((need) => `<li>${escapeHtml(need)}</li>`).join('')}
+          <ul class="services-bullet-list">${clientNeeds.map((need) => `<li>${escapeHtml(need)}</li>`).join('')}
           </ul>
         </section>
 
@@ -743,8 +729,8 @@ function buildBlogPostPages(posts) {
           </article>
           <aside class="blog-article-sidebar">
             <div class="blog-sidebar-card">
-              <span class="label-text" style="color: var(--secondary-container)">More writing</span>
-              <div style="display: grid; gap: 1rem;">${relatedMarkup}
+              <span class="label-text blog-sidebar-tag">More writing</span>
+              <div class="blog-related-list">${relatedMarkup}
               </div>
             </div>
           </aside>

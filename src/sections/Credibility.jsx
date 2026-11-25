@@ -1,49 +1,21 @@
-import React from 'react';
-
 import { credibilityHighlights as highlights } from '../content/homeContent';
 
 export default function Credibility() {
   return (
-    <section id="credibility" className="section-spacing bg-surface grid-blueprint">
+    <section id="credibility" className="section-spacing bg-surface grid-blueprint" aria-labelledby="credibility-heading">
       <div className="container">
-        
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '4rem' }}>
-          <span className="label-text" style={{ color: 'var(--primary-container)' }}>06 // Credibility & Substance</span>
-          <div style={{ flex: 1, height: '1px', backgroundColor: 'var(--outline-variant)' }}></div>
+        <div className="section-heading">
+          <h2 id="credibility-heading" className="label-text">Credibility &amp; Substance</h2>
         </div>
 
-        <div className="mobile-scroll-shell">
-          <div className="mobile-scroll-indicator">
-            <span className="label-text">Swipe for more highlights</span>
-          </div>
-
-          <div className="mobile-scroll-cue" aria-hidden="true">
-            <span className="mobile-scroll-arrow">&larr;</span>
-            <span className="mobile-scroll-arrow">&rarr;</span>
-          </div>
-
-          <div className="credibility-grid" style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
-            gap: '1rem' 
-          }}>
-            {highlights.map((text, idx) => (
-              <div key={idx} className="credibility-item" style={{
-                padding: '1.5rem',
-                backgroundColor: 'rgba(28, 27, 27, 0.4)',
-                backdropFilter: 'blur(8px)',
-                border: '1px solid var(--outline-variant)',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '1rem'
-              }}>
-                <div style={{ width: '4px', height: '4px', backgroundColor: 'var(--primary-dim)' }}></div>
-                <span style={{ fontSize: '1rem', color: 'var(--on-surface-variant)' }}>{text}</span>
-              </div>
-            ))}
-          </div>
+        <div className="credibility-grid">
+          {highlights.map((text) => (
+            <div key={text} className="credibility-item">
+              <div className="credibility-dot" aria-hidden="true" />
+              <span className="credibility-text">{text}</span>
+            </div>
+          ))}
         </div>
-
       </div>
     </section>
   );
