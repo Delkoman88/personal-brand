@@ -1,0 +1,159 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1600" height="900" fill="#0C0D10"/>
+
+  <!-- Blueprint grid lines -->
+  <path d="M120 170H1480" stroke="#1A2628"/>
+  <path d="M120 450H1480" stroke="#1A2628"/>
+  <path d="M120 730H1480" stroke="#1A2628"/>
+  <path d="M400 120V780" stroke="#1A2628"/>
+  <path d="M800 120V780" stroke="#1A2628"/>
+  <path d="M1200 120V780" stroke="#1A2628"/>
+  <path d="M160 120V780" stroke="#1A2628" stroke-opacity="0.4"/>
+  <path d="M560 120V780" stroke="#1A2628" stroke-opacity="0.4"/>
+  <path d="M640 120V780" stroke="#1A2628" stroke-opacity="0.4"/>
+  <path d="M960 120V780" stroke="#1A2628" stroke-opacity="0.4"/>
+  <path d="M1040 120V780" stroke="#1A2628" stroke-opacity="0.4"/>
+  <path d="M1440 120V780" stroke="#1A2628" stroke-opacity="0.4"/>
+  <path d="M120 310H1480" stroke="#1A2628" stroke-opacity="0.4"/>
+  <path d="M120 590H1480" stroke="#1A2628" stroke-opacity="0.4"/>
+
+  <!-- Frame -->
+  <rect x="72" y="72" width="1456" height="756" stroke="#2E3F42" stroke-width="2"/>
+
+  <!-- Corner accents -->
+  <path d="M72 120 L140 120" stroke="#00F5FF" stroke-width="2"/>
+  <path d="M72 120 L72 188" stroke="#00F5FF" stroke-width="2"/>
+  <path d="M1528 120 L1460 120" stroke="#00F5FF" stroke-width="2"/>
+  <path d="M1528 120 L1528 188" stroke="#00F5FF" stroke-width="2"/>
+  <path d="M72 780 L140 780" stroke="#00F5FF" stroke-width="2"/>
+  <path d="M72 780 L72 712" stroke="#00F5FF" stroke-width="2"/>
+  <path d="M1528 780 L1460 780" stroke="#00F5FF" stroke-width="2"/>
+  <path d="M1528 780 L1528 712" stroke="#00F5FF" stroke-width="2"/>
+
+  <!-- Ambient glows -->
+  <circle cx="330" cy="450" r="230" fill="url(#glow_cyan_left)"/>
+  <circle cx="800" cy="445" r="210" fill="url(#glow_purple_gate)"/>
+  <circle cx="1270" cy="450" r="230" fill="url(#glow_amber_right)"/>
+
+  <!-- ── LEFT PANEL: AGENT PIPELINE ── -->
+  <rect x="130" y="210" width="430" height="470" fill="#081518" stroke="#00F5FF" stroke-width="2"/>
+  <rect x="130" y="210" width="430" height="40" fill="#0D2328"/>
+  <rect x="148" y="224" width="12" height="12" fill="#00F5FF"/>
+  <text x="174" y="235" fill="#00F5FF" font-family="monospace" font-size="12" letter-spacing="2">AGENT.PIPELINE // DRAFTING</text>
+
+  <!-- Pipeline steps -->
+  <rect x="156" y="274" width="378" height="54" fill="#0A1E22" stroke="#1A4A50"/>
+  <text x="174" y="297" fill="#00F5FF" font-family="monospace" font-size="12">01  transcribe_local(whisper.cpp)</text>
+  <text x="174" y="317" fill="#4AB8C0" font-family="monospace" font-size="11">status: complete · stays on machine</text>
+
+  <rect x="156" y="342" width="378" height="54" fill="#0A1E22" stroke="#1A4A50"/>
+  <text x="174" y="365" fill="#00F5FF" font-family="monospace" font-size="12">02  build_paper_cut() &amp; captions</text>
+  <text x="174" y="385" fill="#FFB775" font-family="monospace" font-size="11">flag: check mis-transcribed terms</text>
+
+  <rect x="156" y="410" width="378" height="54" fill="#0A1E22" stroke="#1A4A50"/>
+  <text x="174" y="433" fill="#00F5FF" font-family="monospace" font-size="12">03  propose_plan(visual | set | msg)</text>
+  <text x="174" y="453" fill="#4AB8C0" font-family="monospace" font-size="11">artifact: v1.2 · reversible draft</text>
+
+  <!-- Paused status bar -->
+  <rect x="156" y="490" width="378" height="72" fill="#14111E" stroke="#CBAEFF" stroke-width="1.5"/>
+  <text x="174" y="518" fill="#CBAEFF" font-family="monospace" font-size="12" letter-spacing="1.5">EXECUTION PAUSED</text>
+  <text x="174" y="542" fill="#9A88C8" font-family="monospace" font-size="11">next_action: irreversible → request_approval()</text>
+
+  <!-- Reversibility key -->
+  <line x1="156" y1="586" x2="534" y2="586" stroke="#1A4A50"/>
+  <text x="156" y="614" fill="#4AB8C0" font-family="monospace" font-size="11"># reversible_work  = agent_runs_solo</text>
+  <text x="156" y="636" fill="#CBAEFF" font-family="monospace" font-size="11"># irreversible_act = human_in_the_loop</text>
+  <text x="156" y="658" fill="#4AB8C0" font-family="monospace" font-size="11"># every_delivery   = versioned_state</text>
+
+  <!-- ── FLOW LEFT → GATE ── -->
+  <path d="M560 445 H650" stroke="#00F5FF" stroke-width="4"/>
+  <path d="M560 415 H650" stroke="#00F5FF" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <path d="M560 475 H650" stroke="#00F5FF" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <polygon points="632,438 648,445 632,452" fill="#00F5FF"/>
+
+  <!-- ── CENTER: HUMAN APPROVAL GATE ── -->
+  <!-- Gate vertical barrier line -->
+  <line x1="800" y1="184" x2="800" y2="710" stroke="#CBAEFF" stroke-width="2" stroke-dasharray="8 6" stroke-opacity="0.55"/>
+
+  <!-- Gate box -->
+  <rect x="652" y="270" width="296" height="350" fill="#100C1C" stroke="#CBAEFF" stroke-width="2.5"/>
+  <rect x="652" y="270" width="296" height="40" fill="#1F143A"/>
+  <text x="800" y="295" fill="#CBAEFF" font-family="monospace" font-size="12" letter-spacing="2.5" text-anchor="middle">APPROVAL GATE</text>
+
+  <!-- Gate decision diamond -->
+  <polygon points="800,336 860,396 800,456 740,396" fill="#180F2E" stroke="#00F5FF" stroke-width="2"/>
+  <text x="800" y="392" fill="#FFFFFF" font-family="monospace" font-size="11" text-anchor="middle" letter-spacing="1">APPROVE?</text>
+  <text x="800" y="410" fill="#CBAEFF" font-family="monospace" font-size="10" text-anchor="middle">[Y / EDIT]</text>
+
+  <!-- Gate checklist -->
+  <line x1="678" y1="482" x2="922" y2="482" stroke="#2D1D54"/>
+  <text x="682" y="508" fill="#CBAEFF" font-family="monospace" font-size="11">CHECK: cost_of_error</text>
+  <text x="682" y="532" fill="#9A88C8" font-family="monospace" font-size="11">· money or reputation?</text>
+  <text x="682" y="554" fill="#9A88C8" font-family="monospace" font-size="11">· cannot be undone?</text>
+  <text x="682" y="582" fill="#00F5FF" font-family="monospace" font-size="11">→ HUMAN SIGNS OFF</text>
+
+  <!-- Feedback loop arrow (Gate → Edit → Back to Agent Pipeline) -->
+  <path d="M800 620 V707 H345 V684" stroke="#FFB775" stroke-width="1.5" stroke-dasharray="6 5" fill="none" stroke-opacity="0.8"/>
+  <polygon points="339,692 345,680 351,692" fill="#FFB775"/>
+  <rect x="456" y="694" width="256" height="26" fill="#14110E" stroke="#FFB775" stroke-width="1"/>
+  <text x="584" y="711" fill="#FFB775" font-family="monospace" font-size="10" text-anchor="middle" letter-spacing="1.5">EDIT LOOP // CATCH BEFORE SHIP</text>
+
+  <!-- ── FLOW GATE → RIGHT ── -->
+  <path d="M948 445 H1040" stroke="#00F5FF" stroke-width="4"/>
+  <path d="M948 415 H1040" stroke="#CBAEFF" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <path d="M948 475 H1040" stroke="#CBAEFF" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <polygon points="1022,438 1038,445 1022,452" fill="#00F5FF"/>
+
+  <!-- ── RIGHT PANEL: VERIFIED PRODUCTION OUTPUTS ── -->
+  <rect x="1040" y="210" width="430" height="470" fill="#0B1114" stroke="#00F5FF" stroke-width="2"/>
+  <rect x="1040" y="210" width="430" height="40" fill="#0D2328"/>
+  <rect x="1058" y="224" width="12" height="12" fill="#FFB775"/>
+  <text x="1084" y="235" fill="#00F5FF" font-family="monospace" font-size="12" letter-spacing="2">PRODUCTION // SIGNED OFF</text>
+
+  <!-- Card 1: VideoVibe -->
+  <rect x="1066" y="274" width="378" height="96" fill="#0A1E22" stroke="#00F5FF" stroke-width="1.5"/>
+  <text x="1084" y="299" fill="#00F5FF" font-family="monospace" font-size="12" letter-spacing="1.5">VIDEOVIBE</text>
+  <text x="1426" y="299" fill="#FFB775" font-family="monospace" font-size="11" text-anchor="end">2 GATES ✓</text>
+  <text x="1084" y="324" fill="#B9CACA" font-family="monospace" font-size="11">paper cut + visual plan approved</text>
+  <text x="1084" y="348" fill="#4AB8C0" font-family="monospace" font-size="11">captions verified · versioned render</text>
+
+  <!-- Card 2: AQVARIVS -->
+  <rect x="1066" y="388" width="378" height="96" fill="#0A1E22" stroke="#1A4A50" stroke-width="1.5"/>
+  <text x="1084" y="413" fill="#CBAEFF" font-family="monospace" font-size="12" letter-spacing="1.5">AQVARIVS</text>
+  <text x="1426" y="413" fill="#00F5FF" font-family="monospace" font-size="11" text-anchor="end">EDITABLE ✓</text>
+  <text x="1084" y="438" fill="#B9CACA" font-family="monospace" font-size="11">transitions &amp; BPM shifts explained</text>
+  <text x="1084" y="462" fill="#4AB8C0" font-family="monospace" font-size="11">agent prepares · DJ owns the set</text>
+
+  <!-- Card 3: Beauty Studio Copilot -->
+  <rect x="1066" y="502" width="378" height="96" fill="#0A1E22" stroke="#1A4A50" stroke-width="1.5"/>
+  <text x="1084" y="527" fill="#FFB775" font-family="monospace" font-size="12" letter-spacing="1.5">BEAUTY STUDIO COPILOT</text>
+  <text x="1426" y="527" fill="#00F5FF" font-family="monospace" font-size="11" text-anchor="end">200+ USERS ✓</text>
+  <text x="1084" y="552" fill="#B9CACA" font-family="monospace" font-size="11">assisted WhatsApp follow-up</text>
+  <text x="1084" y="576" fill="#4AB8C0" font-family="monospace" font-size="11">reviewed before reaching clients</text>
+
+  <!-- Footer audit bar inside right panel -->
+  <rect x="1066" y="616" width="378" height="42" fill="#081518" stroke="#2E3F42"/>
+  <text x="1084" y="642" fill="#00F5FF" font-family="monospace" font-size="11">audit_log: traced · rollback: ready · trust: high</text>
+
+  <!-- Top label -->
+  <text x="130" y="132" fill="#00F5FF" font-family="Arial, sans-serif" font-size="22" letter-spacing="5">HUMAN-IN-THE-LOOP // AGENTS THAT ASK FOR PERMISSION</text>
+
+  <!-- Bottom quote -->
+  <text x="130" y="802" fill="#B9CACA" font-family="Arial, sans-serif" font-size="26">The agent carries the heavy lifting. The person holds the decision.</text>
+
+  <defs>
+    <radialGradient id="glow_cyan_left" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(330 450) rotate(90) scale(230)">
+      <stop stop-color="#00F5FF" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#00F5FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow_purple_gate" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(800 445) rotate(90) scale(210)">
+      <stop stop-color="#571BC1" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#571BC1" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow_amber_right" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1270 450) rotate(90) scale(230)">
+      <stop stop-color="#FFB775" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#FFB775" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>
