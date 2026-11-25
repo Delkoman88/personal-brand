@@ -67,9 +67,8 @@ function resolveLastModified(filePaths, fallback = new Date()) {
   const timestamps = filePaths
     .map((filePath) => {
       const absolutePath = path.isAbsolute(filePath) ? filePath : path.join(__dirname, filePath);
-      return [getFileLastModified(absolutePath), getGitLastModified(absolutePath)];
+      return getGitLastModified(absolutePath) || getFileLastModified(absolutePath);
     })
-    .flat()
     .filter(Boolean)
     .map((date) => date.getTime());
 
